@@ -1,15 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style/style.css">
-    <title>Document</title>
+    <link rel="shortcut icon" href="./img/t-logo.png" type="image/png">
+    <title>TriCasas</title>
 </head>
 
 <body>
-
+    <header>
+        <div class="container-nav container-center">
+            <div class="logo">
+                <h1><span>Tri</span>Casas</h1>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li>Inicio</li>
+                    <li>Construcción</li>
+                    <li>Remodelación</li>
+                    <li>Reparación</li>
+                </ul>
+            </div>
+            <div class="login"><button>Ingresar</button></div>
+        </div>
+        <div class="container-search container-center">
+            <form action="">
+                <select id="options" name="sector">
+                    <option value="option1">Bello</option>
+                    <option value="option2">Medellín</option>
+                    <option value="option3">Itagui</option>
+                    <option value="option4">Envigado</option>
+                    <option value="option5">Sabaneta</option>
+                    <option value="option6">La Estrella</option>
+                    <option value="option7">Caldas</option>
+                    <option value="option8">Copacabana</option>
+                    <option value="option9">Girardota</option>
+                    <option value="option10">Barbosa</option>
+                    <option value="option11">San Cristobal</option>
+                    <option value="option12">San Antonio de Prado</option>
+                </select>
+                <input type="date">
+                <select id="options" name="type">
+                    <option value="option1">Construcción</option>
+                    <option value="option2">Remodelación</option>
+                    <option value="option3">Reparación</option>
+                </select>
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </header>
+    <main>
+        <div class="container-center">
+            <div class="video-youtube"><video src="./img/construccion.mp4" autoplay loop muted></video></div>
+            <section id="interest-articles">
+                <div class="article"><a href="#"><img src="./img/4628e249e1c85bbbf1098451db38c85b.jpg" alt=""></a></div>
+                <div class="article"><a href="#"><img src="./img/4628e249e1c85bbbf1098451db38c85b.jpg" alt=""></a></div>
+                <div class="article"><a href="#"><img src="./img/4628e249e1c85bbbf1098451db38c85b.jpg" alt=""></a></div>
+                <div class="article"><a href="#"><img src="./img/4628e249e1c85bbbf1098451db38c85b.jpg" alt=""></a></div>
+            </section>
+            <h2>TE LO CONSTRUIMOS, TE LO REMODELAMOS, TE LO REPARAMOS</h2>
+            <section class="review-container">
+                <h3>Ultimas reseñas:</h3>
+                <div class="reviews">
+                    <div id="review1"></div>
+                    <div id="review2"></div>
+                    <div id="review3"></div>
+                </div>
+            </section>
+            <section>
+                <div class="middle-menu">
+                    <div class="menu1">
+                        <h3>CONSTRUCCIÓN</h3>
+                        <ul>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                        </ul>
+                    </div>
+                    <div class="menu2">
+                        <h3>REMODELACIÓN</h3>
+                        <ul>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                        </ul>
+                    </div>
+                    <div class="menu3">
+                        <h3>REPARACIÓN</h3>
+                        <ul>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                            <li>Submenu</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="about-us">
+                <h3>¿QUIÉNES SOMOS?</h3>
+                <div class="img-about-us">
+                    <img src="./img/4628e249e1c85bbbf1098451db38c85b.jpg" alt="">
+                </div>
+                <div class="about-us-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas ducimus
+                    quo non commodi, maxime laborum, fuga distinctio, nesciunt autem atque quod quibusdam! Cum,
+                    exercitationem culpa? Ut porro officiis consectetur fugit.</div>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <div class="copyright"><h4>Copyright &copy; RIWI 2024</h4></div>
+        <div class="social-media"></div>
+    </footer>
     <script src="./js/app.js"></script>
 </body>
 
