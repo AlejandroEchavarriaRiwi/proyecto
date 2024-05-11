@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles letter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
     <link rel="stylesheet" href="./style/style.css">
+    <!-- Favicon -->
     <link rel="shortcut icon" href="./img/t-logo.png" type="image/png">
     <title>TriCasas</title>
 </head>
@@ -12,7 +20,13 @@
     <header>
         <div class="container-nav container-center">
             <div class="logo">
+                <div id="menu-phone">
+                    <img src="./img/menu-de-puntos2.png " alt="">
+                </div>
                 <h1><span>Tri</span>Casas</h1>
+                <div class="login phone">
+                    <button>Ingresar</button>
+                </div>
             </div>
             <div class="menu">
                 <ul>
@@ -22,31 +36,33 @@
                     <li>Reparación</li>
                 </ul>
             </div>
-            <div class="login"><button>Ingresar</button></div>
+            <div class="login top"><button>Ingresar</button></div>
         </div>
         <div class="container-search container-center">
             <form action="">
+                <h3>Encuentra tu servicio Ya!</h3>
                 <select id="options" name="sector">
-                    <option value="option1">Bello</option>
-                    <option value="option2">Medellín</option>
-                    <option value="option3">Itagui</option>
-                    <option value="option4">Envigado</option>
-                    <option value="option5">Sabaneta</option>
-                    <option value="option6">La Estrella</option>
-                    <option value="option7">Caldas</option>
-                    <option value="option8">Copacabana</option>
-                    <option value="option9">Girardota</option>
-                    <option value="option10">Barbosa</option>
-                    <option value="option11">San Cristobal</option>
-                    <option value="option12">San Antonio de Prado</option>
+                    <optgroup label="Municipios del Valle de Aburrá">
+                        <option value="option1">Bello</option>
+                        <option value="option2">Medellín</option>
+                        <option value="option3">Itagüí</option>
+                        <option value="option4">Envigado</option>
+                        <option value="option5">Sabaneta</option>
+                        <option value="option6">La Estrella</option>
+                        <option value="option7">Caldas</option>
+                        <option value="option8">Copacabana</option>
+                        <option value="option9">Girardota</option>
+                        <option value="option10">Barbosa</option>
+                        <option value="option11">San Cristóbal</option>
+                        <option value="option12">San Antonio de Prado</option>
+                    </optgroup>
                 </select>
-                <input type="date">
                 <select id="options" name="type">
                     <option value="option1">Construcción</option>
                     <option value="option2">Remodelación</option>
                     <option value="option3">Reparación</option>
                 </select>
-                <input type="submit" value="Enviar">
+                <input type="submit" value="Buscar">
             </form>
         </div>
     </header>
@@ -108,7 +124,9 @@
         </div>
     </main>
     <footer>
-        <div class="copyright"><h4>Copyright &copy; RIWI 2024</h4></div>
+        <div class="copyright">
+            <h4>Copyright &copy; RIWI 2024</h4>
+        </div>
         <div class="social-media"></div>
     </footer>
     <script src="./js/app.js"></script>
