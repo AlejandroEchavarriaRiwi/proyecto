@@ -1,21 +1,37 @@
 * {
     padding: 0;
     margin: 0;
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
     box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
 }
-
+h1{
+    font-family: "Kaushan Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+h2,h3,h4,h5,h6{
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+p, button, input, ul, li, select{
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal; 
+}
 .container-center {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+}
+
+.container-center h2{
+    margin: 20px 30px
 }
 
 .video-youtube video {
@@ -23,21 +39,25 @@ html {
     margin-top: -150px;
     margin-bottom: 50px;
     border-radius: 8px;
+    display: none;
 }
 
 header {
-    background: linear-gradient(180deg, rgb(255, 204, 15) 1%, rgba(255,255,255,1) 80%);
-    background-size: 100vw 54vh;
-    background-repeat: no-repeat;
-    height: 48vh;
+    background: linear-gradient(
+    0deg,
+    rgba(0,0,0,0.5),
+    rgba(0,0,0,0.5)
+    ), url(../img/fondoarquitecto.webp);
+    background-size: cover;
+    
 }
 
 span {
-    color: hsl(56, 100%, 50%);
+    color: #ffffff;
 }
 
-.logo{
-
+.logo-tri{
+    color: white;
     width: 100%;
     height: 50px;
     display: flex;
@@ -45,29 +65,28 @@ span {
     align-items: center ;
 }
 
-.logo img {
+.logo-tri img {
     width: 8.5vw;
 }
 
 .top button{
     display: none;
 }
-h1 {
+/* h1 {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
-}
+} */
 
 ul {
     list-style-type: none;
     text-align: center;
     color: white;
     margin: 15px 0px;
-    display: none;
+
 }
 
 li {
     margin: 5px 0px;
-
 }
 
 li:hover {
@@ -79,15 +98,15 @@ li:hover {
 }
 
 button {
-    background-color: hsl(56, 100%, 50%);
+    background-color: hsl(0, 0%, 100%);
     border: 1.2px solid black;
     border-radius: 8px;
     padding: 5px 8px;
 }
 
-button:hover {
-    background-color: hsl(45, 100%, 50%);
-    transition: 1s;
+button:hover, input:hover {
+    background-color: #1f25b4;
+    transition: 0.5s;
 }
 
 .container-search form {
@@ -95,12 +114,81 @@ button:hover {
     flex-direction: column;
     width: 70vw;
     gap: 10px;
-    margin-top: 25px;
+    margin: 25px;
+    color: white;
 }
 
 input, select {
-    background-color: rgba(255, 238, 0, 0.5);
+    background-color: white;
     border: 1.2px solid black;
     border-radius: 8px;
     padding: 6px;
+}
+
+.container-menu{
+    position: absolute;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100vh;
+    top: 0;left: 0;
+    transition: all 500ms ease;
+    opacity: 0;
+    visibility: hidden;
+}
+#btn-menu:checked ~ .container-menu{
+    opacity: 1;
+    visibility: visible;
+}
+.cont-menu{
+    width: 100%;
+    max-width: 250px;
+    background: #1c1c1c;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+}
+#btn-menu:checked ~ .container-menu .cont-menu{
+    transform: translateX(0%);
+}
+.cont-menu nav{
+    transform: translateY(15%);
+}
+.cont-menu nav a{
+    display: block;
+    text-decoration: none;
+    padding: 20px;
+    color: #c7c7c7;
+    border-left: 5px solid transparent;
+    transition: all 400ms ease;
+}
+.cont-menu nav a:hover{
+    border-left: 5px solid #c7c7c7;
+    background: #1f1f1f;
+}
+.cont-menu label{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+.container{
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+.container .btn-menu, .logo{
+    float: left;
+    margin-top: 10px;
+
+}
+.container .btn-menu label{
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+}
+#btn-menu{
+    display: none;
 }
