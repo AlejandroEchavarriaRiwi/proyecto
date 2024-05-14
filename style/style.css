@@ -29,19 +29,25 @@ p, button, input, ul, li, select{
     justify-content: center;
     text-align: center;
 }
-
-.container-center h2{
-    margin: 20px 30px
-}
-
-.video-youtube video {
-    width: 80vw;
-    margin-top: -150px;
-    margin-bottom: 50px;
-    border-radius: 8px;
+.video-youtube{
     display: none;
 }
-
+.container-center h2{
+    width: 100vw;
+    padding: 60px 30px;
+    color: white;
+    text-shadow: 1px 1px 1px #484848;
+    background: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        ), #121933;
+}
+.container h3{
+    color: white;
+    text-align: center;
+    margin-top: 90px;
+}
 header {
     background: linear-gradient(
     0deg,
@@ -68,14 +74,14 @@ span {
 .logo-tri img {
     width: 8.5vw;
 }
+.logo-tri nav{
+    display: none;
 
+}
 .top button{
     display: none;
 }
-/* h1 {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-} */
+
 
 ul {
     list-style-type: none;
@@ -89,32 +95,16 @@ li {
     margin: 5px 0px;
 }
 
-li:hover {
-    color: hsl(56, 100%, 50%);
-    -webkit-text-stroke-width: 0.3px;
-    -webkit-text-stroke-color: black;
-    transform: scaleX(1.08) scaleY(1.08);
-    transition: 0.5s;
-}
 
-button {
-    background-color: hsl(0, 0%, 100%);
-    border: 1.2px solid black;
-    border-radius: 8px;
-    padding: 5px 8px;
+.container-search{
+    padding: 25px
 }
-
-button:hover, input:hover {
-    background-color: #1f25b4;
-    transition: 0.5s;
-}
-
 .container-search form {
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
     width: 70vw;
     gap: 10px;
-    margin: 25px;
     color: white;
 }
 
@@ -191,4 +181,131 @@ input, select {
 }
 #btn-menu{
     display: none;
+}
+.review-container{
+    width: 100vw;
+    padding: 30px;
+}
+.about-us{
+    width: 100vw;
+}
+.img-about-us{
+    display: none
+}
+.about-us-text{
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 10px 40px;
+    background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.8)
+        ), url(../img/quienessomos.png);
+        background-size: cover;
+
+}
+.about-us img{
+    width: 100vw;
+    z-index: -1;
+}
+.middle-menu{
+    width: 100vw;
+    padding: 20px 30px;
+    color: white;
+    text-shadow: 1px 1px 1px #484848;
+    background: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        ), #121933;
+}
+.copyright{
+    width: 100vw;
+    padding: 20px 30px;
+    text-align: center;
+}
+.social-media{
+    padding: 10px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.social-media img{
+    width: 10vw;
+    margin: 5px;
+}
+@media(min-width: 720px){
+    .logo-tri{
+        padding: 60px 40px;
+    }
+    .logo-tri nav{
+        display: block;
+    }
+    .logo-tri h1{
+        font-size: 80px;
+    }
+    .logo-tri a{
+        text-decoration: none;
+        color: white;
+        font-family: "DM Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-style: normal;
+        font-size: 18px;
+        padding: 15px
+    }
+    .container-center{
+        display: flex;
+    }
+    .container-search{
+        display: flex;
+    }
+
+    .container-search form{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 0 auto;
+        gap: 10px;
+        color: white;
+    }
+
+    input{
+        width: 100px;
+        font-weight: bold;
+    }
+
+    .container-search select{
+        padding: 8px 40px;
+    }
+    .container-menu, .btn-menu{
+        display: none;
+    }
+
+    .video-youtube{
+        display: block;
+        position: absolute;
+        z-index: -2;
+    }
+    .video-youtube video{
+        width: 100vw;
+    }
+    header {
+        background-image: linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+        ), url(/img/construccion.mp4)
+    }
+    button:hover, input:hover {
+        background-color: #151752;
+        transition: 0.5s;
+        cursor: pointer;
+        color: white;
+        transform: scale(1.2);
+    }
 }
