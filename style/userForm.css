@@ -1,0 +1,38 @@
+@import url(./style.css);
+
+.mainContainer {
+    width: 100vw;
+}
+
+.formLeftAside {
+    width: 100vw;
+}
+
+.imagesRightAside {
+    width: 50vw;
+    height: 24vh;
+    display: flex;
+    margin: 0 auto;
+    background-color: aqua;
+}
+
+.titleText {
+    text-align: center;
+    margin: 20px 0px;
+}
+
+h2 {
+    margin: 8px 0px;
+}
+
+p {
+    color: gray;
+}
+
+form {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+}
+
