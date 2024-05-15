@@ -1,17 +1,9 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: "Fraunces", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-}
-
+@import url(../style/style.css);
 body{
 display: flex;
 justify-content: center;
 text-align: center;
 }
-
 
 
 .login{
@@ -28,65 +20,60 @@ height: 400px;
 } 
 
 
-h1{
-    font-family: "Kaushan Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-    margin-bottom: 20px;
-    align-items: center;
-}
 
-h4{margin-bottom: 10px;
-
-}
-
-.loginup{
+.loginUp{
 display: flex;
 flex-direction: column;
 align-items: center;
 }
-.loginup button{
+
+button{
     padding: 3px 30px;
     background-color: darkgray;
     border: 0px;
-    border-radius: 5px;
-}
-.submitlogin{
+    border-radius: 5px;    
     color: white;
-    background-color: black;
-    border-radius: 4px;
     margin: 8px 0;
 }
 
-.submitlogin:hover{ background-color: rgba(0, 0, 0, 0.655)
+
+button:hover{ 
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.655)
 }
 
 /* aquí empieza la parte de abajo de la cuenta de login */
 
-.loginbottom{
+.loginBottom{
 display: flex;
 flex-direction: column;
 align-items: center;
 
 }
 
-.googlelogin{
+.googleLogin{
 display: flex;
 margin-top: 20px;
-background-color: rgba(128, 128, 128, 0.26);
+background-color:darkgray;
+color: white;
 width: 20rem;
-border-radius: 4px;
+border-radius: 5px;
 padding: 5px 20px;
-
 }
-.googlelogin p{
+
+.googleLogin:hover{
+    color:white;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.655)
+}
+.googleLogin p{
 text-align: center;
 display: flex;
 justify-content: center;
 
 }
 
-.googlelogin img{
+.googleLogin img{
 width: 20px;
 margin-right: 120px;
 display: flex;
@@ -94,7 +81,7 @@ display: flex;
 
 
 
-.serviciologin{
+.serviceLogin{
     display: flex;
     width: 180px;
     height: 200px;
@@ -104,18 +91,20 @@ display: flex;
 
 }
 
-.serviciologin img{
+.serviceLogin img{
     width: 120px;
+    border: 2px solid black;
+    border-radius: 50%;
 }
 
-.buscologin a{
+.searchLogin a{
 font-size: 15px;
 text-decoration: none;
 color: black;
 }
 
 
-.ofrezcologin a {
+.offerLogin a {
 font-size: 15px;
 text-decoration: none;
 color: black;
