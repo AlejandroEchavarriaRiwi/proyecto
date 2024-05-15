@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kaushan+Script&display=swap"
+        rel="stylesheet">
     <link rel="shortcut icon" href="./../img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./../style/userForm.css">
     <title>TriCasas</title>
 </head>
+
 <body>
-    <h2>Registro:</h2>
+    <div class="mainContainer">
+        <div class="titleText">
+            <h2>REGISTRO</h2>
+            <p>Ingresa tus datos:</p>
+        </div>
+        <div class="imagesRightAside">
+            <div class="userImage"></div>
+        </div>
+        <div class="formLeftAside">
+            <form action="">
+                <label for="namesInput">Nombre(s):</label>
+                <input id="namesInput" type="text" placeholder="Jane">
+                <label for="lastNamesInput">Apellido(s):</label>
+                <input id="lastNamesInput" type="text" placeholder="Doe">
+                <label for="documentType">Tipo de Documento:</label>
+                <select id="documentType" name="Document-Type">
+                    <option value="" selected disabled>Tipo de Documentos</option>
+                    <option value="document1">Cédula de ciudadania</option>
+                    <option value="document2">Cédula de extranjeria</option>
+                    <option value="document3">Pasaporte</option>
+                    <option value="document4">P.P.T</option>
+                </select>
+                <label for="documentNumberInput">Número de Documento:</label>
+                <input id="documentNumberInput" type="number" placeholder="1.058.258.745">
+                <label for="phoneInput">Número de Télefono:</label>
+                <input id="phoneInput" type="tel" placeholder="555-4474-225">
+                <label for="smartPhoneInput">Celular:</label>
+                <input id="smartPhoneInput" type="tel" placeholder="+57 3132545524">
+                <label for="emailInput">Dirección de E-mail:</label>
+                <input id="emailInput" type="email" placeholder="eduardrodriguez@gmail.com">
+                <label for="passwordInput">Contraseña:</label>
+                <input id="passwordInput" type="password" placeholder="Contraseña">
+                <label for="passwordInput">Confirma tu contraseña</label>
+                <input id="passwordInput" type="password" placeholder="Contraseña">
+                <label for="addressInput">Dirección:</label>
+                <input id="addressInput" type="text" placeholder="Calle 36 #12-35">
+                <input id="sign" type="submit" value="Registrarse">
+            </form>
+        </div>
+    </div>
 </body>
+
 </html>
