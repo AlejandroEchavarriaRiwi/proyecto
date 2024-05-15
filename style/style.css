@@ -242,6 +242,14 @@ input, select {
     width: 10vw;
     margin: 5px;
 }
+button{
+    padding: 3px 30px;
+    background-color: darkgray;
+    border: 0px;
+    border-radius: 5px;    
+    color: white;
+    margin: 8px 0;
+}
 @media(min-width: 720px){
     .header {
         position: relative;
@@ -298,7 +306,7 @@ input, select {
         color: white;
     }
 
-    input{
+    .container-search input{
         width: 100px;
         font-weight: bold;
     }
@@ -325,12 +333,17 @@ input, select {
         rgba(0,0,0,0.5)
         ), url(/img/construccion.mp4)
     }
-    button:hover, input:hover {
-        background-color: #151752;
-        transition: 0.5s;
-        cursor: pointer;
+    button{
+        padding: 3px 30px;
+        background-color: darkgray;
+        border: 0px;
+        border-radius: 5px;    
         color: white;
-        transform: scale(1.2);
+        margin: 8px 0;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.655)
     }
     .container h3{
         color: white;
