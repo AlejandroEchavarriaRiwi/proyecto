@@ -24,16 +24,31 @@
 
             <h3>Ingresa los datos y sigue las instrucciones</h3>
 
+            <div class="imagesRightAside">
+                <div class="userImage" onclick="document.getElementById('fileInput').click();">
+                    <input type="file" id="fileInput" accept="image/*" onchange="mostrarImagen(this);">
+                </div>
+            </div>
+
             <div class="companyInformation">
                 <div class="leftInformation">
                     <p>Nombre(s)</p>
                     <input  type="text" placeholder="Name*">
+
                     <p>Razón Social</p>
                     <input  type="text" placeholder="Razón Social*">
+
                     <p>Regimen Tributario</p>
                     <input  type="text" placeholder="Regimen Tributario*">
+
                     <p>Tipo de Documento</p>
-                    <input  type="text" placeholder="Tipo de Documento*">
+                    <select id="documentType" name="Document-Type">
+                        <option value="document1">Cédula de ciudadania</option>
+                        <option value="document2">Cédula de extranjeria</option>
+                        <option value="document3">Pasaporte</option>
+                        <option value="document4">P.P.T</option>
+                    </select>
+
                     <p>Número de télefono</p>
                     <input  type="text" placeholder="Número télefonico*">
                 </div>
@@ -42,7 +57,10 @@
                     <p>Apellido(s)</p>
                     <input   type="text" placeholder="Apellido(s)*">
                     <p>Tipo de Persona</p>
-                    <input   type="text" placeholder="Tipo de Persona*">
+                    <select id="documentType" name="Document-Type">
+                        <option value="" >Persona Natural</option>
+                        <option value="document1">Persona Juridica</option>
+                    </select>
                     <p>código CIIU</p>
                     <input  type="text" placeholder="código CIIU*">
                     <p>Número de Documento</p>
@@ -55,7 +73,11 @@
 
             <div class="categories">
                 <p>Categoria</p>
-                <input  type="text" placeholder="Construcción, Remodelación o  Reparación*">
+                <select id="categoriesCompany" name="Document-Type">
+                    <option value="document1">Construcción</option>
+                    <option value="document2">Remodelación</option>
+                    <option value="document3">Reparación</option>
+                </select>
                 <p>Especialidad</p>
                 <input  type="text" placeholder="Especialidad segun Categoria*">
             </div>
@@ -85,22 +107,10 @@
 
         <div class="photosCompany">
             
-            <div class="profilePhoto">
-                <img src="/proyecto/img/photoprueba.jpg" alt="">
-            </div>
+            
+
 
             <div class="galleryPhotoCompany">
-                <div class="topGallerys">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                </div>
-
-                <div class="bottomGallery">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                    <img src="/proyecto/img/photoprueba.jpg" alt="">
-                </div>
 
             </div>
 
