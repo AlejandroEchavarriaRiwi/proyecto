@@ -441,6 +441,20 @@ button{
         cursor: pointer;
         margin: 100px auto;
     }
+    .headerUser {
+        top: 0;
+        width: 100vw;
+        height: 12vh;
+        position: -webkit-sticky;
+        position: sticky;
+        background-color: #121933;
+        background-image: none;
+    }
+    .headerUser .logo-tri h1{
+        font-size: 6.5vh;
+        display: flex;
+        align-items: center;
+    }
     footer {
         display: flex;
         justify-content: space-around;
