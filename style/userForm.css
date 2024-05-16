@@ -37,17 +37,17 @@ input, select {
     background-color: #121933;
     color: white;
 }
-
 .userImage {
-    width: 200px;
-    height: 200px;
-    background-color: #ddd;
+    width: 50vw;
+    height: 50vw;
+    background-color: #121933;
     background-image: url('./../img/imageUserFormDefault.png');
     background-size: cover;
     background-position: center;
     border-radius: 50%;
     cursor: pointer;
     margin: 0 auto;
+    padding: 50px;
 }
 
 .userImage:hover {
@@ -80,11 +80,16 @@ input, select {
     form{
         width: 40vw;
     }
-    /* #namesInput, #lastNamesInput {
-        display: flex;
-        flex-direction: row;
-        width: 15vw;
-    } */
-
+    .userImage {
+        width: 30vw;
+        height: 30vw;
+        background-color: #ddd;
+        background-image: url('./../img/imageUserFormDefault.png');
+        background-size: cover;
+        background-position: center center;
+        border-radius: 0;
+        cursor: pointer;
+        margin: 0 auto;
+    }
 }
     

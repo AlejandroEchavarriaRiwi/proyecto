@@ -250,6 +250,7 @@ button{
     color: white;
     margin: 8px 0;
 }
+
 @media(min-width: 720px){
     .header {
         position: relative;
@@ -400,6 +401,7 @@ button{
         width: 3vw;
         margin: 5px;
     }
+
     footer {
         display: flex;
         justify-content: space-around;
