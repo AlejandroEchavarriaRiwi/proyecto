@@ -35,20 +35,6 @@ input, select {
 }
 
 @media(min-width: 720px) {
-    .headerUser {
-        top: 0;
-        width: 100vw;
-        height: 12vh;
-        position: -webkit-sticky;
-        position: sticky;
-        background-color: #121933;
-        background-image: none;
-    }
-    .headerUser .logo-tri h1{
-        font-size: 6.5vh;
-        display: flex;
-        align-items: center;
-    }
     .titleTextPc {
         margin: 2vh;
     }
