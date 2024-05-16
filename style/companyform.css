@@ -2,13 +2,14 @@
 
 .companySection{
 display: flex;
+justify-content: center;
 width: 100vw;
 height:180vh ;
 background-color: rgba(255, 255, 255, 0.521);
 }
 
 
-h1{
+h2{
     text-align: center;
 }
 .registerCompany{
@@ -47,5 +48,7 @@ margin-bottom: 20px;
 
 .galleryPhotoCompany{
     display:none;
-
+}
+.imagesRightAside{
+    margin:10px;
 }
