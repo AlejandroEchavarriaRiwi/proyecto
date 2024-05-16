@@ -11,16 +11,19 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kaushan+Script&display=swap"
         rel="stylesheet">
     <!-- style-->
-    <link rel="stylesheet" href="../style/login.css">
+    <link rel="stylesheet" href="/proyecto/style/companyform.css">
     <link rel="shortcut icon" href="./img/t-logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TriCasas</title>
 </head>
 <body>
     <section class="companySection">
+
         <div class="registerCompany">
             <h1>Registro Empresarial</h1>
+
             <h3>Ingresa los datos y sigue las instrucciones</h3>
+
             <div class="companyInformation">
                 <div class="leftInformation">
                     <p>Nombre(s)</p>
@@ -31,9 +34,10 @@
                     <input  type="text" placeholder="Regimen Tributario*">
                     <p>Tipo de Documento</p>
                     <input  type="text" placeholder="Tipo de Documento*">
-                    <p>Número télefonico</p>
+                    <p>Número de télefono</p>
                     <input  type="text" placeholder="Número télefonico*">
                 </div>
+
                 <div class="rightInformation">
                     <p>Apellido(s)</p>
                     <input   type="text" placeholder="Apellido(s)*">
@@ -46,9 +50,63 @@
                     <p>Celular</p>
                     <input  type="text" placeholder="Celular*">
                 </div>
+
             </div>
+
+            <div class="categories">
+                <p>Categoria</p>
+                <input  type="text" placeholder="Construcción, Remodelación o  Reparación*">
+                <p>Especialidad</p>
+                <input  type="text" placeholder="Especialidad segun Categoria*">
+            </div>
+
+            <div class="documents">
+                <div class="registerDocument">
+                    <p>Documento de Registro </p>
+                    <input  type="text" placeholder="Camara de comercio. pdf *">
+                    <input  type="text" placeholder="rut. pdf *"> 
+                </div>
+                <div> <button class="submitDocument" type="button">Subir</button></div>
+            </div>
+
+            <div class="profilePassword">
+                <p>Dirección de e-mail</p>
+                <input  type="text" placeholder="email@janet.net*">
+                <p>contraseña</p>
+                <input  type="text" placeholder="***************">
+                <p>Confirma tu contraseña</p>
+                <input  type="text" placeholder="****************">
+                <p>Dirección</p>
+                <input  type="text" placeholder="Ingresa tu dirección*">
+            </div>
+
+            <div> <button class="submitProfile" type="button">Registrase</button></div>
         </div>
-        <div class="photosCompany"></div>
+
+        <div class="photosCompany">
+            
+            <div class="profilePhoto">
+                <img src="/proyecto/img/photoprueba.jpg" alt="">
+            </div>
+
+            <div class="galleryPhotoCompany">
+                <div class="topGallerys">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                </div>
+
+                <div class="bottomGallery">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                    <img src="/proyecto/img/photoprueba.jpg" alt="">
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
+
 </body>
 </html>
