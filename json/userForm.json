@@ -1,0 +1,33 @@
+{
+  "userRegistration": [
+    {
+      "id": "07fe"
+    },
+    {
+      "id": "3032",
+      "image": "C:\\fakepath\\LA EMPATIA - Samuel Sotelo.png",
+      "names": "Leison",
+      "lastNames": "Mosquera",
+      "documentType": "document1",
+      "documentNumber": "1058756214",
+      "phone": "55522412",
+      "smartPhone": "313245575",
+      "email": "mosquera123@gmail.com",
+      "password": "1234",
+      "address": "calle 40 -35-34"
+    },
+    {
+      "id": "72f2",
+      "image": "C:\\fakepath\\LA EMPATIA.png",
+      "names": "Jane",
+      "lastNames": "Doe",
+      "documentType": "document1",
+      "documentNumber": "1024758632",
+      "phone": "5551423365",
+      "smartPhone": "313245575",
+      "email": "joanedoe@gmail.com",
+      "password": "789",
+      "address": "calle 40 -35-34"
+    }
+  ]
+}

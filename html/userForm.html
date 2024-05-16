@@ -18,7 +18,6 @@
 
 <body>
     <header class="headerUser">
-        <!-- <div class="video-youtube"><img src="./../img/fondoarquitecto.webp" alt=""></div> -->
         <div class="container">
             <div class="btn-menu">
                 <label for="btn-menu">☰</label>
@@ -63,18 +62,17 @@
         </div>
         <div class="imagesRightAside">
             <div class="userImage" onclick="document.getElementById('fileInput').click();">
-                <input type="file" id="fileInput" accept="image/*" onchange="mostrarImagen(this);">
+                <input type="file" id="fileInput" accept="image/*" onchange="mostrarImagen(this);" required>
             </div>
         </div>
         <div class="formLeftAside">
-            <form action="">
-                
+            <form action="" id="userForm">
                 <label for="namesInput">Nombre(s):</label>
-                <input id="namesInput" type="text" placeholder="Jane">
+                <input id="namesInput" type="text" placeholder="Jane" required>
                 <label for="lastNamesInput">Apellido(s):</label>
-                <input id="lastNamesInput" type="text" placeholder="Doe">
+                <input id="lastNamesInput" type="text" placeholder="Doe" required>
                 <label for="documentType">Tipo de Documento:</label>
-                <select id="documentType" name="Document-Type">
+                <select id="documentType" name="Document-Type" required>
                     <option value="" selected disabled>Tipo de Documento</option>
                     <option value="document1">Cédula de ciudadania</option>
                     <option value="document2">Cédula de extranjeria</option>
@@ -82,19 +80,19 @@
                     <option value="document4">P.P.T</option>
                 </select>
                 <label for="documentNumberInput">Número de Documento:</label>
-                <input id="documentNumberInput" type="number" placeholder="1.058.258.745">
+                <input id="documentNumberInput" type="number" placeholder="1.058.258.745" required>
                 <label for="phoneInput">Número de Télefono:</label>
                 <input id="phoneInput" type="tel" placeholder="555-4474-225">
                 <label for="smartPhoneInput">Celular:</label>
-                <input id="smartPhoneInput" type="tel" placeholder="+57 3132545524">
+                <input id="smartPhoneInput" type="tel" placeholder="+57 3132545524" required>
                 <label for="emailInput">Dirección de E-mail:</label>
-                <input id="emailInput" type="email" placeholder="eduardrodriguez@gmail.com">
+                <input id="emailInput" type="email" placeholder="eduardrodriguez@gmail.com" required>
                 <label for="passwordInput">Contraseña:</label>
-                <input id="passwordInput" type="password" placeholder="Contraseña">
-                <label for="passwordInput">Confirma tu contraseña</label>
-                <input id="passwordInput" type="password" placeholder="Contraseña">
+                <input id="passwordInput" type="password" placeholder="Contraseña" required>
+                <label for="passwordInput2">Confirma tu contraseña</label>
+                <input id="passwordInput2" type="password" placeholder="Contraseña" required>
                 <label for="addressInput">Dirección:</label>
-                <input id="addressInput" type="text" placeholder="Calle 36 #12-35">
+                <input id="addressInput" type="text" placeholder="Calle 36 #12-35" required>
                 <input id="sign" type="submit" value="Registrarse">
             </form>
         </div>
