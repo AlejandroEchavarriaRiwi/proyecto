@@ -17,23 +17,30 @@
 </head>
 
 <body>
+    <div class="titleTextPc">
+        <h2>REGISTRO</h2>
+        <p>Ingresa tus datos:</p>
+    </div>
     <div class="mainContainer">
         <div class="titleText">
             <h2>REGISTRO</h2>
             <p>Ingresa tus datos:</p>
         </div>
         <div class="imagesRightAside">
-            <div class="userImage"></div>
+            <div class="userImage" onclick="document.getElementById('fileInput').click();">
+                <input type="file" id="fileInput" accept="image/*" onchange="mostrarImagen(this);">
+            </div>
         </div>
         <div class="formLeftAside">
             <form action="">
+                
                 <label for="namesInput">Nombre(s):</label>
                 <input id="namesInput" type="text" placeholder="Jane">
                 <label for="lastNamesInput">Apellido(s):</label>
                 <input id="lastNamesInput" type="text" placeholder="Doe">
                 <label for="documentType">Tipo de Documento:</label>
                 <select id="documentType" name="Document-Type">
-                    <option value="" selected disabled>Tipo de Documentos</option>
+                    <option value="" selected disabled>Tipo de Documento</option>
                     <option value="document1">Cédula de ciudadania</option>
                     <option value="document2">Cédula de extranjeria</option>
                     <option value="document3">Pasaporte</option>
@@ -57,6 +64,8 @@
             </form>
         </div>
     </div>
+
+    <script src="./../js/userForm.js"></script>
 </body>
 
 </html>
