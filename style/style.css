@@ -270,6 +270,15 @@ button{
 .userImage input[type="file"] {
     display: none;
 }
+.headerUser {
+    top: 0;
+    width: 100vw;
+    height: 6vh;
+    position: -webkit-sticky;
+    position: sticky;
+    background-color: #121933;
+    background-image: none;
+}
 
 @media(min-width: 720px){
     .header {
@@ -422,15 +431,15 @@ button{
         margin: 5px;
     }
     .userImage {
-        width: 30vw;
-        height: 30vw;
+        width: 25vw;
+        height: 25vw;
         background-color: #ddd;
         background-image: url('./../img/imageUserFormDefault.png');
         background-size: cover;
         background-position: center center;
         border-radius: 0;
         cursor: pointer;
-        margin: 0 auto;
+        margin: 100px auto;
     }
     footer {
         display: flex;
