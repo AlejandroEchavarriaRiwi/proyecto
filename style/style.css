@@ -444,7 +444,7 @@ button{
     .headerUser {
         top: 0;
         width: 100vw;
-        height: 12vh;
+        height:max-content;
         position: -webkit-sticky;
         position: sticky;
         background-color: #121933;
