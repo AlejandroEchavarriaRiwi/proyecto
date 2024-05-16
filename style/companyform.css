@@ -1,33 +1,33 @@
 @import url(../style/style.css);
 
 .companySection{
-display: flex;
-justify-content: center;
-width: 100vw;
-height:180vh ;
-background-color: rgba(255, 255, 255, 0.521);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
-
 
 h2{
     text-align: center;
 }
-.registerCompany{
 
+.companySection h4{
+    text-align: center;
 }
-.companyInformation {
+
+.companyInformationMobile {
 display: flex;
 margin-bottom: 20px;
+padding: 15px;
 
 }
 
-.leftInformation, 
+.leftInformation{
+    padding: 15px;
+}
 .rightInformation{
-width: 48%;
 
+padding: 15px;
 }
-
-
 .documents{
     display: flex;
     align-items: center;
@@ -38,17 +38,46 @@ width: 48%;
     flex-direction: column;
 }
 
-.photosCompany{
-
-}
 
 .profilePhoto{
 margin-bottom: 20px;
 }
 
-.galleryPhotoCompany{
-    display:none;
-}
 .imagesRightAside{
     margin:10px;
 }
+
+.galleryPhotoCompany{
+    width: 100vw;
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;  
+}
+.documentInput{
+    width: 50vw;
+}
+.btnGallery{
+    width: 30%;
+    text-align: center;
+    display: flex;
+}
+.gallerySubmit{
+    justify-content: center;
+    display: flex;
+    margin-bottom: 0%;
+
+}
+
+.companyInformationBelow{
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+}
+
+
+
+@media(min-width: 720px){
+
+
+}
+
