@@ -250,6 +250,26 @@ button{
     color: white;
     margin: 8px 0;
 }
+.userImage {
+    width: 50vw;
+    height: 50vw;
+    background-color: #121933;
+    background-image: url('./../img/imageUserFormDefault.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.userImage:hover {
+    opacity: 0.7;
+}
+
+.userImage input[type="file"] {
+    display: none;
+}
 
 @media(min-width: 720px){
     .header {
@@ -401,7 +421,17 @@ button{
         width: 3vw;
         margin: 5px;
     }
-
+    .userImage {
+        width: 30vw;
+        height: 30vw;
+        background-color: #ddd;
+        background-image: url('./../img/imageUserFormDefault.png');
+        background-size: cover;
+        background-position: center center;
+        border-radius: 0;
+        cursor: pointer;
+        margin: 0 auto;
+    }
     footer {
         display: flex;
         justify-content: space-around;
