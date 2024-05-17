@@ -12,7 +12,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kaushan+Script&display=swap"
         rel="stylesheet">
     <!-- style-->
-    <link rel="stylesheet" href="/proyecto/style/companyform.css">
+    <link rel="stylesheet" href="./../style/companyform.css">
     <link rel="shortcut icon" href="./img/t-logo.png" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TriCasas</title>
@@ -37,107 +37,107 @@
                     </nav>
                 </div>
             </div>
-    </header>
-    <section class="companySection">
+    </header>        
+    
+    <h2>Registro Empresarial</h2>
+    <h4>Ingresa los datos y sigue las instrucciones</h4>
+    <div class="companySection">
+        <div class="companyGallery">
+            
 
-        <h2>Registro Empresarial</h2>
-
-        <h4>Ingresa los datos y sigue las instrucciones</h4>
 
         <div class="imagesRightAside">
             <div class="userImage" onclick="document.querySelector('.fileInput').click();">
                 <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
             </div>
         </div>
+        <h2>Nuestro Trabajo</h2>
+        <div class="galleryPhotoCompany">
 
+            <div class="ourPhotos"></div>
+
+        </div>
+
+        <div class="submitProfileDiv"><button class="btnGallery" type="button">Subir</button></div>
+
+        </div>
         <div class="companyInformationMobile">
             <div class="companyInformationTop">
-                <div class="leftInformation">
                     <p>Nombre(s)</p>
                     <input type="text" placeholder="Name*">
-
+                    <p>Apellido(s)</p>
+                    <input type="text" placeholder="Apellido(s)*">
                     <p>Razón Social</p>
                     <input type="text" placeholder="Razón Social*">
-
                     <p>Regimen Tributario</p>
-                    <input type="text" placeholder="Regimen Tributario*">
-
+                    <select id="regimenType" name="regimen-Type">
+                        <option value="document1">Simplificado</option>
+                        <option value="document2">Comun</option>
+                        <option value="document3">Pasaporte</option>
+                        <option value="document4">P.P.T</option>
+                    </select>                    
+                    <p>Tipo de Persona</p>
+                    <select id="documentType" name="Document-Type">
+                        <option value="">Persona Natural</option>
+                        <option value="document1">Persona Juridica</option>
+                    </select>
                     <p>Tipo de Documento</p>
                     <select id="documentType" name="Document-Type">
                         <option value="document1">Cédula de ciudadania</option>
                         <option value="document2">Cédula de extranjeria</option>
                         <option value="document3">Pasaporte</option>
                         <option value="document4">P.P.T</option>
-                    </select>
-
-                    <p>Número de télefono</p>
-                    <input type="text" placeholder="Número télefonico*">
-                </div>
-
-                <div class="rightInformation">
-                    <p>Apellido(s)</p>
-                    <input type="text" placeholder="Apellido(s)*">
-                    <p>Tipo de Persona</p>
-                    <select id="documentType" name="Document-Type">
-                        <option value="">Persona Natural</option>
-                        <option value="document1">Persona Juridica</option>
-                    </select>
-                    <p>código CIIU</p>
-                    <input type="text" placeholder="código CIIU*">
+                    </select>                    
                     <p># ID</p>
                     <input type="text" placeholder="Número de Documento*">
+                    <p>Número de télefono</p>
+                    <input type="text" placeholder="Número télefonico*">
+                    
                     <p>Celular</p>
                     <input type="text" placeholder="Celular*">
+                    <p>código CIIU</p>
+                    <input type="text" placeholder="código CIIU*">
+                    <div class="categories">
+                        <p>Categoria</p>
+                        <select id="categoriesCompany" name="Document-Type">
+                            <option value="document1">Construcción</option>
+                            <option value="document2">Remodelación</option>
+                            <option value="document3">Reparación</option>
+                        </select>
+                        <p>Especialidad</p>
+                        <input type="text" placeholder="Especialidad segun Categoria*">
+                    </div>
+        
+                    <div class="documents">
+                        <div class="registerDocument">
+                            <p>Documento de Registro </p>
+                            <input class="documentInput" type="file" id="file-input" name="file">
+                            <input class="documentInput" type="file" placeholder="rut. pdf *" name="file">
+                        </div>
+                        <div class="buttonDocuments"> <button class="submitDocument" type="button">Subir</button></div>
+                    </div>
+        
+                    <div class="profilePassword">
+                        <p>Dirección de e-mail</p>
+                        <input type="text" placeholder="email@janet.net*">
+                        <p>contraseña</p>
+                        <input type="text" placeholder="***************">
+                        <p>Confirma tu contraseña</p>
+                        <input type="text" placeholder="****************">
+                        <p>Dirección</p>
+                        <input type="text" placeholder="Ingresa tu dirección*">
+                    </div>
                 </div>
-            </div>
-
-        </div>
         <div class="companyInformationBelow">
-            <h2>Nuestro Trabajo</h2>
-            <div class="galleryPhotoCompany">
 
-                <div class="ourPhotos"></div>
 
-            </div>
 
-            <button class="btnGallery" type="button">Subir</button>
-
-            <div class="categories">
-                <p>Categoria</p>
-                <select id="categoriesCompany" name="Document-Type">
-                    <option value="document1">Construcción</option>
-                    <option value="document2">Remodelación</option>
-                    <option value="document3">Reparación</option>
-                </select>
-                <p>Especialidad</p>
-                <input type="text" placeholder="Especialidad segun Categoria*">
-            </div>
-
-            <div class="documents">
-                <div class="registerDocument">
-                    <p>Documento de Registro </p>
-                    <input class="documentInput" type="file" id="file-input" name="file">
-                    <input class="documentInput" type="file" placeholder="rut. pdf *" name="file">
-                </div>
-                <div> <button class="submitDocument" type="button">Subir</button></div>
-            </div>
-
-            <div class="profilePassword">
-                <p>Dirección de e-mail</p>
-                <input type="text" placeholder="email@janet.net*">
-                <p>contraseña</p>
-                <input type="text" placeholder="***************">
-                <p>Confirma tu contraseña</p>
-                <input type="text" placeholder="****************">
-                <p>Dirección</p>
-                <input type="text" placeholder="Ingresa tu dirección*">
-            </div>
-
-            <div> <button class="submitProfile" type="button">Registrase</button></div>
+            <div class="submitProfileDiv"> <button class="submitProfile" type="button">Registrase</button></div>
         </div>
-    </section>
+        </div>
+    </div>
 
-    
+
     <footer>
         <div class="copyright">
             <h4>Copyright &copy; RIWI 2024</h4>

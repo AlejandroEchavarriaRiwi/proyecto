@@ -1,4 +1,4 @@
-@import url(../style/style.css);
+@import url(./../style/style.css);
 
 .companySection{
     margin: 0 auto;
@@ -6,8 +6,14 @@
     flex-direction: column;
 }
 
+body h2,h4{
+    margin-top: 20px;
+    text-align: center;
+}
+
 h2{
     text-align: center;
+    
 }
 
 .companySection h4{
@@ -15,10 +21,14 @@ h2{
 }
 
 .companyInformationMobile {
-display: flex;
+width: 90vw;
 margin-bottom: 20px;
 padding: 15px;
+}
 
+input, select {
+    width: 90vw;
+    margin-bottom: 15px;
 }
 
 .leftInformation{
@@ -29,15 +39,24 @@ padding: 15px;
 padding: 15px;
 }
 .documents{
+    width: 90vw;
     display: flex;
     align-items: center;
 }
 
 .registerDocument{
+    width: 70%;
     display: flex;
     flex-direction: column;
 }
-
+.registerDocument input{
+    width: 100%;
+}
+.buttonDocuments{
+    width:30%;
+    display: flex;
+    justify-content: end;
+}
 
 .profilePhoto{
 margin-bottom: 20px;
@@ -59,7 +78,6 @@ margin-bottom: 20px;
 .btnGallery{
     width: 30%;
     text-align: center;
-    display: flex;
 }
 .gallerySubmit{
     justify-content: center;
@@ -71,13 +89,51 @@ margin-bottom: 20px;
 .companyInformationBelow{
     display: flex;
     flex-direction: column;
-    margin: 0px 20px;
+}
+.submitProfileDiv{
+    display: flex;
+    justify-content: center;
 }
 
 
 
 @media(min-width: 720px){
+.companyInformationTop{
+    display: grid;
+    width: 45vw;
+    grid-template-columns: repeat(2, 1fr);
+}
+.companySection{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+}
+input, select {
+    width: 20vw;
+    margin-bottom: 15px;
+}
+.documents{
+    width: 20vw;
+    display: flex;
+    align-items: center;
+}
+.companyGallery{
+    width: 45vw;
+}
+.submitProfileDiv{
+    width: 45vw;
+    display: flex;
+    justify-content: center;
+}
+.companyInformationMobile {
+    width: 45vw;
 
-
+    margin-bottom: 20px;
+    padding: 15px;
+    }
+.imagesRightAside{
+        margin:-80px;
+    }
 }
 
