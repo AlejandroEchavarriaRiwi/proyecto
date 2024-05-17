@@ -1,3 +1,8 @@
+Version 1.0
+17/05/2024
+Finalizada version html para comenzar a integrar funcionalidad de javascript.
+
+
 Trello: https://trello.com/invite/b/33zSJuZ6/ATTI28420c198c2a77146bbf4d23740bf639D416167E/proyecto-tricasas
 
 Nombre del proyecto: TriCasas.
