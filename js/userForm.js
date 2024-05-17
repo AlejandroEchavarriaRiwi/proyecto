@@ -18,6 +18,7 @@ const URL = "http://localhost:3000/userRegistration";
 const userForm = document.querySelector('#userForm');
 const idUser = Date.now().toString(30);
 const imageUser = document.querySelector('#fileInput');
+const file = imageUser.files[0];
 const namesInput = document.querySelector('#namesInput');
 const lastNamesInput = document.querySelector('#lastNamesInput');
 const documentType = document.querySelector('#documentType');
@@ -37,6 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
         event.preventDefault();
         //Llamamos la función que se encarga de agregar al usuario
         verifyingInformation();
+
+        if (file){
+            const reader = new FileReader();
+
+            
+        }
     });
 });
 
