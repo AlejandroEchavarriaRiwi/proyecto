@@ -4,6 +4,7 @@ Finalizada version html para comenzar a integrar funcionalidad de javascript.
 
 
 Trello: https://trello.com/invite/b/33zSJuZ6/ATTI28420c198c2a77146bbf4d23740bf639D416167E/proyecto-tricasas
+Figma: https://www.figma.com/design/LRJppRF5v4kcMx6X9afxSF/Untitled?m=dev&node-id=0%3A1&t=FZTQBIaaYWxwvlq2-1
 
 Nombre del proyecto: TriCasas.
 
