@@ -1,3 +1,6 @@
+![Designer](https://github.com/AlejandroEchavarriaRiwi/proyecto/assets/165675646/b7f7096d-4d5b-4547-a7e1-df7cad4e9f25)
+
+
 Version 1.0
 17/05/2024
 Finalizada version html para comenzar a integrar funcionalidad de javascript.
