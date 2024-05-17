@@ -39,11 +39,35 @@ document.addEventListener("DOMContentLoaded", () => {
         //Llamamos la función que se encarga de agregar al usuario
         verifyingInformation();
 
-        if (file){
-            const reader = new FileReader();
-
-            
-        }
+        document.getElementById('uploadButton').addEventListener('click', () => {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+        
+            if (file) {
+                const reader = new FileReader();
+                
+                reader.onload = function(event) {
+                    const base64String = event.target.result.split(',')[1]; // Eliminar el prefijo de base64
+        
+                    const data = {
+                        imageName: file.name,
+                        imageData: base64String
+                    };
+        
+                    // Mostrar el JSON en la página
+                    document.getElementById('jsonOutput').textContent = JSON.stringify(data, null, 2);
+        
+                    // Mostrar la imagen en la página
+                    const imgElement = document.getElementById('displayImage');
+                    imgElement.src = event.target.result;
+                    imgElement.style.display = 'block';
+                };
+        
+                reader.readAsDataURL(file); // Leer el archivo como una URL de datos
+            } else {
+                alert('Por favor, selecciona un archivo primero.');
+            }
+        });
     });
 });
 
