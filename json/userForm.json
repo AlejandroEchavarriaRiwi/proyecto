@@ -28,6 +28,61 @@
       "email": "joanedoe@gmail.com",
       "password": "789",
       "address": "calle 40 -35-34"
+    },
+    {
+      "id": "4951",
+      "image": "C:\\fakepath\\LA EMPATIA.png",
+      "names": "MM",
+      "lastNames": "SS",
+      "documentType": "document1",
+      "documentNumber": "10245453326",
+      "phone": "555555555",
+      "smartPhone": "3132447165",
+      "email": "sskk@gmail.com",
+      "password": "789",
+      "address": "calle 40 -35-34"
+    }
+  ],
+  "companyName": [
+    {
+      "id": "bd97",
+      "image": "C:\\fakepath\\LA EMPATIA.png",
+      "responsableName": "Leison",
+      "responsableLastName": "Mosquera",
+      "socialReason": "Espiritual",
+      "personType": "",
+      "documentType": "document1",
+      "numberId": "1054785214",
+      "telephoneNumber": "3132557869",
+      "whatsappNumber": "3132557869",
+      "ciiuCode": "5555",
+      "categoriesCompany": "document2",
+      "speciality": "option1",
+      "companyEmail": "leisonM@gmail.com",
+      "companyPassword": "1234",
+      "companyAddress": "Calle 54 #20-14",
+      "registerDocument1": "C:\\fakepath\\Sesión 9 Async Await Parte 1.pdf",
+      "registerDocument2": "C:\\fakepath\\Sesión 9 Async Await Parte 1.pdf"
+    },
+    {
+      "id": "42af",
+      "image": "C:\\fakepath\\menu-svgrepo-com.png",
+      "responsableName": "Leison",
+      "responsableLastName": "Mosquera",
+      "socialReason": "Espiritual",
+      "personType": "",
+      "documentType": "document1",
+      "numberId": "1054785214",
+      "telephoneNumber": "3132557869",
+      "whatsappNumber": "3132557869",
+      "ciiuCode": "5555",
+      "categoriesCompany": "document2",
+      "speciality": "option1",
+      "companyEmail": "leisonM@gmail.com",
+      "companyPassword": "1234",
+      "companyAddress": "Calle 54 #20-14",
+      "registerDocument1": "C:\\fakepath\\Sesión 9 Async Await Parte 1.pdf",
+      "registerDocument2": "C:\\fakepath\\Sesión 9 Async Await Parte 1.pdf"
     }
   ]
 }

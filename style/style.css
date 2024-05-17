@@ -263,10 +263,6 @@ button{
     padding: 50px;
 }
 
-.userImage:hover {
-    opacity: 0.7;
-}
-
 .userImage input[type="file"] {
     display: none;
 }
