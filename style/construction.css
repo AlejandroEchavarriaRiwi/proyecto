@@ -1,0 +1,16 @@
+
+.profileImage {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 2px solid #000;
+}
+
+.additionalProfileImage {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ccc;
+}
