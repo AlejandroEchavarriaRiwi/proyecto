@@ -66,15 +66,15 @@
         <div class="userProfileFeedback">
             <h5> ¡Por favor, Danos tu  feedback !</h5>
 
-            <div class="userProfileImagenes">
-                <div class="userImage" >
-                    <input id="userProfileimg1" type="file" class="userProfileImg" accept="image/*">
+            <div class="userProfileImages">
+                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
+                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
                 </div>
-                <div class="userImage" >
-                    <input id="userProfileimg2" type="file" class="userProfileImg" accept="image/*">
+                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
+                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
                 </div>
-                <div class="userImage" >
-                    <input id="userProfileimg3" type="file" class="userProfileImg" accept="image/*">
+                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
+                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
                 </div>
             </div>
 
