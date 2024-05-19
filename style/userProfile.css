@@ -1,0 +1,83 @@
+
+
+form {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    margin: 30px auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.userProfileImagenes{
+display: flex;
+width: 70px;
+height: 150px;
+
+}
+
+.userProfileInformation{  /* Este es la clase del div vacio donde va la foto y el nombre que se le va a inyectar */
+    display: flex;
+    width: 150px;
+    height: 150px;
+    background-color: aqua;
+    flex-direction: column;
+    align-items: center;
+}
+
+#userProfilePhoto{      /* Este es la clase del div vacio donde se  va a inyectar la foto*/
+    background-color: white;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+#userProfileName{ /* Este es la clase del div vacio donde se va a inyectar el nombre  */
+    background-color: green;
+    width: 130px;
+    height: 20px;
+}
+
+.userProfileFeedback h5{
+    margin-top: 25px;
+}
+
+.userImage{
+    width: 100px;
+    height: 100px;
+}
+.userProfileImg{
+    width: 70px;
+    height: 60px;
+
+}
+.star{
+    font-size: 32px;
+    color: #bbb;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.rating{  /* el div donde estan las estrellas */
+display: flex;
+align-items: center;
+}
+
+.star:hover,
+.star.checked{
+color: gold;
+}
+
+
+#comment{ 
+background-color: rgba(128, 128, 128, 0.041);
+width: 200px; 
+height: 100px; 
+padding: 5px; 
+border: 1px solid #cccccc72; 
+border-radius: 5px; 
+resize: vertical; 
+font-family: Arial, sans-serif; 
+font-size: 14px;
+}
