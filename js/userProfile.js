@@ -1,13 +1,13 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "http://localhost:3000/companyName";
+    const URL = "http://localhost:3000/userRegistration";
     const profilesContainer = document.querySelector('#userProfilePhoto');
-    const specificUserDocument = "document1";
+    const specificEmailUser = "carvajaljuliana11@gmail.com";
     const userProfilePhoto = document.querySelector('#userProfilePhoto')
     const userProfileName = document.querySelector('#userProfileName')
     try {
         const response = await fetch(URL);
         const users = await response.json();
-        const filteredUsers = users.filter(user => user.categoriesCompany === specificUserDocument);
+        const filteredUsers = users.filter(user => user.email === specificEmailUser);
     
         if (filteredUsers.length > 0) {
         // Tomar el primer usuario de la lista filtrada
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         imgElement.classList.add('profileImage');
 
         const nameElement = document.createElement('h4');
-        nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
+        nameElement.textContent = `${user.name} ${user.lastNames}`;
 
         userProfilePhoto.appendChild(imgElement);
         userProfileName.appendChild(nameElement);
