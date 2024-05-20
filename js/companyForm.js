@@ -1,3 +1,25 @@
+function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Prevents the dropdown from closing when clicking inside it
+document.getElementById("myDropdown").addEventListener('click', function(event) {
+    event.stopPropagation();
+});
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
+    }
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const URL = 'http://localhost:3000/companyName'; // URL del servidor local JSON
     const idUser = Date.now().toString(30);
@@ -24,6 +46,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerDocument2 = document.querySelector('#registerDocument2');
     const displayImage = document.querySelector('.userImage');
     const submitButton = document.querySelector('#submitButton');
+    const checkboxes = document.querySelectorAll('#myDropdown input[type="checkbox"]:checked');
+    const selectedValues = Array.from(checkboxes).map(checkbox => checkbox.value);
 
     submitButton.addEventListener('click', async (event) => {
         event.preventDefault();
@@ -31,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (file) {
             const reader = new FileReader();
-            reader.onload = async function(event) {
+            reader.onload = async function (event) {
                 const base64String = event.target.result.split(',')[1];
                 console.log("Main Image Base64:", base64String); // Debugging
 
@@ -64,6 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ciiuCode: ciiuCode.value,
                     categoriesCompany: categoriesCompany.value,
                     speciality: speciality.value,
+                    selectedOptions: selectedValues,
                     companyEmail: companyEmail.value,
                     companyPassword: companyPassword.value,
                     companyAddress: companyAddress.value,
@@ -140,3 +165,7 @@ function mostrarImagen(input) {
         reader.readAsDataURL(input.files[0]);
     }
 }
+
+
+
+
