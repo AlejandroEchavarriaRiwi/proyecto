@@ -5,15 +5,11 @@
 }
 
 #userProfiles {
-    position: relative;
-    height: 100vh; /* Establecer el contexto de posición relativa */
     display: flex;
     flex-direction: column;
     gap: 30px;
     align-items: center;
     justify-content: center;
-    background: #283048;
-    background: linear-gradient(to right, #859398, #283048);
     padding: 20px;
 }
 
