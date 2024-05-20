@@ -1,73 +1,86 @@
 @import url(../style/style.css);
 
-section{
-display: flex;
-justify-content: center;
-text-align: center;
+#logInForm {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0px;
 }
 
-input{
+#dividing {
     width: 70vw;
+    display: flex;
+    align-items: center;
 }
 
-.login{
-background-color:whitesmoke;
-display: flex;
-flex-direction: column;
-max-width: 80vw;
-margin: 0 auto;
-padding: 20px;
-border-radius: 5px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-margin-top: 40px;
-} 
-
-
-
-.loginUp{
-display: flex;
-flex-direction: column;
-align-items: center;
+#dividing hr {
+    width: 25vw;
+    height: 2px;
+    margin: auto;
 }
 
-.loginUp h4{
-    margin-bottom: 20px;
-}
-/* aquí empieza la parte de abajo de la cuenta de login */
-
-.loginBottom{
-display: flex;
-flex-direction: column;
-align-items: center;
-
+.span {
+    color: black;
+    font-weight: bold;
 }
 
-.googleLogin{
-display: flex;
-justify-content: center;
-gap:50px;
-margin-top: 20px;
-background-color:darkgray;
-color: white;
-width: 300px;
-border-radius: 5px;
-padding: 6px 50px;
+.loginBottom h2 {
+    margin: 12px 0px;
 }
-.googleLogin img{
-    width: 20px;
-    height: 20px;
-}
-.googleLogin p{
+
+section {
+    display: flex;
+    justify-content: center;
     text-align: center;
 }
 
-.googleLogin:hover{
-    color:white;
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.655)
+input {
+    width: 70vw;
+    margin: 8px 0px;
 }
 
-.serviceLogin{
+#submitLongInForm {
+    font-weight: bold;
+}
+
+#submitLongInForm:hover {
+    background-color: #121933;
+    color: white;
+    cursor: pointer;
+}
+
+.login {
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    max-width: 62vw;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+
+
+.loginUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.loginUp h4 {
+    margin-bottom: 20px;
+}
+
+/* aquí empieza la parte de abajo de la cuenta de login */
+
+.loginBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.serviceLogin {
     display: flex;
     width: 180px;
     height: 200px;
@@ -76,28 +89,28 @@ padding: 6px 50px;
     margin: 20px;
 }
 
-.serviceLogin img{
+.serviceLogin img {
     width: 120px;
     border: 2px solid black;
     border-radius: 50%;
 }
 
-.searchLogin a{
-font-size: 15px;
-text-decoration: none;
-color: black;
+.searchLogin a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
 }
 
 
-.offerLogin a{
-font-size: 15px;
-text-decoration: none;
-color: black;
+.offerLogin a {
+    font-size: 15px;
+    text-decoration: none;
+    color: black;
 
 }
 
-@media(min-width: 720px){
-    input{
+@media(min-width: 720px) {
+    input {
         width: 30vw;
     }
 }

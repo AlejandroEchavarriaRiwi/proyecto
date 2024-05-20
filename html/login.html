@@ -53,24 +53,27 @@
         </div>
     </div>
     <section class="login">
-
         <div class="loginUp">
-            <h2>Crea una cuenta</h2>
-            <h4> Ingresa tu email para continuar con la pagina</h4>
-            <br>
-            <input type="text" placeholder="email@tricasas.com">
-            <button class="submitLogin" type="button">Ingresa con email</button>
+            <h2>Iniciar sesión</h2>
+            <form id="logInForm" action="">
+                <input id="emailLogInForm" type="text" placeholder="email@tricasas.com">
+                <input id="passwordLogInForm" type="password" placeholder="Contraseña">
+                <input id="submitLongInForm" type="submit" value="Iniciar sesión">
+                <!-- <button class="submitLogin" type="button">Ingresa con email</button> -->
+            </form>
         </div>
-
         <div class="loginBottom">
-
+            <div id="dividing">
+                <hr><p><span class="span">O</span></p><hr>
+            </div>
+            <h2>Regístrate</h2>
             <div class="serviceLogin">
                 <div class="searchLogin">
                     <a href="./userForm.html">
                         <img src="../img/familialoginfinal.png" alt="">
                         <h2> Busco Servicio</h2>
                     </a>
-                </div>                
+                </div>
                 <div class="offerLogin">
                     <a href="./companyform.html">
                         <img src="../img/trabajadores.login.png" alt="">
@@ -78,11 +81,6 @@
                     </a>
                 </div>
             </div>
-                
-
-
-            </div>
-
         </div>
     </section>
     <footer>
@@ -95,8 +93,7 @@
             <img src="./../img/youtube.png" alt="">
         </div>
     </footer>
-    
-
+    <script src="./../js/logIn.js"></script>
 </body>
 
 </html>
