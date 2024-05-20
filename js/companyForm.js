@@ -126,9 +126,8 @@ document.addEventListener('DOMContentLoaded', () => {
         displayImage.style.display = 'none';
     }
 
-    function redirect() {
-        window.location.replace('./../index.html');
-    }
+    
+    
 });
 
 function mostrarImagen(input) {
