@@ -1,3 +1,43 @@
+document.addEventListener("DOMContentLoaded", async () => {
+    const URL = "http://localhost:3000/companyName";
+    const profilesContainer = document.querySelector('#userProfilePhoto');
+    const specificUserDocument = "document1";
+    const userProfilePhoto = document.querySelector('#userProfilePhoto')
+    const userProfileName = document.querySelector('#userProfileName')
+    try {
+        const response = await fetch(URL);
+        const users = await response.json();
+        const filteredUsers = users.filter(user => user.categoriesCompany === specificUserDocument);
+    
+        if (filteredUsers.length > 0) {
+        // Tomar el primer usuario de la lista filtrada
+        const user = filteredUsers[0];
+
+        const profileDiv = document.createElement('div');
+        profileDiv.classList.add('profile');
+
+        // Mostrar la imagen principal del usuario
+        const imgElement = document.createElement('img');
+        imgElement.src = `data:image/png;base64,${user.image}`;
+        imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
+        imgElement.classList.add('profileImage');
+
+        const nameElement = document.createElement('h4');
+        nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
+
+        userProfilePhoto.appendChild(imgElement);
+        userProfileName.appendChild(nameElement);
+
+    } else {
+        profilesContainer.textContent = "User not found.";
+    }
+    } catch (error) {
+        console.error('Error loading user profiles:', error);
+        profilesContainer.textContent = "Error loading user profiles.";
+    }
+});
+
+// Here we can highlight or checked  the stars 
 const stars= document.querySelectorAll(".star");
 
 stars.forEach(function(star, index) {
