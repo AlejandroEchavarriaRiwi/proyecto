@@ -133,6 +133,7 @@ input, select {
     visibility: visible;
 }
 .cont-menu{
+    z-index: 120;
     width: 100%;
     max-width: 250px;
     background: #1c1c1c;
