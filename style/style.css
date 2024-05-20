@@ -58,8 +58,14 @@ header {
     rgba(0,0,0,0.5)
     ), url(../img/fondoarquitecto.webp);
     background-size: cover;
+    z-index: 145;
     
 }
+body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
 
 span {
     color: #ffffff;
@@ -133,7 +139,7 @@ input, select {
     visibility: visible;
 }
 .cont-menu{
-    z-index: 120;
+    z-index: 150;
     width: 100%;
     max-width: 250px;
     background: #1c1c1c;
@@ -275,6 +281,21 @@ button{
     position: sticky;
     background-color: #121933;
     background-image: none;
+}
+
+footer {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    background-color: #121933;
+    color: #fff;
+    bottom: 0;
+    left: 0;
+    right: 0;  
 }
 
 @media(min-width: 720px){
@@ -455,6 +476,7 @@ button{
     
     footer {
         display: flex;
+        flex-direction: row;
         justify-content: space-around;
         align-items: center;
     }

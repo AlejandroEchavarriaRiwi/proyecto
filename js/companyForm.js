@@ -94,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
                 if (response.ok) {
                     console.log('Usuario añadido correctamente.');
-                    clearForm();
                     redirect();
                 } else {
                     throw new Error('Error al añadir el usuario.');
@@ -121,12 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function clearForm() {
-        form.reset();
-        displayImage.style.display = 'none';
+    function redirect() {
+        window.location.href = './companyProfile.html';
     }
-
-    
     
 });
 

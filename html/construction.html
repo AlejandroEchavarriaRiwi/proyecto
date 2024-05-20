@@ -37,8 +37,6 @@
                 </div>
             </div>
     </header>
-    <div class="capa"></div>
-    <!--	--------------->
     <input type="checkbox" id="btn-menu">
     <div class="container-menu">
         <div class="cont-menu">
@@ -52,10 +50,38 @@
             <label for="btn-menu">✖️</label>
         </div>
     </div>
-<div id="userProfiles">
+<div id="principalContainer">   
+    <div id="filters">
+        <select id="cityFilter">
+            <option value="" selected disabled>Ciudad</option>
+                        <optgroup label="Municipios del Valle de Aburrá">
+                            <option value="option1">Bello</option>
+                            <option value="option2">Medellín</option>
+                            <option value="option3">Itagüí</option>
+                            <option value="option4">Envigado</option>
+                            <option value="option5">Sabaneta</option>
+                            <option value="option6">La Estrella</option>
+                            <option value="option7">Caldas</option>
+                            <option value="option8">Copacabana</option>
+                            <option value="option9">Girardota</option>
+                            <option value="option10">Barbosa</option>
+                        </optgroup>
+                        <optgroup label="Corregimientos:">
+                            <option value="option11">San Cristóbal</option>
+                            <option value="option12">San Antonio de Prado</option>
+                            <option value="option13">Santa Elena</option>
+                        </optgroup>
+        </select>
+        <select id="specialFilter">
+            <option value="" selected disabled>Especialidad</option>
+            <option value="option1">Construcción</option>
+            <option value="option2">Remodelación</option>
+            <option value="option3">Reparación</option>
+        </select>
+    </div>
+    <div id="userProfiles"></div>
 
 </div>
-
     <footer>
         <div class="copyright">
             <h4>Copyright &copy; RIWI 2024</h4>
