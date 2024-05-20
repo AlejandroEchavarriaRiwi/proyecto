@@ -1,5 +1,7 @@
 ![Designer](https://github.com/AlejandroEchavarriaRiwi/proyecto/assets/165675646/b7f7096d-4d5b-4547-a7e1-df7cad4e9f25)
-
+versión 1.1
+19/05/2024
+Se termina proceso de registro en json, ya se pueden obtener los valores para inyectar en los html correspondientes con javascript.
 
 Version 1.0
 17/05/2024
