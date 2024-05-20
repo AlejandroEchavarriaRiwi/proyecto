@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const URL = 'http://localhost:3000/companyName'; // URL del servidor local JSON
     const idUser = Date.now().toString(30);
-    const form = document.querySelector('#userForm');
     const imageUser = document.querySelector('#fileInput');
     const archivos = document.querySelectorAll('#companyImages input[type="file"]');
     const ourPhotos = document.querySelector('.ourPhotos');
@@ -22,8 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const companyAddress = document.querySelector('#companyAddress');
     const registerDocument1 = document.querySelector('#registerDocument1');
     const registerDocument2 = document.querySelector('#registerDocument2');
-    const displayImage = document.querySelector('.userImage');
     const submitButton = document.querySelector('#submitButton');
+    const municipalityDropdown = document.querySelector('#myDropdown');
 
     submitButton.addEventListener('click', async (event) => {
         event.preventDefault();
@@ -49,6 +48,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log("Additional Images Base64:", imagenesBase64); // Debugging
 
+                // Obtener los valores seleccionados de los checkboxes
+                const selectedMunicipalities = Array.from(municipalityDropdown.querySelectorAll('input[type="checkbox"]:checked'))
+                    .map(checkbox => checkbox.value);
+                console.log("Selected Municipalities:", selectedMunicipalities); // Debugging
+
                 const newUser = {
                     id: idUser,
                     image: base64String,
@@ -64,12 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     ciiuCode: ciiuCode.value,
                     categoriesCompany: categoriesCompany.value,
                     speciality: speciality.value,
+                    municipalities: selectedMunicipalities,
                     companyEmail: companyEmail.value,
                     companyPassword: companyPassword.value,
                     companyAddress: companyAddress.value,
                     registerDocument1: registerDocument1.value,
                     registerDocument2: registerDocument2.value,
                     ourPhotos: ourPhotos.value
+                    // Añadir los municipios seleccionados
                 };
 
                 console.log("New User Object:", newUser); // Debugging
@@ -123,7 +129,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function redirect() {
         window.location.href = './companyProfile.html';
     }
-    
 });
 
 function mostrarImagen(input) {
@@ -133,5 +138,26 @@ function mostrarImagen(input) {
             document.querySelector('.userImage').style.backgroundImage = `url('${e.target.result}')`;
         };
         reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Prevents the dropdown from closing when clicking inside it
+document.getElementById("myDropdown").addEventListener('click', function(event) {
+    event.stopPropagation();
+});
+
+window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+                openDropdown.classList.remove('show');
+            }
+        }
     }
 }
