@@ -92,9 +92,13 @@ margin-bottom: 20px;
 }
 .submitProfileDiv{
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
+#companyImages{
+    text-align: center;
+}
 
 
 @media(min-width: 720px){
@@ -162,9 +166,10 @@ input, select {
 .dropdown-content label:hover {
     cursor: pointer;
 }
-/* .dropdown-content input{
+.dropdown-content input{
     display: none;
-} */
+} 
+
 
 .dropdown-content label {
     color: black;
@@ -177,8 +182,17 @@ input, select {
     background-color: #f1f1f1;
 }
 
+.selected {
+    background-color: rgba(0,0,0,0.2);
+}
+
 .show {
     display: block;
 }
 
+#center{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 

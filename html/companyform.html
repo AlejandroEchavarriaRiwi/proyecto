@@ -72,22 +72,22 @@
                 <input type="text" id="socialReason" placeholder="Razón Social*">
                 <p>Régimen Tributario:</p>
                 <select id="regimenType" name="regimen-Type">
-                    <option value="document1">Simplificado</option>
-                    <option value="document2">Comun</option>
-                    <option value="document3">Pasaporte</option>
-                    <option value="document4">P.P.T</option>
+                    <option value="simplified">Simplificado</option>
+                    <option value="common">Comun</option>
                 </select>
                 <p>Tipo de Persona:</p>
                 <select id="personType" name="personType">
-                    <option value="">Persona Natural</option>
-                    <option value="document1">Persona Juridica</option>
+                    <option value="Natural Person">Persona Natural</option>
+                    <option value="juridical Person">Persona Juridica</option>
                 </select>
                 <p>Tipo de Documento:</p>
                 <select id="documentType" name="Document-Type">
-                    <option value="document1">Cédula de ciudadania</option>
-                    <option value="document2">Cédula de extranjeria</option>
-                    <option value="document3">Pasaporte</option>
-                    <option value="document4">P.P.T</option>
+                    <option value="Citizenship ID">Cédula de ciudadania</option>
+                    <option value="NIT">NIT</option>
+                    <option value="Foreigner ID">Cédula de extranjeria</option>
+                    <option value="Passport">Pasaporte</option>
+                    <option value="P.P.T">P.P.T</option>
+
                 </select>
                 <p>Número de identificación:</p>
                 <input type="text" id="numberId" placeholder="Número de Documento*">
@@ -99,26 +99,37 @@
                 <input type="text" id="ciiuCode" placeholder="Código CIIU*">
                 <p>Categoría:</p>
                 <select id="categoriesCompany" name="Document-Type">
-                    <option value="document1">Construcción</option>
-                    <option value="document2">Remodelación</option>
-                    <option value="document3">Reparación</option>
+                    <option value="Construction">Construcción</option>
+                    <option value="Remodeling">Remodelación</option>
+                    <option value="Repair">Reparación</option>
                 </select>
                 <p>Especialidad:</p>
                 <select name="" id="speciality">
                     <option value="" disabled selected>Especialidad</option>
-                    <option value="option1">Carpinteria.</option>
-                    <option value="option2">Electricista</option>
-                    <option value="option3">Plomeria</option>
-                    <option value="option4">Gasodomesticos</option>
+                    <option value="Carpentry">Carpinteria.</option>
+                    <option value="Electricity">Electricidad</option>
+                    <option value="Plumbing">Plomeria</option>
+                    <option value="Gas Appliances">Gasodomesticos</option>
                 </select>
                 <p>Municipios donde trabaja:</p>
                 <div class="dropdown">
                     <button onclick="toggleDropdown()" class="dropbtn">Seleccionar opciones</button>
                     <div id="myDropdown" class="dropdown-content">
-                        <label><input type="checkbox" value="option1"> Option 1</label>
-                        <label><input type="checkbox" value="option2"> Option 2</label>
-                        <label><input type="checkbox" value="option3"> Option 3</label>
-                        <label><input type="checkbox" value="option4"> Option 4</label>
+                    <optgroup label="Municipios del Valle de Aburrá:"></optgroup>
+                        <label><input type="checkbox" value="Bello">Bello</label>
+                        <label><input type="checkbox" value="Medellín">Medellín</label>
+                        <label><input type="checkbox" value="Itagui">Itagui</label>
+                        <label><input type="checkbox" value="Envigado">Envigado</label>
+                        <label><input type="checkbox" value="Sabaneta">Sabaneta</label>
+                        <label><input type="checkbox" value="La Estrella">La Estrella</label>
+                        <label><input type="checkbox" value="Caldas">Caldas</label>
+                        <label><input type="checkbox" value="Copacabana">Copacabana</label>
+                        <label><input type="checkbox" value="Girardota">Girardota</label>
+                        <label><input type="checkbox" value="Barbosa">Barbosa</label>
+                    <optgroup label="Corregimientos:"></optgroup>
+                        <label><input type="checkbox" value="San Cristóbal">San Cristóbal</label>
+                        <label><input type="checkbox" value="San Antonio dePrado">San Antonio de Prado</label>
+                        <label><input type="checkbox" value="Santa Elena">Santa Elena</label>
                     </div>
                 </div>
                 <p>Dirección de E-mail:</p>
@@ -142,10 +153,13 @@
                             name="file">
                     </div>
                 </div>
+                <label id="center" for="comment"><p>Añada un descripcion de su empresa:</p></label>
+                <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Escribe tu comentario aquí..."></textarea>
+
             </div>
             <div class="companyInformationBelow">
-                <div class="submitProfileDiv"><button class="submitProfile" id="submitButton"
-                        type="button">Registrarse</button></div>
+                <div><button class="submitProfile" id="submitButton"
+                    type="button">Registrarse</button></div>
             </div>
         </div>
     </div>
