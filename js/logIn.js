@@ -1,24 +1,3 @@
-// document.addEventListener("DOMContentLoaded", async () => {
-//     const URL = "http://localhost:3000/userRegistration";
-//     const specificEmail = document.querySelector('#emailLogInForm');
-//     const specificPassword = document.querySelector('#passwordLogInForm');
-//     document.querySelector('#logInForm').addEventListener('submit', async (event) => {
-//         event.preventDefault()
-//         try {
-//             const response = await fetch(URL);
-//             const user = await response.json();
-//             const filteresUser = user.filter(user => user.email === specificEmail && user.password === specificPassword);
-//             if (filteresUser) {
-//                 window.location.replace('./../index.html')
-//             }
-//         }
-//         catch (error) {
-//             console.error('Error loading user profiles:', error);
-//         }
-//     })
-    
-// });
-
 document.addEventListener("DOMContentLoaded", async () => {
     const URLUser = 'http://localhost:3000/userRegistration';
     const URLCompany = 'http://localhost:3000/companyName';
@@ -52,10 +31,12 @@ document.addEventListener("DOMContentLoaded", async () => {
             const filteredCompany = company.find(company => company.companyEmail === specificEmail && company.companyPassword === specificPassword);
             const filteredUser = users.find(user => user.email === specificEmail && user.password === specificPassword);
             if (filteredUser) {
-                redirect();
+                localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
+                redirect('./../html/userProfile.html');
             } 
             else if (filteredCompany){
-                window.location.replace('./../html/companyProfile.html');
+                localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
+                redirect('./../html/companyProfile.html');
             }
             else {
                 console.error('No matching user found.');
@@ -65,8 +46,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    function redirect() {
-        window.location.replace('./../html/userProfile.html');
+    function redirect(url) {
+        window.location.replace(url);
     }
 });
-
