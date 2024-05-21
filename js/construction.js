@@ -33,6 +33,19 @@ document.addEventListener("DOMContentLoaded", async () => {
         filterAndDisplayUsers();
     });
 
+    // Crear y añadir el botón de limpiar filtros
+    const clearFilterButton = document.createElement('button');
+    clearFilterButton.textContent = "Limpiar Filtros";
+    clearFilterButton.addEventListener('click', () => {
+        cityFilter.value = '';
+        specialFilter.value = '';
+        currentPage = 1; // Reiniciar a la primera página
+        filterAndDisplayUsers();
+    });
+
+    // Añadir el botón debajo de los filtros
+    specialFilter.parentNode.appendChild(clearFilterButton);
+
     function filterAndDisplayUsers() {
         // Obtener los valores actuales de los filtros
         const city = cityFilter.value;
@@ -210,7 +223,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     function addPaginationControls(totalItems) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-        const paginationContainer = document.createElement('div');
+        // Limpiar el contenedor de paginación antes de agregar nuevos botones
+        let paginationContainer = document.querySelector('.pagination');
+        if (paginationContainer) {
+            paginationContainer.remove();
+        }
+
+        paginationContainer = document.createElement('div');
         paginationContainer.classList.add('pagination');
 
         for (let i = 1; i <= totalPages; i++) {
@@ -230,3 +249,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         profilesContainer.appendChild(paginationContainer);
     }
 });
+
