@@ -188,4 +188,21 @@ font-size: 14px;
     color: black;
     }
 
+    .userImage {
+        width: 200px; /* Ajusta el ancho según tus necesidades */
+        height: 200px; /* Ajusta la altura según tus necesidades */
+        border: 1px solid #ccc; /* Añade un borde para visualizar mejor los contenedores */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el tamaño del contenedor */
+      }
+      
+      .userImage img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain; /* Ajusta la imagen para que quepa dentro del contenedor sin deformarse */
+      }
+      
+
 }

@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const specificEmailUser = "carvajaljuliana11@gmail.com";
     const userProfilePhoto = document.querySelector('#userProfilePhoto');
     const userProfileName = document.querySelector('#userProfileName');
+    const UserProfileImg1 = document.getElementById('UserProfileImg1');
+    const UserProfileImg2= document.getElementById('UserProfileImg2');
+    const UserProfileImg3 = document.getElementById('UserProfileImg3');
+
     const stars = document.querySelectorAll('.star');
     let currentRating = 0;
 
@@ -36,6 +40,9 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error('Error loading user profiles:', error);
         profilesContainer.textContent = "Error loading user profiles.";
     }
+
+
+
 
     stars.forEach((star, index) => {
         star.addEventListener('click', () => {
@@ -92,4 +99,40 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.error('Error de red:', error);
         });
     }
+
+    function insertarImagen(inputElement, divSelector) {
+        const files = inputElement.files[0];
+        if (files) {
+          const reader = new FileReader();
+          reader.onload = function(event) {
+            const img = document.createElement("img");
+            img.src = event.target.result;
+            const div = document.querySelector(divSelector);
+            div.innerHTML = ''; // Limpiar el contenido previo del div
+            div.appendChild(img);
+          };
+          reader.readAsDataURL(files);
+        } else {
+          alert("Por favor selecciona una imagen");
+        }
+      }
+
+    insertarImagen(UserProfileImg1)
+    insertarImagen(UserProfileImg2)
+    insertarImagen(UserProfileImg3)
+
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
