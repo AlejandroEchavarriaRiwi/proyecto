@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const filteredUsers = users.filter(user => user.categoriesCompany === specificUserDocument);
     
         if (filteredUsers.length > 0) {
-        // Tomar el primer usuario de la lista filtrada
+        // Tomar el primer usuario de la lista filtrada\[kjo;k]
         const user = filteredUsers[0];
 
         const profileDiv = document.createElement('div');
