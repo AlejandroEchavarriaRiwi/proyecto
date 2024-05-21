@@ -109,6 +109,15 @@ resize: vertical;
 font-family: Arial, sans-serif; 
 font-size: 14px;
 }
+.star-rating {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+}
+
+.star-rating .star.active {
+    color: #ff9800;
+}
 
 @media(min-width: 720px){
     #comment{
@@ -136,6 +145,7 @@ font-size: 14px;
     }
     .rating{
         display: flex;
+        cursor: pointer;
     }
     .userImage{
         width: 25vw;
