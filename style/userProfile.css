@@ -114,41 +114,49 @@ font-size: 14px;
     #comment{
         width: 35vw;
         height: 150px;
+
     }
     .userProfileImages{
         display: flex;
-        width: 80vw;
-        height: 70vh;
-        margin-top: 5px;
-        justify-content: space-around;
+        width: 70vw;
+        height: 60vh;
+        justify-content: space-between;
+        margin-top: 150px;
     }
     .userProfileFeedback h5{
-        margin-top: 10px;
+        margin-top: 50px;
+    }
+    form{
+        display: flex;
+        flex-direction: row;
+
     }
     .userProfileFeedback{
     display: flex;
+    background-color: aqua;
     }
     .rating{
         display: flex;
-        margin-top: 30px;
     }
     .userImage{
         width: 25vw;
         height: 40vh;
         display: flex;
+        margin: 5px;
     }
     .userProfileInformation{  /* Este es la clase del div vacio donde va la foto y el nombre que se le va a inyectar */
         display: flex;
-        width: 250px;
-        height: 250px;
+        width: 300px;
+        height: 350px;
         flex-direction: column;
         align-items: center;
+        background-color: blue;
     }
 
     #userProfilePhoto{      /* Este es la clase del div vacio donde se  va a inyectar la foto*/
         background-color: white;
-        width: 150px;
-        height: 150px;
+        width: 300px;
+        height: 300px;
         border-radius: 50%;
         margin-bottom: 15px;
     }
@@ -158,7 +166,7 @@ font-size: 14px;
     }
 
     #userProfilePhoto img{
-        width: 160px;
+        width: 200px;
         height: 160px;
         margin-top: 5px;
         border-radius: 10px;
