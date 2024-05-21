@@ -112,26 +112,26 @@
                     <option value="Gasodomesticos">Gasodomesticos</option>
                 </select>
                 <p>Municipios donde trabaja:</p>
-                <div class="dropdown">
-                    <button onclick="toggleDropdown()" class="dropbtn">Seleccionar opciones</button>
-                    <div id="myDropdown" class="dropdown-content">
-                    <optgroup label="Municipios del Valle de Aburrá:"></optgroup>
-                        <label><input type="checkbox" value="Bello">Bello</label>
-                        <label><input type="checkbox" value="Medellín">Medellín</label>
-                        <label><input type="checkbox" value="Itagui">Itagui</label>
-                        <label><input type="checkbox" value="Envigado">Envigado</label>
-                        <label><input type="checkbox" value="Sabaneta">Sabaneta</label>
-                        <label><input type="checkbox" value="La Estrella">La Estrella</label>
-                        <label><input type="checkbox" value="Caldas">Caldas</label>
-                        <label><input type="checkbox" value="Copacabana">Copacabana</label>
-                        <label><input type="checkbox" value="Girardota">Girardota</label>
-                        <label><input type="checkbox" value="Barbosa">Barbosa</label>
-                    <optgroup label="Corregimientos:"></optgroup>
-                        <label><input type="checkbox" value="San Cristóbal">San Cristóbal</label>
-                        <label><input type="checkbox" value="San Antonio dePrado">San Antonio de Prado</label>
-                        <label><input type="checkbox" value="Santa Elena">Santa Elena</label>
-                    </div>
-                </div>
+                <select id="cityFilter">
+                    <option value="" selected disabled>Ciudad</option>
+                                <optgroup label="Municipios del Valle de Aburrá">
+                                    <option value="Bello">Bello</option>
+                                    <option value="Medellín">Medellín</option>
+                                    <option value="Itaguí">Itaguí</option>
+                                    <option value="Envigado">Envigado</option>
+                                    <option value="Sabaneta">Sabaneta</option>
+                                    <option value="La Estrella">La Estrella</option>
+                                    <option value="Caldas">Caldas</option>
+                                    <option value="Copacabana">Copacabana</option>
+                                    <option value="Girardota">Girardota</option>
+                                    <option value="Barbosa">Barbosa</option>
+                                </optgroup>
+                                <optgroup label="Corregimientos:">
+                                    <option value="San Cristóbal">San Cristóbal</option>
+                                    <option value="San Antonio de Prado">San Antonio de Prado</option>
+                                    <option value="Santa Elena">Santa Elena</option>
+                                </optgroup>
+                </select>
                 <p>Dirección de E-mail:</p>
                 <input type="text" id="companyEmail" placeholder="email@janet.net*">
                 <p>Contraseña:</p>
