@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function redirect() {
-        window.location.href = './companyProfile.html';
+        window.location.href = './../companyProfile.html';
     }
 });
 
