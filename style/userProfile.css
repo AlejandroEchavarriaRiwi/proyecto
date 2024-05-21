@@ -129,11 +129,10 @@ font-size: 14px;
     form{
         display: flex;
         flex-direction: row;
-
     }
     .userProfileFeedback{
     display: flex;
-    background-color: aqua;
+    height: 130vh;
     }
     .rating{
         display: flex;
@@ -147,16 +146,17 @@ font-size: 14px;
     .userProfileInformation{  /* Este es la clase del div vacio donde va la foto y el nombre que se le va a inyectar */
         display: flex;
         width: 300px;
-        height: 350px;
+        height: 250px;
         flex-direction: column;
         align-items: center;
-        background-color: blue;
+
+        margin-right: 50px;
     }
 
     #userProfilePhoto{      /* Este es la clase del div vacio donde se  va a inyectar la foto*/
-        background-color: white;
-        width: 300px;
-        height: 300px;
+    
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         margin-bottom: 15px;
     }
@@ -166,16 +166,16 @@ font-size: 14px;
     }
 
     #userProfilePhoto img{
-        width: 200px;
-        height: 160px;
+        width:150px;
+        height: 150px;
         margin-top: 5px;
-        border-radius: 10px;
+        border-radius: 50%;
     }
 
     #userProfileName h4 {
     display: flex;
     justify-content: center;
     color: black;
-
     }
+
 }
