@@ -23,16 +23,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerDocument2 = document.querySelector('#registerDocument2');
     const submitButton = document.querySelector('#submitButton');
     const municipalityDropdown = document.querySelector('#myDropdown');
+    const comment = document.querySelector('#comment');
+
+    const checkboxes = document.querySelectorAll('#myDropdown input[type="checkbox"]');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            if (this.checked) {
+                this.parentElement.classList.add('selected');
+            } else {
+                this.parentElement.classList.remove('selected');
+            }
+        });
+    });
+
 
     submitButton.addEventListener('click', async (event) => {
         event.preventDefault();
         const file = imageUser.files[0];
+        const document1 = registerDocument1.files[0];
+        const document2 = registerDocument2.files[0];
 
-        if (file) {
+        if (file && document1 && document2) {
             const reader = new FileReader();
+
             reader.onload = async function(event) {
                 const base64String = event.target.result.split(',')[1];
-                console.log("Main Image Base64:", base64String); // Debugging
+                console.log("Main Image Base64:", base64String); // Debuggi
+
+                const doc1Base64 = await convertToBase64(document1);
+                const doc2Base64 = await convertToBase64(document2);
 
                 // Convertir archivos adicionales a Base64
                 const imagenesBase64Promises = Array.from(archivos).map(fileInput => {
@@ -72,9 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     companyEmail: companyEmail.value,
                     companyPassword: companyPassword.value,
                     companyAddress: companyAddress.value,
-                    registerDocument1: registerDocument1.value,
-                    registerDocument2: registerDocument2.value,
-                    ourPhotos: ourPhotos.value
+                    registerDocument1: doc1Base64,
+                    registerDocument2: doc2Base64,
+                    ourPhotos: ourPhotos.value,
+                    comment : comment.value
                     // Añadir los municipios seleccionados
                 };
 
