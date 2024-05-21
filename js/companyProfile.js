@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const companyEmailContainer = document.querySelector('#companyEmail');
     const companyAddressContainer = document.querySelector('#companyAddress');
     const commentContainer = document.querySelector('#companyComment');
-    const userMail = "rickMorty@gmail.com"
+    const userMail = localStorage.getItem('userEmail')
     try {
         const response = await fetch(URL);
         const userCompany = await response.json();
@@ -54,6 +54,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             const whatsappNumber = document.createElement('p');
             whatsappNumber.textContent = `${user.whatsappNumber}`;
             const category = document.createElement('p');
+            const specializationTitle = document.createElement('h3');
+            specializationTitle.textContent = 'Especializacion:';
             category.textContent = `${user.categoriesCompany}`;
             const specialization = document.createElement('p');
             specialization.textContent = `${user.speciality}`;
@@ -75,6 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             companyWhatsappContainer.appendChild(whatsappTitle);
             companyWhatsappContainer.appendChild(whatsappNumber);
             companyCategoryContainer.appendChild(category);
+            companySpecializationContainer.appendChild(specializationTitle);
             companySpecializationContainer.appendChild(specialization);
             companyEmailContainer.appendChild(email);
             companyAddressContainer.appendChild(address);
