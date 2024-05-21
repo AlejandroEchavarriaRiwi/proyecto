@@ -3,7 +3,18 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+button{
+    background-color: rgb(40, 209, 70);
+    padding: 10px 30px;
+}
+button:hover, button a:hover {
+    background-color: rgb(0, 238, 44);
+    transition: linear 0.5s;
+}
+button a {
+    text-decoration: none;
+    color: white;
+}
 #userProfiles {
     display: flex;
     flex-direction: column;
@@ -86,6 +97,7 @@
 }
 
 .modal {
+    text-align: center;
     display: none;
     position: fixed;
     z-index: 1000;

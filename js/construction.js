@@ -24,8 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const nameElement = document.createElement('h2');
                 nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
 
-                const emailElement = document.createElement('h4')
-                emailElement.textContent = `${user.companyEmail}`
+                const emailElement = document.createElement('button')
+                emailElement.innerHTML = `<a target="_blank" href="mailto:${user.companyEmail}">Enviar E-mail</a>`
+                
+                const contactWhatsapp = document.createElement('button')
+                contactWhatsapp.innerHTML = `<a target="_blank" href="https://api.whatsapp.com/send?phone=${user.whatsappNumber}">Whatsapp</a>`
 
                 const ageElement = document.createElement('p');
                 ageElement.textContent = `Age: ${user.age}`;
@@ -71,6 +74,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 modalContent.appendChild(closeBtn);
                 modalContent.appendChild(nameElement);
                 modalContent.appendChild(emailElement)
+                modalContent.appendChild(contactWhatsapp)
                 modal.appendChild(modalContent);
                 profileDiv.appendChild(modal);
 
