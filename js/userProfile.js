@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             updateStars(currentRating);
         });
     });
+    
 
     function resetStars() {
         stars.forEach(star => star.classList.remove('active'));
