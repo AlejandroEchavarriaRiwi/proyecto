@@ -66,24 +66,24 @@
         <div class="userProfileFeedback">
             <h5> ¡Por favor, Danos tu  feedback !</h5>
 
-            <div class="userProfileImages">
-                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
-                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
-                </div>
-                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
-                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
-                </div>
-                <div class="userImage" onclick="document.querySelector('.fileInput').click();">
-                    <input type="file" class="fileInput" accept="image/*" onchange="mostrarImagen(this);">
-                </div>
-            </div>
+           <div class="userProfileImages">
+  <div id="UserProfileImg1" class="userImage" onclick="document.querySelector('#UserProfileImg1 .fileInput').click();">
+    <input type="file" class="fileInput" accept="image/*" onchange="insertarImagen(this, '#UserProfileImg1')">
+  </div>
+  <div id="UserProfileImg2" class="userImage" onclick="document.querySelector('#UserProfileImg2 .fileInput').click();">
+    <input type="file" class="fileInput" accept="image/*" onchange="insertarImagen(this, '#UserProfileImg2')">
+  </div>
+  <div id="UserProfileImg3" class="userImage" onclick="document.querySelector('#UserProfileImg3 .fileInput').click();">
+    <input type="file" class="fileInput" accept="image/*" onchange="insertarImagen(this, '#UserProfileImg3')">
+  </div>
+</div>
 
-            <div class="rating">
-                <i class="bi bi-star-fill star "></i>
-                <i class="bi bi-star-fill star "></i>
-                <i class="bi bi-star-fill star "></i>
-                <i class="bi bi-star-fill star "></i>
-                <i class="bi bi-star-fill star "></i>
+            <div class="star-rating">
+                <span class="star" data-value="1">&#9733;</span>
+                <span class="star" data-value="2">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="4">&#9733;</span>
+                <span class="star" data-value="5">&#9733;</span>
             </div>
             <div class="commentDiv">
                 <textarea id="comment" placeholder="COMENTARIOS" name="comment" rows="5" required></textarea>
