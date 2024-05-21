@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Filtrar los usuarios que coincidan con el tipo de empresa y los filtros
         const filteredUsers = users.filter(user => {
             return user.categoriesCompany === companyType &&
-                (!city || user.city === city) &&
-                (!special || user.special === special);
+                (!city || user.myDropdown === city) &&
+                (!special || user.speciality === special);
         });
 
         // Limpiar el contenedor de perfiles
@@ -64,6 +64,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 const nameElement = document.createElement('h2');
                 nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
+
+                const description = document.createElement('p');
+                description.textContent = `${user.comment}`;
 
                 const emailElement = document.createElement('button');
                 emailElement.innerHTML = `<a target="_blank" href="mailto:${user.companyEmail}">Enviar E-mail</a>`;
@@ -114,6 +117,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 
                 modalContent.appendChild(closeBtn);
                 modalContent.appendChild(nameElement);
+                modalContent.appendChild(description);
                 modalContent.appendChild(emailElement);
                 modalContent.appendChild(contactWhatsapp);
                 modal.appendChild(modalContent);
