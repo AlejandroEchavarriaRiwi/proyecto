@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Mostrar la imagen principal del usuario
         const imgElement = document.createElement('img');
-        imgElement.src = data:image/png;base64,${user.image};
-        imgElement.alt = ${user.responsableName} ${user.responsableLastName};
+        imgElement.src = `data:image/png;base64,${user.image}`;
+        imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
         imgElement.classList.add('profileImage');
 
         const nameElement = document.createElement('h4');
-        nameElement.textContent = ${user.name} ${user.lastNames};
+        nameElement.textContent = `${user.name} ${user.lastNames}`;
 
         userProfilePhoto.appendChild(imgElement);
         userProfileName.appendChild(nameElement);
