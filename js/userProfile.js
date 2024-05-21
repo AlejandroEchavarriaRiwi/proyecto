@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const UserProfileImg2= document.getElementById('UserProfileImg2');
     const UserProfileImg3 = document.getElementById('UserProfileImg3');
 
+    console.log(UserProfileImg1);
+
     const stars = document.querySelectorAll('.star');
     let currentRating = 0;
 
@@ -61,6 +63,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             updateStars(currentRating);
         });
     });
+    
 
     function resetStars() {
         stars.forEach(star => star.classList.remove('active'));
@@ -100,6 +103,35 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+UserProfileImg1.addEventListener("click",(event) =>{
+   console.log(event.target); 
+   const input=event.target.children[0]
+   input.click()
+  input.addEventListener("change", ()=>{
+    insertarImagen(input, UserProfileImg1)
+  })
+
+})
+
+UserProfileImg2.addEventListener("click", (event) =>{
+    console.log(event.target);
+    const input=event.target.children[0]
+    input.click()
+    input.addEventListener("change",()=>{
+        insertarImagen(input,UserProfileImg2)
+    })
+
+})
+
+UserProfileImg3.addEventListener("click", (event)=>{
+    console.log(event.target);
+    const input= event.target.children[0]
+    input.click()
+    input.addEventListener("change",()=>{
+        insertarImagen(input,UserProfileImg3)
+    })
+})
+
     function insertarImagen(inputElement, divSelector) {
         const files = inputElement.files[0];
         if (files) {
@@ -107,13 +139,15 @@ document.addEventListener("DOMContentLoaded", async () => {
           reader.onload = function(event) {
             const img = document.createElement("img");
             img.src = event.target.result;
-            const div = document.querySelector(divSelector);
-            div.innerHTML = ''; // Limpiar el contenido previo del div
-            div.appendChild(img);
+             divSelector.style.backgroundImage="none"
+             img.style.backgroundImage="none"
+             divSelector.style.background="none"
+         img.classList.add("userImage")
+            divSelector.innerHTML = ''; // Limpiar el contenido previo del divSelector
+            divSelector.appendChild(img);
           };
           reader.readAsDataURL(files);
-        } else {
-          alert("Por favor selecciona una imagen");
+     console.log(reader);
         }
       }
 
