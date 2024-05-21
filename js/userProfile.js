@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "http://localhost:3000/companyName";
+    const URL = "http://localhost:3000/userRegistration";
     const profilesContainer = document.querySelector('#userProfilePhoto');
-    const specificUserDocument = "document1";
+    const specificEmailUser = "carvajaljuliana11@gmail.com";
     const userProfilePhoto = document.querySelector('#userProfilePhoto')
     const userProfileName = document.querySelector('#userProfileName')
     try {
         const response = await fetch(URL);
         const users = await response.json();
-        const filteredUsers = users.filter(user => user.categoriesCompany === specificUserDocument);
+        const filteredUsers = users.filter(user => user.email === specificEmailUser);
     
         if (filteredUsers.length > 0) {
-        // Tomar el primer usuario de la lista filtrada\[kjo;k]
+        // Tomar el primer usuario de la lista filtrada
         const user = filteredUsers[0];
 
         const profileDiv = document.createElement('div');
@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Mostrar la imagen principal del usuario
         const imgElement = document.createElement('img');
-        imgElement.src = `data:image/png;base64,${user.image}`;
-        imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
+        imgElement.src = data:image/png;base64,${user.image};
+        imgElement.alt = ${user.responsableName} ${user.responsableLastName};
         imgElement.classList.add('profileImage');
 
         const nameElement = document.createElement('h4');
-        nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
+        nameElement.textContent = ${user.name} ${user.lastNames};
 
         userProfilePhoto.appendChild(imgElement);
         userProfileName.appendChild(nameElement);
@@ -52,4 +52,3 @@ stars.forEach(function(star, index) {
 
     })
 })
-
