@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Filtrar los usuarios que coincidan con el tipo de empresa y los filtros
         const filteredUsers = users.filter(user => {
             return user.categoriesCompany === companyType &&
-                (!city || user.myDropdown === city) &&
+                (!city || user.city === city) &&
                 (!special || user.speciality === special);
         });
 

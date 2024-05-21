@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const registerDocument1 = document.querySelector('#registerDocument1');
     const registerDocument2 = document.querySelector('#registerDocument2');
     const submitButton = document.querySelector('#submitButton');
-    const municipalityDropdown = document.querySelector('#myDropdown');
+    const municipalityDropdown = document.querySelector('#cityFilter');
     const comment = document.querySelector('#comment');
 
     const checkboxes = document.querySelectorAll('#myDropdown input[type="checkbox"]');
@@ -68,11 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log("Additional Images Base64:", imagenesBase64); // Debugging
 
-                // Obtener los valores seleccionados de los checkboxes
-                const selectedMunicipalities = Array.from(municipalityDropdown.querySelectorAll('input[type="checkbox"]:checked'))
-                    .map(checkbox => checkbox.value);
-                console.log("Selected Municipalities:", selectedMunicipalities); // Debugging
-
                 const newUser = {
                     id: idUser,
                     image: base64String,
@@ -88,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     ciiuCode: ciiuCode.value,
                     categoriesCompany: categoriesCompany.value,
                     speciality: speciality.value,
-                    municipalities: selectedMunicipalities,
+                    city: municipalityDropdown.value,
                     companyEmail: companyEmail.value,
                     companyPassword: companyPassword.value,
                     companyAddress: companyAddress.value,
@@ -148,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function redirect() {
-        window.location.href = './../companyProfile.html';
+        window.location.href = './companyProfile.html';
     }
 });
 
