@@ -23,16 +23,24 @@ button a {
     justify-content: center;
     padding: 20px;
 }
-
 #filters{
+    width: 100vw;
     color: white;
-    padding-top: 20px;
     text-align: center;
     background: #283048;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#filters h3{
+    margin-top: 10px;
 }
 #filters select{
     width: 60%;
-
+}
+#filters button{
+    width: 70vw;
+    margin-bottom: 20px;
 }
 .profileImage {
     position: absolute;
@@ -77,7 +85,7 @@ button a {
     object-fit: contain; /* Mantén las proporciones de la imagen */
 }
 
-.btn-left, .btn-right {
+/* .btn-left, .btn-right {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -94,7 +102,7 @@ button a {
 
 .btn-right {
     right: 10px;
-}
+} */
 
 .modal {
     text-align: center;
@@ -139,6 +147,10 @@ button a {
         padding-top: 40px;
         text-align: center;
         background: #283048;
+    }
+
+    #filters button{
+        width: 60%;
     }
 
     #userProfiles {
