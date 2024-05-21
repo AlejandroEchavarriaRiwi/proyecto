@@ -19,7 +19,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const companyDocumentRegister = document.querySelector('#companyDocumentoRegister');
     const companyEmailContainer = document.querySelector('#companyEmail');
     const companyAddressContainer = document.querySelector('#companyAddress');
-    const userMail = "homecenter@homecenter.com.co"
+    const commentContainer = document.querySelector('#companyComment');
+    const userMail = "rickMorty@gmail.com"
     try {
         const response = await fetch(URL);
         const userCompany = await response.json();
@@ -60,6 +61,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             email.textContent = `${user.companyEmail}`;
             const address = document.createElement('p');
             address.textContent = `${user.companyAddress}`;
+            const description = document.createElement('p');
+            description.textContent = `${user.comment}`;
             // Agremamos la imagen al lugar correspondiente.
             welcome.appendChild(welcomeName);
             logoContainer.appendChild(imgLogo);
@@ -75,6 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             companySpecializationContainer.appendChild(specialization);
             companyEmailContainer.appendChild(email);
             companyAddressContainer.appendChild(address);
+            commentContainer.appendChild(comment);
         }
         else{
             perfilWarning.textContent = 'User not found.';
