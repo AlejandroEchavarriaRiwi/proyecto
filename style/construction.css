@@ -167,6 +167,12 @@ button a {
     #hideButtonM button{
         margin: 5px ;
     }
+    #hideButtonC{
+        display: none;
+    }
+    #hideButtonM{
+        display: block;
+    }
 
 @media (min-width:720px) {
     #hideButtonC{
@@ -185,6 +191,9 @@ button a {
         padding-top: 40px;
         text-align: center;
         background: #283048;
+    }
+    #filterButton{
+        width: 29vw;
     }
 
     .buttonWhatsapp:hover, .buttonWhatsapp a:hover {
