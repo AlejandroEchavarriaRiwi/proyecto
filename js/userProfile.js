@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const buttonSubmit= document.getElementById('buttonSubmit');
     const allRiviews= document.getElementById('allRiviews')
 
+
+
     // adding a listener to the botton and calling each input
     buttonSubmit.addEventListener("click", function(){
         const UserProfileImg1= document.getElementById("UserProfileImg1").files[0];
@@ -22,20 +24,57 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (UserProfileImg1 && UserProfileImg2 & UserProfileImg3 & commentText ){
             let reader = new FileReader();
-            reader.onload = function(){
-                let card= document.createElement("div"); // creating a new div where is going to be each reviw
+            reader.onload = function(event){
+                let card= document.createElement("div"); // creating a new div where is going to be each review
                 card.classList.add("card");
                 card.innerHTML=`
                 <div class="photoReviews">
-                <img src="${imageSources[0]}" alt="UserProfileImg1">
-                <img src="${imageSources[1]}" alt="UserProfileImg2">
-                <img src="${imageSources[2]}" alt="UserProfileImg3">
-            </div>
-            <div class="commentOut"><p>${commentText}</p></div>`;
-            document.getElementById("allReviews").appendChild(card);
-            }
+                <h2> aqui esta las imagenes</h2>
+                </div>`;
+
+                document.getElementById("allReviews").appendChild(card);
+
+                //saving the profile in local storage
+                savingReview(commentText, event.target.result);
+
+
+            };
+            reader.readAsDataURL(photo);
         }
+
+        //function to place in the jason
+        function readImage(file, index) {
+            let reader = new FileReader();
+            reader.onload = function(event) {
+                imageSources[index] = event.target.result;
+                imagesLoaded++;
+                checkImagesLoaded();
+            };
+            reader.readAsDataURL(file);
+
+            readImage(UserProfileImg1, 0);
+            readImage(UserProfileImg2, 1);
+            readImage(UserProfileImg3, 2);
+        }
+        
+        function savingReview(comment, imageSources) {
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            let newReview = {
+                commentText: commentText,
+                images: imageSources
+            };
+
+            console.log(reviews)
+            reviews.push(newReview);
+            localStorage.setItem("reviews",JSON.stringify(reviews));
+        }
+
+
+        
     })
+    
+
+
 
     console.log(UserProfileImg1);
 
@@ -107,6 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         });
     }
 
+// funtion for the stars and rating 
     function sendRatingToJSON(rating) {
         const feedback = {
             rating: rating
@@ -130,36 +170,37 @@ document.addEventListener("DOMContentLoaded", async () => {
             console.error('Error de red:', error);
         });
     }
+// adding the photos for the Review
+    UserProfileImg1.addEventListener("click",(event) =>{
+            console.log(event.target); 
+        const input=event.target.children[0]
+        input.click()
+        input.addEventListener("change", ()=>{
+            insertarImagen(input, UserProfileImg1)
+        })
 
-UserProfileImg1.addEventListener("click",(event) =>{
-    console.log(event.target); 
-   const input=event.target.children[0]
-   input.click()
-  input.addEventListener("change", ()=>{
-    insertarImagen(input, UserProfileImg1)
-  })
-
-})
-
-UserProfileImg2.addEventListener("click", (event) =>{
-    console.log(event.target);
-    const input=event.target.children[0]
-    input.click()
-    input.addEventListener("change",()=>{
-        insertarImagen(input,UserProfileImg2)
     })
 
-})
+    UserProfileImg2.addEventListener("click", (event) =>{
+        console.log(event.target);
+        const input=event.target.children[0]
+        input.click()
+        input.addEventListener("change",()=>{
+            insertarImagen(input,UserProfileImg2)
+        })
 
-UserProfileImg3.addEventListener("click", (event)=>{
-    console.log(event.target);
-    const input= event.target.children[0]
-    input.click()
-    input.addEventListener("change",()=>{
-        insertarImagen(input,UserProfileImg3)
     })
-})
 
+    UserProfileImg3.addEventListener("click", (event)=>{
+        console.log(event.target);
+        const input= event.target.children[0]
+        input.click()
+        input.addEventListener("change",()=>{
+            insertarImagen(input,UserProfileImg3)
+        })
+    })
+
+// functioon to add the photos. 
     function insertarImagen(inputElement, divSelector) {
         const files = inputElement.files[0];
         if (files) {
@@ -178,29 +219,26 @@ UserProfileImg3.addEventListener("click", (event)=>{
      console.log(reader);
         }
     }
+});
 
+//Saving the information to the card
 
-    
-// We are doing the button for the photos.
-    buttonSubmit.addEventListener("submit",(event)=>{
-        event.preventDefault()
-        Submit()
-    })
+    savingReview(commentText, event.target.result);{
+        let card = JSON.parse(localStorage.getItem("card")) || [];
+        card.push({
+            rating:rating,
+            commentText:commentText
 
-    async function Submit(){
-        const response = await fetch ("http://localhost:3000/feedback")
-        const data= response.json()
-        console.log(data);
+        })
+        localStorage.setItem("card", JSON.stringify(card));
     }
-
 
     insertarImagen(UserProfileImg1)
     insertarImagen(UserProfileImg2)
     insertarImagen(UserProfileImg3)
 
-   
 
-});
+
 
 
 
