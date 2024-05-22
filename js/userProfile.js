@@ -8,6 +8,34 @@ document.addEventListener("DOMContentLoaded", async () => {
     const UserProfileImg1 = document.getElementById('UserProfileImg1');
     const UserProfileImg2= document.getElementById('UserProfileImg2');
     const UserProfileImg3 = document.getElementById('UserProfileImg3');
+    
+    // calling the button and the empty div where every user profile is going to give their feedback.
+    const buttonSubmit= document.getElementById('buttonSubmit');
+    const allRiviews= document.getElementById('allRiviews')
+
+    // adding a listener to the botton and calling each input
+    buttonSubmit.addEventListener("click", function(){
+        const UserProfileImg1= document.getElementById("UserProfileImg1").files[0];
+        const UserProfileImg2= document.getElementById("UserProfileImg2").files[0];
+        const UserProfileImg3= document.getElementById("UserProfileImg3").files[0];
+        const commentText= document.getElementById("commentText").value; 
+
+        if (UserProfileImg1 && UserProfileImg2 & UserProfileImg3 & commentText ){
+            let reader = new FileReader();
+            reader.onload = function(){
+                let card= document.createElement("div"); // creating a new div where is going to be each reviw
+                card.classList.add("card");
+                card.innerHTML=`
+                <div class="photoReviews">
+                <img src="${imageSources[0]}" alt="UserProfileImg1">
+                <img src="${imageSources[1]}" alt="UserProfileImg2">
+                <img src="${imageSources[2]}" alt="UserProfileImg3">
+            </div>
+            <div class="commentOut"><p>${commentText}</p></div>`;
+            document.getElementById("allReviews").appendChild(card);
+            }
+        }
+    })
 
     console.log(UserProfileImg1);
 
@@ -51,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             resetStars();
             currentRating = index + 1;
             updateStars(currentRating);
-            // sendRatingToJSON(currentRating);
+            sendRatingToJSON(currentRating);
         });
 
         star.addEventListener('mouseover', () => {
@@ -104,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
 UserProfileImg1.addEventListener("click",(event) =>{
-   console.log(event.target); 
+    console.log(event.target); 
    const input=event.target.children[0]
    input.click()
   input.addEventListener("change", ()=>{
@@ -149,11 +177,28 @@ UserProfileImg3.addEventListener("click", (event)=>{
           reader.readAsDataURL(files);
      console.log(reader);
         }
-      }
+    }
+
+
+    
+// We are doing the button for the photos.
+    buttonSubmit.addEventListener("submit",(event)=>{
+        event.preventDefault()
+        Submit()
+    })
+
+    async function Submit(){
+        const response = await fetch ("http://localhost:3000/feedback")
+        const data= response.json()
+        console.log(data);
+    }
+
 
     insertarImagen(UserProfileImg1)
     insertarImagen(UserProfileImg2)
     insertarImagen(UserProfileImg3)
+
+   
 
 });
 
