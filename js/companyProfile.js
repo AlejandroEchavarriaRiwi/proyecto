@@ -35,10 +35,22 @@ document.addEventListener("DOMContentLoaded", async () => {
             imgLogo.alt = `${user.responsableName} ${user.responsableLastName}`;
             imgLogo.classList.add('imgLogo');
             // La funcion para colocar todas las fotos esta en el JS de construction.js
-            const photos = document.createElement('img');
-            photos.src = `data:image/png;base64,${user.image}`;
-            photos.alt = `${user.responsableName} ${user.responsableLastName}`;
-            photos.classList.add('ourphotos');
+            if (user.imagenes && user.imagenes.length > 0) {
+                user.imagenes.forEach((imagenBase64, index) => {
+                    if (index < 6) { // Limita a 6 imágenes
+                        const sectionimg = document.createElement('section');
+                        sectionimg.classList.add('slider-section');
+
+                        const additionalImgElement = document.createElement('img');
+                        additionalImgElement.src = `data:image/png;base64,${imagenBase64}`;
+                        additionalImgElement.alt = `${user.responsableName} ${user.responsableLastName} Image ${index + 1}`;
+                        additionalImgElement.classList.add('additionalProfileImage');
+                        sectionimg.appendChild(additionalImgElement);
+
+                        photosContainer.appendChild(sectionimg);
+                    }
+                });
+            }
             const fullName = document.createElement('h2');
             fullName.textContent = `${user.responsableName} ${user.responsableLastName}`;
             const socialReasonName = document.createElement('h3');
@@ -53,22 +65,30 @@ document.addEventListener("DOMContentLoaded", async () => {
             whatsappTitle.textContent = 'WhatsApp:';
             const whatsappNumber = document.createElement('p');
             whatsappNumber.textContent = `${user.whatsappNumber}`;
+            const categoryTitle = document.createElement('h3');
+            categoryTitle.textContent = 'Categoria:';
             const category = document.createElement('p');
+            category.textContent = `${user.categoriesCompany}`;
             const specializationTitle = document.createElement('h3');
             specializationTitle.textContent = 'Especializacion:';
-            category.textContent = `${user.categoriesCompany}`;
             const specialization = document.createElement('p');
             specialization.textContent = `${user.speciality}`;
             const email = document.createElement('p');
+            const emailTitle = document.createElement('h3');
+            emailTitle.textContent = 'E-mail:';
             email.textContent = `${user.companyEmail}`;
+            const addressTitle = document.createElement('h3');
+            addressTitle.textContent = 'Direccion:';
             const address = document.createElement('p');
             address.textContent = `${user.companyAddress}`;
+            const descriptionTitle = document.createElement('h3');
+            descriptionTitle.textContent = 'Comentario:';
             const description = document.createElement('p');
             description.textContent = `${user.comment}`;
             // Agremamos la imagen al lugar correspondiente.
             welcome.appendChild(welcomeName);
             logoContainer.appendChild(imgLogo);
-            photosContainer.appendChild(photos);
+            // photosContainer.appendChild(photos);
             nameContainer.appendChild(fullName);
             socialReasonContainer.appendChild(socialReasonName);
             socialReasonContainer.appendChild(socialReason);
@@ -76,19 +96,23 @@ document.addEventListener("DOMContentLoaded", async () => {
             companyTelephoneContainer.appendChild(telephone);
             companyWhatsappContainer.appendChild(whatsappTitle);
             companyWhatsappContainer.appendChild(whatsappNumber);
+            companyCategoryContainer.appendChild(categoryTitle);
             companyCategoryContainer.appendChild(category);
             companySpecializationContainer.appendChild(specializationTitle);
             companySpecializationContainer.appendChild(specialization);
+            companyEmailContainer.appendChild(emailTitle);
             companyEmailContainer.appendChild(email);
+            companyAddressContainer.appendChild(addressTitle);
             companyAddressContainer.appendChild(address);
-            commentContainer.appendChild(comment);
+            commentContainer.appendChild(descriptionTitle);
+            commentContainer.appendChild(description);
         }
-        else{
+        else {
             perfilWarning.textContent = 'User not found.';
         }
     }
-        catch (error){
-            console.error('Error loading company profiles:', error);
-            perfilWarning.textContent = 'Error loading company profiles.';
-        }
+    catch (error) {
+        console.error('Error loading company profiles:', error);
+        perfilWarning.textContent = 'Error loading company profiles.';
+    }
 })
