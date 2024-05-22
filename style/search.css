@@ -1,11 +1,14 @@
 @import url(./style.css);
+@import url(./construction.css);
+
 #containerCenterSearch{
     width: 100%;
     display: flex;
     justify-content: center;
-
 }
 .containerSearch{
     width: 80%;
     margin: 30px 0px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
