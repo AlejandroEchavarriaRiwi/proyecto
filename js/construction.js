@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const cityFilter = document.querySelector('#cityFilter');
     const specialFilter = document.querySelector('#specialFilter');
     const companyType = "document1"; // tipo de empresa
+    const hideButtonM = document.querySelector("#hideButtonM")
+    const hideButtonC = document.querySelector("#hideButtonC")
 
     const itemsPerPage = 10; // Número de empresas por página
     let currentPage = 1;
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Crear y añadir el botón de limpiar filtros
     const clearFilterButton = document.createElement('button');
+    clearFilterButton.classList.add("DeleatFiltes")
     clearFilterButton.textContent = "Limpiar Filtros";
     clearFilterButton.addEventListener('click', () => {
         cityFilter.value = '';
@@ -44,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Añadir el botón debajo de los filtros
+    const filterButton = document.querySelector("#filterButton")
     specialFilter.parentNode.appendChild(clearFilterButton);
 
     function filterAndDisplayUsers() {
@@ -82,9 +86,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 description.textContent = `${user.comment}`;
 
                 const emailElement = document.createElement('button');
+                emailElement.classList.add("buttonEmail")
                 emailElement.innerHTML = `<a target="_blank" href="mailto:${user.companyEmail}">Enviar E-mail</a>`;
                 
                 const contactWhatsapp = document.createElement('button');
+                contactWhatsapp.classList.add("buttonWhatsapp")
                 contactWhatsapp.innerHTML = `<a target="_blank" href="https://api.whatsapp.com/send?phone=${user.whatsappNumber}">Whatsapp</a>`;
 
                 const ageElement = document.createElement('p');
@@ -234,6 +240,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         for (let i = 1; i <= totalPages; i++) {
             const pageButton = document.createElement('button');
+            pageButton.classList.add("pageButton")
             pageButton.textContent = i;
             pageButton.classList.add('page-button');
             if (i === currentPage) {
@@ -246,7 +253,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             paginationContainer.appendChild(pageButton);
         }
 
-        profilesContainer.appendChild(paginationContainer);
+        hideButtonM.appendChild(paginationContainer)
+
+        hideButtonC.appendChild(paginationContainer)
     }
 });
 
