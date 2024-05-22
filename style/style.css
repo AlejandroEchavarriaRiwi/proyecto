@@ -16,6 +16,10 @@ h2,h3,h4,h5,h6{
     font-family: "Fraunces", serif;
     font-optical-sizing: auto;
     font-style: normal;
+    color: #121933;
+}
+footer h4 {
+    color: white;
 }
 p, button, input, ul, li, select, label{
     font-family: "DM Sans", sans-serif;
@@ -276,7 +280,6 @@ button{
 .headerUser {
     top: 0;
     width: 100vw;
-    height: 8.5vh;
     position: -webkit-sticky;
     position: sticky;
     background-color: #121933;
@@ -479,5 +482,9 @@ footer {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        color: white;
+    }
+    footer h4 {
+        color: white;
     }
 }
