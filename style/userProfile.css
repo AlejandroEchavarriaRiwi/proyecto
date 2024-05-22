@@ -120,7 +120,7 @@ font-size: 14px;
 }
 
 @media(min-width: 720px){
-    #comment{
+    #commentText{
         width: 35vw;
         height: 150px;
 
