@@ -1,5 +1,11 @@
 @import url(./style.css);
+#containerCenterSearch{
+    width: 100%;
+    display: flex;
+    justify-content: center;
 
-main{
-    height: 100vh;
+}
+.containerSearch{
+    width: 80%;
+    margin: 30px 0px;
 }
