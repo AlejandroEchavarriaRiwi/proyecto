@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const cityFilter = document.querySelector('#cityFilter');
     const specialFilter = document.querySelector('#specialFilter');
     const companyType = "document3"; // tipo de empresa
+    const hideButtonC = document.querySelector("#hideButtonC")
+    const hideButtonM = document.querySelector("#hideButtonM")
 
     const itemsPerPage = 10; // Número de empresas por página
     let currentPage = 1;
@@ -35,6 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Crear y añadir el botón de limpiar filtros
     const clearFilterButton = document.createElement('button');
+    clearFilterButton.classList.add("DeleatFiltes")
     clearFilterButton.textContent = "Limpiar Filtros";
     clearFilterButton.addEventListener('click', () => {
         cityFilter.value = '';
@@ -44,7 +47,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     });
 
     // Añadir el botón debajo de los filtros
-    specialFilter.parentNode.appendChild(clearFilterButton);
+    const filterButton = document.querySelector("#filterButton")
+    filterButton.appendChild(clearFilterButton);
 
     function filterAndDisplayUsers() {
         // Obtener los valores actuales de los filtros
@@ -74,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 imgElement.src = `data:image/png;base64,${user.image}`;
                 imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
                 imgElement.classList.add('profileImage');
-                
+
                 const nameElement = document.createElement('h2');
                 nameElement.textContent = `${user.responsableName} ${user.responsableLastName}`;
 
@@ -82,9 +86,11 @@ document.addEventListener("DOMContentLoaded", async () => {
                 description.textContent = `${user.comment}`;
 
                 const emailElement = document.createElement('button');
+                emailElement.classList.add("buttonEmail")
                 emailElement.innerHTML = `<a target="_blank" href="mailto:${user.companyEmail}">Enviar E-mail</a>`;
-                
+
                 const contactWhatsapp = document.createElement('button');
+                contactWhatsapp.classList.add("buttonWhatsapp")
                 contactWhatsapp.innerHTML = `<a target="_blank" href="https://api.whatsapp.com/send?phone=${user.whatsappNumber}">Whatsapp</a>`;
 
                 const ageElement = document.createElement('p');
@@ -120,14 +126,14 @@ document.addEventListener("DOMContentLoaded", async () => {
                 // Agregar el modal
                 const modal = document.createElement('div');
                 modal.classList.add('modal');
-                
+
                 const modalContent = document.createElement('div');
                 modalContent.classList.add('modal-content');
-                
+
                 const closeBtn = document.createElement('span');
                 closeBtn.classList.add('close');
                 closeBtn.innerHTML = '&times;';
-                
+
                 modalContent.appendChild(closeBtn);
                 modalContent.appendChild(nameElement);
                 modalContent.appendChild(description);
@@ -214,26 +220,29 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
 
             // Agregar controles de paginación
-            addPaginationControls(filteredUsers.length);
+            addPaginationControls(filteredUsers.length, hideButtonC);
+            addPaginationControls2(filteredUsers.length, hideButtonM);
+
         } else {
             profilesContainer.textContent = "Usuario no encontrado.";
         }
     }
 
-    function addPaginationControls(totalItems) {
+    function addPaginationControls(totalItems, container) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
-
+    
         // Limpiar el contenedor de paginación antes de agregar nuevos botones
-        let paginationContainer = document.querySelector('.pagination');
+        let paginationContainer = container.querySelector('.pagination');
         if (paginationContainer) {
             paginationContainer.remove();
         }
-
+    
         paginationContainer = document.createElement('div');
         paginationContainer.classList.add('pagination');
-
+    
         for (let i = 1; i <= totalPages; i++) {
             const pageButton = document.createElement('button');
+            pageButton.classList.add("pageButton");
             pageButton.textContent = i;
             pageButton.classList.add('page-button');
             if (i === currentPage) {
@@ -245,8 +254,37 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
             paginationContainer.appendChild(pageButton);
         }
-
-        profilesContainer.appendChild(paginationContainer);
+    
+        container.appendChild(paginationContainer);
+    }
+    
+    function addPaginationControls2(totalItems, container) {
+        const totalPages = Math.ceil(totalItems / itemsPerPage);
+    
+        // Limpiar el contenedor de paginación antes de agregar nuevos botones
+        let paginationContainer = container.querySelector('.pagination');
+        if (paginationContainer) {
+            paginationContainer.remove();
+        }
+    
+        paginationContainer = document.createElement('div');
+        paginationContainer.classList.add('pagination');
+    
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.classList.add("pageButton");
+            pageButton.textContent = i;
+            pageButton.classList.add('page-button');
+            if (i === currentPage) {
+                pageButton.classList.add('active');
+            }
+            pageButton.addEventListener('click', () => {
+                currentPage = i;
+                filterAndDisplayUsers();
+            });
+            paginationContainer.appendChild(pageButton);
+        }
+        container.appendChild(paginationContainer);
     }
 });
 
