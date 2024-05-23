@@ -173,6 +173,8 @@ button a {
     }
     #hideButtonM{
         display: block;
+        display: flex;
+        
     }
 
 @media (min-width:720px) {
