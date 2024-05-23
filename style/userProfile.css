@@ -1,61 +1,46 @@
+@import url(./style.css);
 
 
-form {
-    width: 70vw;
-    display: flex;
-    flex-direction: column;
-    margin: 30px auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.userProfileImages{
-display: flex;
-width: 80vw;
-height: 150px;
-}
-
-
-
-.userProfileInformation{  /* Este es la clase del div vacio donde va la foto y el nombre que se le va a inyectar */
-    display: flex;
-    width: 150px;
-    height: 150px;
+.containerCenterProfile{
+    padding: 30px 0px;
+    width: 100vw;
+    display:flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 70px;
+    background-color: #81a3e351;
+}
+
+.userProfileInformation{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 #userProfilePhoto{      /* Este es la clase del div vacio donde se  va a inyectar la foto*/
-    background-color: white;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
 }
 
-#userProfileName{ /* Este es la clase del div vacio donde se va a inyectar el nombre  */
-    width: 130px;
-    height: 50px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    text-align: center;
-}
 
 #userProfilePhoto img{
     width: 150px;
     height: 150px;
-    margin-top: 5px;
-    border-radius: 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px black;
+    margin-bottom: 20px;
 }
 
 #userProfileName h4 {
 display: flex;
 justify-content: center;
-color: black;
+color: #121933;
 
+}
+.userProfileImages{
+display: flex;
+width: 80vw;
+margin: 10px 0px;
 }
 
 .userProfileFeedback {
@@ -69,11 +54,16 @@ color: black;
     margin-bottom: 20px;
 }
 
-.userImage{
-    width: 100px;
-    height: 100px;
-    border-radius: 8px;
-    padding: 10px;
+.userImage, .userImage2, .userImage3 {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 8px; /* Ajusta el ancho según tus necesidades */
+    border: 1px solid #ccc; /* Añade un borde para visualizar mejor los contenedores */
+    display: flex;
+    background: #81a3e351 url(../img/compact-cam-svgrepo-com.png);
+    background-size: cover;
+    justify-content: center;
+    align-items: center;
 }
 .userProfileImg{
     width: 70px;
@@ -82,7 +72,7 @@ color: black;
 }
 .star{
     font-size: 32px;
-    color: #bbb;
+    color: #121933;
     transition: color 0.3s;
     cursor: pointer;
 }
@@ -97,11 +87,20 @@ align-items: center;
 color: gold;
 }
 
+.star-rating {
+    font-size: 2rem;
+    color: #e6ff09;
+    cursor: pointer;
+    
+}
 
-#comment{ 
+.star-rating .star.active {
+    color: #ff9800;
+}
+
+#commentText{ 
 background-color: rgba(128, 128, 128, 0.041);
 width: 80vw; 
-height: 100px; 
 padding: 5px; 
 border: 1px solid #cccccc72; 
 border-radius: 5px; 
@@ -109,107 +108,88 @@ resize: vertical;
 font-family: Arial, sans-serif; 
 font-size: 14px;
 }
-.star-rating {
-    font-size: 2rem;
-    color: #ccc;
+#buttonSubmit{
+    margin: 20px 0px;
+    background-color: #121933;
+}
+#buttonSubmit:hover{
+    transition: 0.3s;
     cursor: pointer;
+    background-color: #846bff;
 }
-
-.star-rating .star.active {
-    color: #ff9800;
-}
-
 @media(min-width: 720px){
-    #commentText{
-        width: 35vw;
-        height: 150px;
-
-    }
-    .userProfileImages{
-        display: flex;
-        width: 70vw;
-        height: 60vh;
-        justify-content: space-between;
-        margin-top: 150px;
-    }
-    .userProfileFeedback h5{
-        margin-top: 50px;
-    }
-    form{
+    .containerCenterProfile{
         display: flex;
         flex-direction: row;
+        background-color: #81a3e351;
     }
-    .userProfileFeedback{
-    display: flex;
-    height: 130vh;
+    .userProfileInformation{
+        width:35%;
+        display: flex;
+        flex-direction: column;
+    }
+    .userProfileInformation h1{
+        font-size:3rem;
+        color:#121933;
+    }
+    #userProfileName{
+        width: 100% ;
+        margin: 0px;
+    }
+    .userProfileImages{
+        width: 80%;
+        display: flex;
+        justify-content: space-between;
+
     }
     .rating{
-        display: flex;
         cursor: pointer;
     }
     .userImage{
-        width: 25vw;
-        height: 40vh;
-        display: flex;
+        width: 100%;
         margin: 5px;
-    }
-    .userProfileInformation{  /* Este es la clase del div vacio donde va la foto y el nombre que se le va a inyectar */
-        display: flex;
-        width: 300px;
-        height: 250px;
-        flex-direction: column;
-        align-items: center;
-
-        margin-right: 50px;
     }
 
     #userProfilePhoto{      /* Este es la clase del div vacio donde se  va a inyectar la foto*/
-    
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
         margin-bottom: 15px;
-    }
-    #userProfileName{ /* Este es la clase del div vacio donde se va a inyectar el nombre  */
-        width: 160px;
-        height: 30px;
+        
     }
 
     #userProfilePhoto img{
-        width:150px;
-        height: 150px;
-        margin-top: 5px;
+        width:20vw;
+        height: 20vw;
         border-radius: 50%;
+        box-shadow: 2px 2px 8px black;
     }
-
-    #userProfileName h4 {
-    display: flex;
-    justify-content: center;
-    color: black;
+    .userProfileFeedback{
+        width: 65%;
     }
-
     .userImage {
-        width: 200px; /* Ajusta el ancho según tus necesidades */
-        height: 200px; /* Ajusta la altura según tus necesidades */
+        width: 10vw;
+        height: 10vw;
+        border-radius: 8px; /* Ajusta el ancho según tus necesidades */
         border: 1px solid #ccc; /* Añade un borde para visualizar mejor los contenedores */
         display: flex;
+        background: #81a3e351 url(../img/compact-cam-svgrepo-com.png);
+        background-size: cover;
         justify-content: center;
         align-items: center;
-        overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el tamaño del contenedor */
-      }
-      
-      .userImage img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain; /* Ajusta la imagen para que quepa dentro del contenedor sin deformarse */
-      }
+    }
 
-      .userImgProfile{
+
+    .userImgProfile{
         width: 25vw;
-        height: 40vh;
+        height: 25vw;
         display: flex;
         margin: 5px;
-      }
-      
+    }
+    #commentText{
+        width: 100%;
+        background-color: #81a3e351;
+    }
+    .commentDiv{
+        width: 70%;
+    }
+    
 
 }
