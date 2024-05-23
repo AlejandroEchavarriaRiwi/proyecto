@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const perfilWarning = document.querySelector('#logo');
     const logoContainer = document.querySelector('#logo');
     const photosContainer = document.querySelector('.companyPhotos'); // Ajustado para seleccionar el contenedor correcto de fotos
-    const photosCatalog = document.querySelector('.containerRight')
+    const photosCatalog = document.querySelector('#addImageBtn');
+    const editInformation = document.querySelector('#editInformationBtn');
     const socialReasonContainer = document.querySelector('#companySocialReason');
     const companyTelephoneContainer = document.querySelector('#companyTelephone');
     const companyWhatsappContainer = document.querySelector('#companyWhatsApp');
@@ -336,7 +337,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             companyAddressContainer.appendChild(address);
             commentContainer.appendChild(descriptionTitle);
             commentContainer.appendChild(description);
-            commentContainer.appendChild(editCompanyInfoButton);
+            editInformation.appendChild(editCompanyInfoButton);
 
             ourPhotos(); // Llamar a ourPhotos para configurar las fotos
         } else {

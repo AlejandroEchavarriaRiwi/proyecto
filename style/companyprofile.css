@@ -1,5 +1,14 @@
 @import url(./style.css);
 
+.mainCompanyProfile {
+    width: 100vw;
+    background-color: #81a3e351;
+}
+
+#addImageBtn, #editInformationBtn {
+    display: flex;
+    justify-content: center;
+}
 .modal {
     text-align: center;
     display: none;
