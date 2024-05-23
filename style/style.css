@@ -277,6 +277,38 @@ button{
 .userImage input[type="file"] {
     display: none;
 }
+.userImage2 {
+    width: 50vw;
+    height: 50vw;
+    background-color: #121933;
+    background-image: url('./../img/imageUserFormDefault.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.userImage2 input[type="file"] {
+    display: none;
+}
+.userImage3 {
+    width: 50vw;
+    height: 50vw;
+    background-color: #121933;
+    background-image: url('./../img/imageUserFormDefault.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 0 auto;
+    padding: 50px;
+}
+
+.userImage3 input[type="file"] {
+    display: none;
+}
 .headerUser {
     top: 0;
     width: 100vw;
