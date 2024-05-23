@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const profilesContainer = document.querySelector('#companySearchContainer');
     const cityFilter = localStorage.getItem('city');
     const specialFilter = localStorage.getItem('speciality');
+    const buttonsPage = document.querySelector('#buttonsPage')
 
     const itemsPerPage = 4; // Número de empresas por página
     let currentPage = 1;
@@ -131,8 +132,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 let counter = 0;
                 const widthImg = 100; // Cada sección ocupa el 100% del contenedor
 
-                divRight.addEventListener('click', () => moveToRight());
-                divLeft.addEventListener('click', () => moveToLeft());
 
                 function moveToRight() {
                     if (counter >= carruseles.children.length - 1) {
@@ -144,20 +143,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
                     counter++;
                     operacion = operacion + widthImg;
-                    carruseles.style.transform = `translate(-${operacion}%)`;
-                    carruseles.style.transition = "all ease .6s";
-                }
-
-                function moveToLeft() {
-                    counter--;
-                    if (counter < 0) {
-                        counter = carruseles.children.length - 1;
-                        operacion = widthImg * (carruseles.children.length - 1);
-                        carruseles.style.transform = `translate(-${operacion}%)`;
-                        carruseles.style.transition = "none";
-                        return;
-                    }
-                    operacion = operacion - widthImg;
                     carruseles.style.transform = `translate(-${operacion}%)`;
                     carruseles.style.transition = "all ease .6s";
                 }
@@ -185,10 +170,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             });
 
-            // Agregar controles de paginación
-            addPaginationControls(filteredUsers.length, profilesContainer);
+            buttonsPage.classList.add('buttonsPage')
+            addPaginationControls(filteredUsers.length, buttonsPage);
         } else {
-            profilesContainer.textContent = "Usuario no encontrado.";
+            buttonsPage.profilesContainer.textContent = "Usuario no encontrado.";
         }
     }
 
