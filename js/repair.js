@@ -93,9 +93,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 contactWhatsapp.classList.add("buttonWhatsapp")
                 contactWhatsapp.innerHTML = `<a target="_blank" href="https://api.whatsapp.com/send?phone=${user.whatsappNumber}">Whatsapp</a>`;
 
-                const ageElement = document.createElement('p');
-                ageElement.textContent = `Age: ${user.age}`;
-
                 const containerCarousel = document.createElement('div');
                 containerCarousel.classList.add('container-carousel');
                 containerCarousel.appendChild(imgElement);
