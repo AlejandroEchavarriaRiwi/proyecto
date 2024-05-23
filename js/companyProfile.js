@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     const mainContainer = document.querySelector('body');
     const perfilWarning = document.querySelector('#logo');
     const logoContainer = document.querySelector('#logo');
-    const photosContainers = document.querySelectorAll('.companyPhotos');
+    const photosContainer = document.querySelector('.companyPhotos'); // Ajustado para seleccionar el contenedor correcto de fotos
+    const photosCatalog = document.querySelector('.containerRight')
     const socialReasonContainer = document.querySelector('#companySocialReason');
     const companyTelephoneContainer = document.querySelector('#companyTelephone');
     const companyWhatsappContainer = document.querySelector('#companyWhatsApp');
@@ -19,11 +20,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         const response = await fetch(URL);
         const userCompany = await response.json();
         const filteredCompany = userCompany.filter(user => user.companyEmail === userMail);
+
         if (filteredCompany.length > 0) {
             const user = filteredCompany[0];
 
+            // Mostrar nombre de bienvenida
             const welcomeName = document.createElement('h4');
             welcomeName.textContent = `${user.responsableName} ${user.responsableLastName}`;
+            welcome.appendChild(welcomeName);
+
+            // Mostrar logo de la empresa
             const imgLogo = document.createElement('img');
             imgLogo.src = `data:image/png;base64,${user.image}`;
             imgLogo.alt = `${user.responsableName} ${user.responsableLastName}`;
@@ -98,8 +104,50 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
 
             function ourPhotos() {
-                if (user.imagenes && user.imagenes.length > 0) {
-                    user.imagenes.slice(0, 6).forEach((imagenBase64, index) => {
+                const maxPhotos = 6;
+                const photoAddButton = document.createElement('button');
+                photoAddButton.textContent = 'Agregar Imagen';
+                photoAddButton.classList.add('addPhotoButton');
+
+                const photoInput = document.createElement('input');
+                photoInput.type = 'file';
+                photoInput.accept = 'image/*';
+                photoInput.style.display = 'none';
+
+                photoAddButton.addEventListener('click', () => {
+                    photoInput.click();
+                });
+
+                photoInput.addEventListener('change', async () => {
+                    const file = photoInput.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onloadend = async () => {
+                            const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
+                            user.imagenes.push(base64String);
+
+                            const updateResponse = await fetch(`${URL}/${user.id}`, {
+                                method: 'PUT',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify(user)
+                            });
+
+                            if (updateResponse.ok) {
+                                photoInput.value = '';
+                                renderPhotos();
+                            } else {
+                                console.error('Error actualizando las imágenes de la compañía');
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                function renderPhotos() {
+                    photosContainer.innerHTML = ''; // Limpiar el contenedor de fotos antes de renderizar nuevas fotos
+                    user.imagenes.slice(0, maxPhotos).forEach((imagenBase64, index) => {
                         const sectionimg = document.createElement('section');
                         sectionimg.classList.add('slider-section');
                         sectionimg.dataset.index = index;
@@ -110,8 +158,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                         additionalImgElement.classList.add('additionalProfileImage');
                         sectionimg.appendChild(additionalImgElement);
 
-                        const targetContainer = photosContainers[index % photosContainers.length];
-                        targetContainer.appendChild(sectionimg);
+                        photosContainer.appendChild(sectionimg);
 
                         const modal = document.createElement('div');
                         modal.classList.add('modal');
@@ -124,21 +171,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                         closeBtn.innerHTML = '&times;';
                         const acceptBtn = document.createElement('button');
                         acceptBtn.classList.add('acceptBtn');
-                        acceptBtn.textContent = 'Sí';
+                        acceptBtn.textContent = 'Eliminar';
                         const cancelBtn = document.createElement('button');
                         cancelBtn.classList.add('cancelBtn');
-                        cancelBtn.textContent = 'No';
-                        const editBtn = document.createElement('button');
-                        editBtn.classList.add('editBtn');
-                        editBtn.textContent = 'Editar';
+                        cancelBtn.textContent = 'Cancelar';
                         const alertText = document.createElement('h2');
-                        alertText.textContent = '¿Deseas eliminar o editar la imagen?';
+                        alertText.textContent = '¿Deseas eliminar la imagen?';
 
                         modalContent.appendChild(closeBtn);
                         modalContent.appendChild(alertText);
                         modalContent.appendChild(acceptBtn);
                         modalContent.appendChild(cancelBtn);
-                        modalContent.appendChild(editBtn);
+
                         modal.appendChild(modalContent);
                         mainContainer.appendChild(modal);
 
@@ -166,51 +210,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                             if (updateResponse.ok) {
                                 sectionimg.remove();
                                 modal.style.display = "none";
+                                renderPhotos();
                             } else {
                                 console.error('Error actualizando el perfil de la compañía');
                             }
-                        });
-
-                        editBtn.addEventListener('click', () => {
-                            const imgIndex = parseInt(sectionimg.dataset.index, 10);
-
-                            const inputFile = document.createElement('button');
-                            inputFile.textContent = 'Cambiar logo'
-                            inputFile.classList.add('changeLogoButton');
-
-
-                            logoContainer.appendChild(imgIndex);
-                            logoContainer.appendChild(inputFile);
-
-                            inputFile.addEventListener('change', async (event) => {
-                                const file = event.target.files[0];
-                                const reader = new FileReader();
-
-                                reader.onloadend = async () => {
-                                    const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-
-                                    user.imagenes[imgIndex] = base64String;
-
-                                    const updateResponse = await fetch(`${URL}/${user.id}`, {
-                                        method: 'PUT',
-                                        headers: {
-                                            'Content-Type': 'application/json'
-                                        },
-                                        body: JSON.stringify(user)
-                                    });
-
-                                    if (updateResponse.ok) {
-                                        additionalImgElement.src = `data:image/png;base64,${base64String}`;
-                                        modal.style.display = "none";
-                                    } else {
-                                        console.error('Error actualizando el perfil de la compañía');
-                                    }
-                                };
-
-                                reader.readAsDataURL(file);
-                            });
-
-                            inputFile.click();
                         });
 
                         window.addEventListener('click', (event) => {
@@ -223,7 +226,13 @@ document.addEventListener("DOMContentLoaded", async () => {
                             modal.style.display = "none";
                         });
                     });
+
+                    photoAddButton.style.display = user.imagenes.length >= maxPhotos ? 'none' : 'block';
                 }
+
+                photosCatalog.appendChild(photoAddButton); // Agregar el botón al contenedor de fotos
+                photosCatalog.appendChild(photoInput); // Agregar el input al contenedor de fotos
+                renderPhotos();
             }
 
             const socialReasonName = document.createElement('h3');
@@ -265,11 +274,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             editCompanyInfoButton.addEventListener('click', () => {
                 const fields = [
-                    { element: socialReason, key: 'socialReason', label: 'Razón social' },
                     { element: telephone, key: 'telephoneNumber', label: 'Teléfono' },
                     { element: whatsappNumber, key: 'whatsappNumber', label: 'WhatsApp' },
-                    // { element: category, key: 'categoriesCompany', label: 'Categoría' },
-                    // { element: specialization, key: 'speciality', label: 'Especialización' },
                     { element: email, key: 'companyEmail', label: 'E-mail' },
                     { element: address, key: 'companyAddress', label: 'Dirección' },
                     { element: description, key: 'comment', label: 'Descripción' },
@@ -314,9 +320,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             });
 
-            welcome.appendChild(welcomeName);
-            logoContainer.appendChild(imgLogo);
-            ourPhotos();
             socialReasonContainer.appendChild(socialReasonName);
             socialReasonContainer.appendChild(socialReason);
             companyTelephoneContainer.appendChild(telephoneTitle);
@@ -334,6 +337,8 @@ document.addEventListener("DOMContentLoaded", async () => {
             commentContainer.appendChild(descriptionTitle);
             commentContainer.appendChild(description);
             commentContainer.appendChild(editCompanyInfoButton);
+
+            ourPhotos(); // Llamar a ourPhotos para configurar las fotos
         } else {
             perfilWarning.textContent = 'User not found.';
         }
