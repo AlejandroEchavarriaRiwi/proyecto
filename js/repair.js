@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const profilesContainer = document.querySelector('#userProfiles');
     const cityFilter = document.querySelector('#cityFilter');
     const specialFilter = document.querySelector('#specialFilter');
-    const companyType = "document3"; // tipo de empresa
+    const companyType = "Reparación"; // tipo de empresa
     const hideButtonC = document.querySelector("#hideButtonC")
     const hideButtonM = document.querySelector("#hideButtonM")
 
