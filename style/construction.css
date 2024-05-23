@@ -55,6 +55,7 @@ button a {
 #filters h3{
     margin-top: 10px;
     margin-bottom: -30px;
+    color: white;
 }
 #filters select{
     width: 60%;
