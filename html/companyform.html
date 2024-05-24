@@ -99,6 +99,7 @@
                 <input type="text" id="ciiuCode" placeholder="Código CIIU*">
                 <p>Categoría:</p>
                 <select id="categoriesCompany" name="Document-Type">
+                    <option value="" disabled selected>Categoría</option>
                     <option value="Construcción">Construcción</option>
                     <option value="Remodelación">Remodelación</option>
                     <option value="Reparación">Reparación</option>
@@ -106,14 +107,27 @@
                 <p>Especialidad:</p>
                 <select name="" id="speciality">
                     <option value="" disabled selected>Especialidad</option>
-                    <option value="Carpinteria">Carpinteria</option>
-                    <option value="Electricidad">Electricidad</option>
-                    <option value="Plomeria">Plomeria</option>
-                    <option value="Gasodomesticos">Gasodomesticos</option>
+                    <optgroup label="Construcción">
+                        <option value="Vivienda Urbana">Vivienda Urbana</option>
+                        <option value="Vivienda Rural">Vivienda Rural</option>
+                        <option value="Comercial">Comercial</option>
+                    </optgroup>
+                    <optgroup label="Remodelación">
+                        <option value="Pisos">Pisos</option>
+                        <option value="Cocinas">Cocinas</option>
+                        <option value="Baños">Baños</option>
+                        <option value="Techos">Techos</option>
+                    </optgroup>
+                    <optgroup label="Reparación">
+                        <option value="Electricidad">Electricidad</option>
+                        <option value="Plomería">Plomería</option>
+                        <option value="Carpintería">Carpintería</option>
+                        <option value="Gasodoméstico">Gasodoméstico</option>
+                    </optgroup>
                 </select>
                 <p>Municipios donde trabaja:</p>
                 <select id="cityFilter">
-                    <option value="" selected disabled>Ciudad</option>
+                    <option value="" selected disabled>Municipios</option>
                                 <optgroup label="Municipios del Valle de Aburrá">
                                     <option value="Bello">Bello</option>
                                     <option value="Medellín">Medellín</option>
