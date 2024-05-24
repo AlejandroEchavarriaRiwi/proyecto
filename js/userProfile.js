@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const URL = "http://localhost:3000/userRegistration";
     const URL2 = "http://localhost:3000/feedback";
-    const URL3 = "http://localhost:3000/companyName";
     const profilesContainer = document.querySelector('#userProfilePhoto');
     const specificEmailUser = localStorage.getItem('userEmail');
     const userProfilePhoto = document.querySelector('#userProfilePhoto');
@@ -9,21 +8,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     const userComments = document.getElementById('commentText');
     const buttonSubmit = document.getElementById('buttonSubmit');
     const stars = document.querySelectorAll('.star');
-    const companySelect = document.querySelector('#companySelect'); // Reference to the select element
     let currentRating = 0;
     let userName = ''; // Variable to store the user's name
+    let imgElement; // Declare imgElement outside the try block
 
     try {
         const response = await fetch(URL);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
         const users = await response.json();
         const filteredUsers = users.filter(user => user.email === specificEmailUser);
 
         if (filteredUsers.length > 0) {
             const user = filteredUsers[0];
             userName = `${user.name} ${user.lastNames}`; // Store the user's name
-            const imgElement = document.createElement('img');
+            imgElement = document.createElement('img');
             imgElement.src = `data:image/png;base64,${user.image}`;
-            imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
+            imgElement.alt = `${user.name} ${user.lastNames}`;
             imgElement.classList.add('profileImage');
 
             const nameElement = document.createElement('h1');
@@ -73,19 +75,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonSubmit.addEventListener("click", async (event) => {
         event.preventDefault();
         const userImages = [
-            document.getElementById('userImage1').style.backgroundImage,
-            document.getElementById('userImage2').style.backgroundImage,
-            document.getElementById('userImage3').style.backgroundImage
+            document.getElementById('userImage1').style.backgroundImage.slice(5, -2),
+            document.getElementById('userImage2').style.backgroundImage.slice(5, -2),
+            document.getElementById('userImage3').style.backgroundImage.slice(5, -2)
         ];
         const feedback = {
             userName: userName,
+            profilePhoto: imgElement.src, // Ensure this is the src of the image
             rating: currentRating,
             comments: userComments.value,
-            images: userImages,
-            companyName: companySelect.value // Add the selected company
+            images: userImages
         };
-
-        console.log('Feedback data:', feedback); // Debugging line to check feedback data
 
         try {
             const response = await fetch(URL2, {
@@ -109,37 +109,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     function redirect() {
         window.location.href = '../index.html';
     }
-
-    // Fetch companies data
-    try {
-        const response = await fetch(URL3);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const companies = await response.json();
-        console.log('Companies data:', companies);  // Log the response to check its structure
-        const select = document.querySelector('#companySelect');
-
-        companies.forEach(company => {
-            const option = document.createElement('option');
-            option.value = company.socialReason;  // Use companyName as the value for the option
-            option.textContent = company.socialReason;  // Display socialReason as the text
-            select.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error al cargar los datos de la empresa:', error);
-    }
 });
 
 function mostrarImagen(input, divId) {
     if (input.files && input.files[0]) {
-        var reader = new FileReader();
+        const reader = new FileReader();
 
         reader.onload = function (e) {
             const divElement = document.getElementById(divId);
             divElement.style.backgroundImage = `url('${e.target.result}')`;
-            divElement.style.backgroundSize = 'cover'; // Asegura que la imagen cubra el contenedor
-            divElement.style.backgroundPosition = 'center'; // Centra la imagen en el contenedor
+            divElement.style.backgroundSize = 'cover'; // Ensure the image covers the container
+            divElement.style.backgroundPosition = 'center'; // Center the image in the container
         }
 
         reader.readAsDataURL(input.files[0]);
