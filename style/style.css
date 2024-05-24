@@ -60,7 +60,7 @@ header {
     0deg,
     rgba(0,0,0,0.5),
     rgba(0,0,0,0.5)
-    ), url(../img/fondoarquitecto.webp);
+    ), url(../img/header2.jpg);
     background-size: cover;
     z-index: 145;
     
@@ -69,7 +69,7 @@ body {
     position: relative;
     min-height: 100vh;
     overflow-x: hidden;
-  }
+}
 
 span {
     color: #ffffff;
@@ -227,16 +227,21 @@ input, select {
     width: 100vw;
     z-index: -1;
 }
+.about-us h3{
+    color: white;
+}
 .middle-menu{
     width: 100vw;
     padding: 20px 30px;
     color: white;
-
     background: linear-gradient(
         0deg,
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
         ), #121933;
+}
+.middle-menu h3{
+    color: white;
 }
 .copyright{
     width: 100vw;
@@ -400,21 +405,13 @@ footer {
     .container-menu, .btn-menu{
         display: none;
     }
-
-    .video-youtube{
-        display: block;
-        position: absolute;
-        z-index: -2;
-    }
-    .video-youtube video{
-        width: 100vw;
-    }
     header {
         background-image: linear-gradient(
         0deg,
         rgba(0,0,0,0.5),
         rgba(0,0,0,0.5)
-        ), url(/img/construccion.mp4)
+        ), url(/img/header2.jpg);
+        background-position: center;
     }
     button{
         padding: 3px 30px;
@@ -434,6 +431,7 @@ footer {
         margin-top: 120px;
     }
     .about-us{
+
         width: 100vw;
         display: flex;
         justify-content: space-around;
