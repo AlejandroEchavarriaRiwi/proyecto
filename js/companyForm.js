@@ -168,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function redirect() {
+        localStorage.setItem('userEmail', companyEmail.value);
         window.location.href = './companyProfile.html';
     }
 });
