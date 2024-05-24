@@ -3,46 +3,52 @@ document.addEventListener("DOMContentLoaded", async () => {
     const URLCompany = 'http://localhost:3000/companyName';
     const emailField = document.querySelector('#emailLogInForm');
     const passwordField = document.querySelector('#passwordLogInForm');
-    
-    if (!emailField || !passwordField) {
-        console.error('Email or password field not found in the DOM.');
-        return;
-    }
 
     document.querySelector('#logInForm').addEventListener('submit', async (event) => {
         event.preventDefault(); // Prevent the form from submitting normally
 
         const specificEmail = emailField.value.trim();
         const specificPassword = passwordField.value.trim();
-        
+
         if (!specificEmail || !specificPassword) {
-            console.error('Email or password cannot be empty.');
+            Swal.fire('Error', 'El E-mail o contraseña no pueden estar vacíos.', 'error');
             return;
         }
 
         try {
-            const responseCompany = await fetch(URLCompany)
-            const responseUser = await fetch(URLUser);
+            const [responseCompany, responseUser] = await Promise.all([fetch(URLCompany), fetch(URLUser)]);
+
             if (!responseUser.ok || !responseCompany.ok) {
-                throw new Error('Network response was not ok');
+                Swal.fire('Error', 'No se pudo contactar con el servidor.', 'error');
+                return;
             }
+
             const company = await responseCompany.json();
             const users = await responseUser.json();
+
             const filteredCompany = company.find(company => company.companyEmail === specificEmail && company.companyPassword === specificPassword);
             const filteredUser = users.find(user => user.email === specificEmail && user.password === specificPassword);
+
             if (filteredUser) {
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
-                redirect('./../html/userProfile.html');
-            } 
-            else if (filteredCompany){
+                Swal.fire('¡Éxito!', 'Inicio de sesión correcto como usuario.', 'success').then(() => {
+                    redirect('./../html/userProfile.html');
+                });
+            } else if (filteredCompany) {
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
-                redirect('./../html/companyProfile.html');
-            }
-            else {
-                console.error('No matching user found.');
+                Swal.fire('¡Éxito!', 'Inicio de sesión correcto como empresa.', 'success').then(() => {
+                    redirect('./../html/companyProfile.html');
+                });
+            } else {
+                Swal.fire('Error', 'El usuario no está registrado.', 'error');
             }
         } catch (error) {
-            console.error('Error loading user profiles:', error);
+            if (error.message.includes('404')) {
+                Swal.fire('Error', 'El usuario no está registrado.', 'error');
+            } else {
+                console.error('Error loading user profiles:', error);
+                Swal.fire('Error', 'Hubo un error cargando los perfiles: ' + error.message, 'error');
+            }
         }
     });
 
