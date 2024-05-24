@@ -10,22 +10,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     const stars = document.querySelectorAll('.star');
     let currentRating = 0;
     let userName = ''; // Variable to store the user's name
-    let imgElement; // Declare imgElement outside the try block
 
     try {
         const response = await fetch(URL);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
         const users = await response.json();
         const filteredUsers = users.filter(user => user.email === specificEmailUser);
 
         if (filteredUsers.length > 0) {
             const user = filteredUsers[0];
             userName = `${user.name} ${user.lastNames}`; // Store the user's name
-            imgElement = document.createElement('img');
+            const imgElement = document.createElement('img');
             imgElement.src = `data:image/png;base64,${user.image}`;
-            imgElement.alt = `${user.name} ${user.lastNames}`;
+            imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
             imgElement.classList.add('profileImage');
 
             const nameElement = document.createElement('h1');
@@ -75,13 +71,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     buttonSubmit.addEventListener("click", async (event) => {
         event.preventDefault();
         const userImages = [
-            document.getElementById('userImage1').style.backgroundImage.slice(5, -2),
-            document.getElementById('userImage2').style.backgroundImage.slice(5, -2),
-            document.getElementById('userImage3').style.backgroundImage.slice(5, -2)
+            document.getElementById('userImage1').style.backgroundImage,
+            document.getElementById('userImage2').style.backgroundImage,
+            document.getElementById('userImage3').style.backgroundImage
         ];
         const feedback = {
             userName: userName,
-            profilePhoto: imgElement.src, // Ensure this is the src of the image
             rating: currentRating,
             comments: userComments.value,
             images: userImages
@@ -97,7 +92,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
             if (response.ok) {
                 console.log('Feedback enviado correctamente');
-                redirect();
+                redirect()
             } else {
                 console.error('Error al enviar el feedback');
             }
@@ -106,20 +101,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    function redirect() {
-        window.location.href = '../index.html';
+    function redirect(){
+        window.location.href  = '../index.html'
     }
 });
 
 function mostrarImagen(input, divId) {
     if (input.files && input.files[0]) {
-        const reader = new FileReader();
+        var reader = new FileReader();
 
         reader.onload = function (e) {
             const divElement = document.getElementById(divId);
             divElement.style.backgroundImage = `url('${e.target.result}')`;
-            divElement.style.backgroundSize = 'cover'; // Ensure the image covers the container
-            divElement.style.backgroundPosition = 'center'; // Center the image in the container
+            divElement.style.backgroundSize = 'cover'; // Asegura que la imagen cubra el contenedor
+            divElement.style.backgroundPosition = 'center'; // Centra la imagen en el contenedor
         }
 
         reader.readAsDataURL(input.files[0]);
