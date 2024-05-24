@@ -91,7 +91,12 @@ color: gold;
     font-size: 2rem;
     color: #e6ff09;
     cursor: pointer;
-    
+}
+
+.star-rating {
+    color: #121933;
+    font-size: 0.8rem;
+    margin: 30px;
 }
 
 .star-rating .star.active {

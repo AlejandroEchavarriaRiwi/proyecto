@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const URL = "http://localhost:3000/userRegistration";
     const URL2 = "http://localhost:3000/feedback";
+    const URL3 = "http://localhost:3000/companyName";
     const profilesContainer = document.querySelector('#userProfilePhoto');
     const specificEmailUser = localStorage.getItem('userEmail');
     const userProfilePhoto = document.querySelector('#userProfilePhoto');
@@ -8,6 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const userComments = document.getElementById('commentText');
     const buttonSubmit = document.getElementById('buttonSubmit');
     const stars = document.querySelectorAll('.star');
+    const companySelect = document.querySelector('#companySelect'); // Reference to the select element
     let currentRating = 0;
     let userName = ''; // Variable to store the user's name
 
@@ -79,8 +81,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             userName: userName,
             rating: currentRating,
             comments: userComments.value,
-            images: userImages
+            images: userImages,
+            companyName: companySelect.value // Add the selected company
         };
+
+        console.log('Feedback data:', feedback); // Debugging line to check feedback data
 
         try {
             const response = await fetch(URL2, {
@@ -92,7 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
             if (response.ok) {
                 console.log('Feedback enviado correctamente');
-                redirect()
+                redirect();
             } else {
                 console.error('Error al enviar el feedback');
             }
@@ -101,8 +106,28 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    function redirect(){
-        window.location.href  = '../index.html'
+    function redirect() {
+        window.location.href = '../index.html';
+    }
+
+    // Fetch companies data
+    try {
+        const response = await fetch(URL3);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const companies = await response.json();
+        console.log('Companies data:', companies);  // Log the response to check its structure
+        const select = document.querySelector('#companySelect');
+
+        companies.forEach(company => {
+            const option = document.createElement('option');
+            option.value = company.socialReason;  // Use companyName as the value for the option
+            option.textContent = company.socialReason;  // Display socialReason as the text
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error al cargar los datos de la empresa:', error);
     }
 });
 

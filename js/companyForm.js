@@ -37,6 +37,31 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Función para habilitar/deshabilitar opciones de especialidad según la categoría seleccionada
+    function updateSpecialityOptions() {
+        const selectedCategory = categoriesCompany.value;
+        const optgroups = speciality.querySelectorAll('optgroup');
+
+        optgroups.forEach(optgroup => {
+            if (optgroup.label === selectedCategory) {
+                optgroup.style.display = 'block';
+                optgroup.querySelectorAll('option').forEach(option => {
+                    option.disabled = false;
+                });
+            } else {
+                optgroup.style.display = 'none';
+                optgroup.querySelectorAll('option').forEach(option => {
+                    option.disabled = true;
+                });
+            }
+        });
+
+        speciality.selectedIndex = 0;
+    }
+
+    categoriesCompany.addEventListener('change', updateSpecialityOptions);
+
+    updateSpecialityOptions();
 
     submitButton.addEventListener('click', async (event) => {
         event.preventDefault();
