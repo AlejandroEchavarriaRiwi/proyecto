@@ -4,55 +4,32 @@
     box-sizing: border-box;
 }
 
-#userProfiles {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.star {
+    font-size: 2em;
+    color: gold;
 }
 
-#filters {
-    width: 100vw;
-    color: white;
-    text-align: center;
-    background: #283048;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+.company {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.5em;
+    color: black;
 }
 
-#filters h3 {
+.userName{
     margin-top: 10px;
-    margin-bottom: -30px;
-    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
 }
 
-#filters select {
-    width: 60%;
-}
-
-#filters button {
-    width: 70vw;
-    margin-bottom: 20px;
-}
-
-.profileImage {
-    position: relative;
-    top: 0;
-    right: 0;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border: 2px solid #000;
-    z-index: 30;
-}
-
-.userName {
-    position: relative;
+.review-container h2{
+    padding: 5px;
+    background:none;
+    color: #121933;
+    text-shadow: none;
+    text-align: center;
 }
 
 .container-carousel {
@@ -108,9 +85,10 @@
     background-size: cover;    
 }
 
-.ContainerReview{
+.ContainerReview {
     display: flex;
     flex-direction: column;
+    padding: 10px;
 }
 
 .imgReviewContainer {
@@ -121,24 +99,49 @@
 
 .profileImage {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 20px;
+    right: -200px;
     border-radius: 50%;
-    width: 80px; /* Ajusta el tamaño de la imagen de perfil según sea necesario */
-    height: 80px; /* Ajusta el tamaño de la imagen de perfil según sea necesario */
+    width: 80px;
+    height: 80px;
     object-fit: cover;
     border: 2px solid #000;
     z-index: 30;
+}
+
+.starContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imgReviewContainer{
+    width: 30vw;
+}
+.comment{
+    margin-top: 15px;
+    font-weight: bold;
 }
 
 
 @media (min-width: 720px) {
     #allReviews {
         display: flex;
+        justify-content: space-around;
     }
 
-
+    .profileImage {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border: 2px solid #000;
+        z-index: 30;
+    }
+    
 
     .container-carousel {
         margin: 0 auto;

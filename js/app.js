@@ -1,16 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const URL2 = "http://localhost:3000/feedback";
-    const city = document.querySelector('#options');
-    const speciality = document.querySelector('#options2');
-    const form = document.querySelector('#formSearch');
-    const allReviews = document.querySelector('#allReviews'); // Fixed missing quotes
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-        localStorage.setItem('city', city.value);
-        localStorage.setItem('speciality', speciality.value);
-        window.location.href = './html/search.html';
-    });
+    const allReviews = document.querySelector('#allReviews');
 
     try {
         const response = await fetch(URL2);
@@ -19,14 +9,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         const reviews = await response.json();
 
-        reviews.forEach(review => {
+        // Obtener 3 reseñas aleatorias
+        const randomReviews = getRandomReviews(reviews, 3);
+
+        randomReviews.forEach(review => {
             const ContainerReview = document.createElement("div");
             ContainerReview.classList.add("ContainerReview");
 
-            const userName = review.userName;
-            const nameElement = document.createElement("h3");
-            nameElement.classList.add("userName");
-            nameElement.textContent = userName;
+            const companyName = review.companyName;
+            const company = document.createElement("h3");
+            company.classList.add("company");
+            company.textContent = companyName;
+            ContainerReview.appendChild(company);
 
             const imgReviewContainer = document.createElement("div");
             imgReviewContainer.classList.add("imgReviewContainer");
@@ -34,24 +28,35 @@ document.addEventListener("DOMContentLoaded", async () => {
             const imgElement = document.createElement('img');
             imgElement.src = `${review.profilePhoto}`;
             imgElement.alt = review.userName;
-            imgElement.classList.add('profileImage'); 
+            imgElement.classList.add('profileImage');
             imgReviewContainer.appendChild(imgElement);
 
-            ContainerReview.appendChild(nameElement);
-            ContainerReview.appendChild(imgReviewContainer);
+            const rating = review.rating;
+            const starContainer = document.createElement("div");
+            starContainer.className = "starContainer";
 
-            // Crear el carrusel dentro del bucle forEach
+            function generateStars(rating) {
+                for (let i = 0; i < 5; i++) {
+                    const star = document.createElement('span');
+                    star.textContent = i < rating ? '★' : '☆';
+                    star.className = 'star';
+                    starContainer.appendChild(star);
+                }
+            }
+
+            generateStars(rating);
+            imgReviewContainer.appendChild(starContainer);
+
             const containerCarousel = document.createElement('div');
             containerCarousel.classList.add('container-carousel');
-            
+
             const carruseles = document.createElement('div');
             carruseles.classList.add('carruseles');
 
-            const widthImg = 100; // Cada sección ocupa el 100% del contenedor
-            let operacion = 0; // Variable para realizar el desplazamiento
-            let counter = 0; // Variable para rastrear la posición de la imagen actual en el carrusel
+            const widthImg = 100;
+            let operacion = 0;
+            let counter = 0;
 
-            // Funciones para mover el carrusel
             function moveToRight() {
                 counter++;
                 if (counter >= review.images.length) {
@@ -62,7 +67,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                     operacion = operacion + widthImg;
                     carruseles.style.transform = `translateX(-${operacion}%)`;
                 }
-                carruseles.style.transition = "all ease .6s"; // Agrega una transición suave al desplazamiento
+                carruseles.style.transition = "all ease .6s";
             }
 
             function moveToLeft() {
@@ -75,10 +80,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                     operacion = operacion - widthImg;
                     carruseles.style.transform = `translateX(-${operacion}%)`;
                 }
-                carruseles.style.transition = "all ease .6s"; // Agrega una transición suave al desplazamiento
+                carruseles.style.transition = "all ease .6s";
             }
 
-            // Eventos de clic para los botones de navegación
             const divRight = document.createElement('div');
             divRight.classList.add('btn-right');
             divRight.addEventListener('click', () => moveToRight());
@@ -89,15 +93,15 @@ document.addEventListener("DOMContentLoaded", async () => {
             divLeft.addEventListener('click', () => moveToLeft());
             containerCarousel.appendChild(divLeft);
 
-            if (review.images && review.images.length > 0) { // Cambiado de user.imagenes a review.imagenes
-                review.images.forEach((imagenBase64, index) => { // Cambiado de user.imagenes a review.imagenes
-                    if (index < 6) { // Limita a 6 imágenes
+            if (review.images && review.images.length > 0) {
+                review.images.forEach((imagenBase64, index) => {
+                    if (index < 6) {
                         const sectionimg = document.createElement('section');
                         sectionimg.classList.add('slider-section');
 
                         const additionalImgElement = document.createElement('img');
                         additionalImgElement.src = `${imagenBase64}`;
-                        additionalImgElement.alt = `${review.responsableName} ${review.responsableLastName} Image ${index + 1}`; // Cambiado de user.responsableName a review.responsableName
+                        additionalImgElement.alt = `${review.responsableName} ${review.responsableLastName} Image ${index + 1}`;
                         additionalImgElement.classList.add('additionalProfileImage');
                         sectionimg.appendChild(additionalImgElement);
 
@@ -107,23 +111,48 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
 
             containerCarousel.appendChild(carruseles);
-            imgReviewContainer.appendChild(containerCarousel); 
+            imgReviewContainer.appendChild(containerCarousel);
+            ContainerReview.appendChild(imgReviewContainer);
+
+            const userName = review.userName;
+            const nameElement = document.createElement("h3");
+            nameElement.classList.add("userName");
+            nameElement.textContent = userName;
+
+            ContainerReview.appendChild(nameElement);
 
             const userComment = review.comments;
             const comments = document.createElement("p");
             comments.classList.add("comment");
             comments.textContent = userComment;
+
+            if (comments.clientHeight < comments.scrollHeight) {
+                const seeMore = document.createElement("span");
+                seeMore.classList.add("see-more");
+                seeMore.textContent = "Ver más";
+                comments.appendChild(seeMore);
+
+                seeMore.addEventListener('click', () => {
+                    comments.classList.toggle("more");
+                    if (comments.classList.contains("more")) {
+                        seeMore.textContent = "Ver menos";
+                    } else {
+                        seeMore.textContent = "Ver más";
+                    }
+                });
+            }
+
             ContainerReview.appendChild(comments);
-
             allReviews.appendChild(ContainerReview);
-
-            // Configurar el desplazamiento automático
-            setInterval(() => {
-                moveToRight();
-            }, 3000); // Desplazamiento cada 3 segundos
         });
     } catch (error) {
         console.error('Error fetching user data:', error);
         allReviews.textContent = "Error loading user data.";
     }
 });
+
+// Función para obtener una cantidad específica de reseñas aleatorias
+function getRandomReviews(reviews, count) {
+    const shuffled = reviews.sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
