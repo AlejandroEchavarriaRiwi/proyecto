@@ -90,6 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function redirect() {
+        localStorage.setItem('userEmail', emailInput.value);
         window.location.href = './userProfile.html';
     }
 });
