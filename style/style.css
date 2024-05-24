@@ -466,6 +466,9 @@ footer {
         color: #121933;
         font-weight: bold;
     }
+    .middle-menu h3{
+        color: #121933;
+    }
     .copyright{
         width: 100vw;
         padding: 20px 30px;
