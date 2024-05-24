@@ -22,7 +22,6 @@
 
 <body>
     <header class="header">
-        <div class="video-youtube"><video src="./img/construccion.mp4" autoplay loop muted></video></div>
         <div class="container">
             <div class="btn-menu">
                 <label for="btn-menu">☰</label>
@@ -62,12 +61,25 @@
                             <option value="Santa Elena">Santa Elena</option>
                         </optgroup>
                     </select>
-                    <select id="options2" name="type">
+                    <select name="" id="options2">
                         <option value="" disabled selected>Especialidad</option>
-                        <option value="Carpinteria">Carpinteria.</option>
-                        <option value="Electricidad">Electricidad</option>
-                        <option value="Plomeria">Plomeria</option>
-                        <option value="Gasodomesticos">Gasodomesticos</option>
+                        <optgroup label="Construcción">
+                            <option value="Vivienda Urbana">Vivienda Urbana</option>
+                            <option value="Vivienda Rural">Vivienda Rural</option>
+                            <option value="Comercial">Comercial</option>
+                        </optgroup>
+                        <optgroup label="Remodelación">
+                            <option value="Pisos">Pisos</option>
+                            <option value="Cocinas">Cocinas</option>
+                            <option value="Baños">Baños</option>
+                            <option value="Techos">Techos</option>
+                        </optgroup>
+                        <optgroup label="Reparación">
+                            <option value="Electricidad">Electricidad</option>
+                            <option value="Plomería">Plomería</option>
+                            <option value="Carpintería">Carpintería</option>
+                            <option value="Gasodomesticos">Gasodomésticos</option>
+                        </optgroup>
                     </select>
                     <input type="submit" value="Buscar">
                 </form>
