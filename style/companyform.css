@@ -5,9 +5,12 @@
     display: flex;
     flex-direction: column;
 }
+#divBackground{
+    padding-top: 20px;
+    background-color: #81a3e351
+}
 
 body h2,h4{
-    margin-top: 20px;
     text-align: center;
 }
 
@@ -19,15 +22,21 @@ h2{
 .companySection h4{
     text-align: center;
 }
-
 .companyInformationMobile {
+display: flex;
+flex-direction: column;
 width: 90vw;
 margin-bottom: 20px;
 padding: 15px;
 }
+.companyInformationTop{
+    display: flex;
+    flex-direction: column;
+}
 
 input, select {
     width: 90vw;
+    background-color: rgba(128, 128, 128, 0.041);
     margin-bottom: 15px;
 }
 
@@ -49,6 +58,7 @@ padding: 15px;
     display: flex;
     flex-direction: column;
 }
+
 .registerDocument input{
     width: 100%;
 }
@@ -98,14 +108,30 @@ margin-bottom: 20px;
 
 #companyImages{
     text-align: center;
+    gap: 9px;
 }
-
+#companyImages button{
+    margin-top: 40px;
+    border-radius: 8px;
+    width: 60%;
+}
+#companyImages input{
+    margin: 5px 0px;
+}
+#comment{
+    background-color: rgba(128, 128, 128, 0.041);
+}
+.companyGallery{
+    width: 100vw;
+    text-align: center;
+}
 
 @media(min-width: 720px){
 .companyInformationTop{
     display: grid;
     width: 45vw;
     grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
 }
 .companySection{
     margin-top: 50px;
@@ -113,17 +139,18 @@ margin-bottom: 20px;
     flex-direction: row-reverse;
     justify-content: space-around;
 }
-input, select {
-    width: 20vw;
+input, select{
+    width: 100%;
     margin-bottom: 15px;
 }
 .documents{
-    width: 20vw;
+    width: 100%;
     display: flex;
     align-items: center;
 }
 .companyGallery{
     width: 45vw;
+    text-align: center;
 }
 .submitProfileDiv{
     width: 45vw;
@@ -132,7 +159,6 @@ input, select {
 }
 .companyInformationMobile {
     width: 45vw;
-
     margin-bottom: 20px;
     padding: 15px;
     }
@@ -140,10 +166,6 @@ input, select {
         margin:-80px;
     }
 }
-
-
-/* funcion */
-
 .dropbtn {
     color: white;
     padding: 5px;
@@ -151,8 +173,6 @@ input, select {
     border: none;
     cursor: pointer;
 }
-
-
 .dropdown-content {
     display: none;
     position: absolute;
