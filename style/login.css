@@ -52,7 +52,7 @@ input {
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    max-width: 62vw;
+    max-width: 80vw;
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
@@ -113,4 +113,17 @@ input {
     input {
         width: 30vw;
     }
+
+    .login {
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        max-width: 60vw;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 40px;
+    }
+    
 }
