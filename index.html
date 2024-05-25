@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Styles letter -->
+    <!-- Google Fonts Preconnect and Import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +12,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kaushan+Script&display=swap"
         rel="stylesheet">
-    <!-- CSS -->
+    <!-- CSS Stylesheets -->
     <link rel="stylesheet" href="./style/style.css">
     <link rel="stylesheet" href="./style/feedback.css">
     <!-- Favicon -->
@@ -21,12 +21,16 @@
 </head>
 
 <body>
+    <!-- Header Section -->
     <header class="header">
         <div class="container">
+            <!-- Menu Button for Mobile View -->
             <div class="btn-menu">
                 <label for="btn-menu">☰</label>
             </div>
+            <!-- Navigation Container -->
             <div class="container-nav container-center">
+                <!-- Logo and Main Navigation -->
                 <div class="logo-tri">
                     <h1><span>Tri</span>Casas</h1>
                     <nav>
@@ -38,9 +42,11 @@
                     </nav>
                 </div>
             </div>
+            <!-- Search Section -->
             <h3>Encuentra tu servicio YA!</h3>
             <div class="container-search">
                 <form id="formSearch" action="">
+                    <!-- City Selection Dropdown -->
                     <select id="options" name="sector">
                         <option value="" selected disabled>Ciudad</option>
                         <optgroup label="Municipios del Valle de Aburrá">
@@ -61,6 +67,7 @@
                             <option value="Santa Elena">Santa Elena</option>
                         </optgroup>
                     </select>
+                    <!-- Specialty Selection Dropdown -->
                     <select name="" id="options2">
                         <option value="" disabled selected>Especialidad</option>
                         <optgroup label="Construcción">
@@ -81,13 +88,16 @@
                             <option value="Gasodomesticos">Gasodomésticos</option>
                         </optgroup>
                     </select>
+                    <!-- Search Button -->
                     <input type="submit" value="Buscar">
                 </form>
             </div>
     </header>
+    <!-- Menu Checkbox for Mobile Navigation -->
     <input type="checkbox" id="btn-menu">
     <div class="container-menu">
         <div class="cont-menu">
+            <!-- Mobile Navigation Links -->
             <nav>
                 <a href="index.html">Inicio</a>
                 <a href="./html/construction.html">Construcción</a>
@@ -102,12 +112,14 @@
     <main>
         <div class="container-center">
             <h2>TE LO CONSTRUIMOS, TE LO REMODELAMOS, TE LO REPARAMOS</h2>
+            <!-- Review Section -->
             <section class="review-container">
                 <h2>Ultimas reseñas:</h2>
                 <div id="allReviews">
-
+                    <!-- Reviews will be dynamically inserted here -->
                 </div>
             </section>
+            <!-- About Us Section -->
             <section class="about-us">
                 <div class="img-about-us">
                 </div>
@@ -119,38 +131,43 @@
                         las valoraciones de los usuarios para generar las mejores recomendaciones.</p>
                 </div>
             </section>
+            <!-- Service Categories Section -->
             <section>
                 <div class="middle-menu">
+                    <!-- Construction Category -->
                     <div class="menu1">
                         <h3>CONSTRUCCIÓN</h3>
                         <ul>
-                            <li class="middleMenuButton" value="Vivienda Urbana">Vivienda Urbana</li>
-                            <li class="middleMenuButton" value="Vivienda Rural">Vivienda Rural</li>
-                            <li class="middleMenuButton" value="Comercial">Comercial</li>
+                            <li class="middleMenuButton">Vivienda Urbana</li>
+                            <li class="middleMenuButton">Vivienda Rural</li>
+                            <li class="middleMenuButton">Comercial</li>
                         </ul>
                     </div>
+                    <!-- Remodeling Category -->
                     <div class="menu2">
                         <h3>REMODELACIÓN</h3>
                         <ul>
-                            <li class="middleMenuButton" value="Pisos">Pisos</li>
-                            <li class="middleMenuButton" value="Cocinas">Cocinas</li>
-                            <li class="middleMenuButton" value="Baños">Baños</li>
-                            <li class="middleMenuButton" value="Techos">Techos</li>
+                            <li class="middleMenuButton">Pisos</li>
+                            <li class="middleMenuButton">Cocinas</li>
+                            <li class="middleMenuButton">Baños</li>
+                            <li class="middleMenuButton">Techos</li>
                         </ul>
                     </div>
+                    <!-- Repair Category -->
                     <div class="menu3">
                         <h3>REPARACIÓN</h3>
                         <ul>
-                            <li class="middleMenuButton" value="Electricidad">Electricidad</li>
-                            <li class="middleMenuButton" value="Plomeria">Plomeria</li>
-                            <li class="middleMenuButton" value="Carpinteria">Carpinteria</li>
-                            <li class="middleMenuButton" value="Gasodomesticos">Gasodomesticos</li>
+                            <li class="middleMenuButton">Electricidad</li>
+                            <li class="middleMenuButton">Plomeria</li>
+                            <li class="middleMenuButton">Carpinteria</li>
+                            <li class="middleMenuButton">Gasodomesticos</li>
                         </ul>
                     </div>
                 </div>
             </section>
         </div>
     </main>
+    <!-- Footer Section -->
     <footer>
         <div class="copyright">
             <h4>Copyright &copy; RIWI 2024</h4>
@@ -161,6 +178,7 @@
             <img src="./img/youtube.png" alt="">
         </div>
     </footer>
+    <!-- JavaScript File -->
     <script src="./js/app.js"></script>
 </body>
 

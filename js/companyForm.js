@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const URL = 'http://localhost:3000/companyName'; // URL del servidor local JSON
+    const URL = 'http://localhost:3000/companyName'; 
     const idUser = Date.now().toString(30);
     const imageUser = document.querySelector('#fileInput');
     const archivos = document.querySelectorAll('#companyImages input[type="file"]');
@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const numberId = document.querySelector('#numberId');
     const telephoneNumber = document.querySelector('#telephoneNumber');
     const whatsappNumber = document.querySelector('#whatsappNumber');
-    const ciiuCode = document.querySelector('#ciiuCode');
     const categoriesCompany = document.querySelector('#categoriesCompany');
     const speciality = document.querySelector('#speciality');
     const companyEmail = document.querySelector('#companyEmail');
@@ -37,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Función para habilitar/deshabilitar opciones de especialidad según la categoría seleccionada
+
     function updateSpecialityOptions() {
         const selectedCategory = categoriesCompany.value;
         const optgroups = speciality.querySelectorAll('optgroup');
@@ -74,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             reader.onload = async function(event) {
                 const base64String = event.target.result.split(',')[1];
-                console.log("Main Image Base64:", base64String); // Debuggi
+                console.log("Main Image Base64:", base64String); 
 
                 const doc1Base64 = await convertToBase64(document1);
                 const doc2Base64 = await convertToBase64(document2);
@@ -85,18 +84,18 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.log("Processing file input:", fileInput);
                         return convertToBase64(fileInput.files[0]);
                     }
-                    return Promise.resolve(''); // Resolver con una cadena vacía si no hay archivo
+                    return Promise.resolve(''); 
                 });
 
-                // Esperar a que todas las promesas se resuelvan
+
                 const imagenesBase64 = await Promise.all(imagenesBase64Promises);
 
-                console.log("Additional Images Base64:", imagenesBase64); // Debugging
+                console.log("Additional Images Base64:", imagenesBase64);
 
                 const newUser = {
                     id: idUser,
                     image: base64String,
-                    imagenes: imagenesBase64.filter(base64 => base64), // Filtrar los archivos vacíos
+                    imagenes: imagenesBase64.filter(base64 => base64),
                     responsableName: responsableName.value,
                     responsableLastName: responsableLastName.value,
                     socialReason: socialReason.value,
@@ -105,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     numberId: numberId.value,
                     telephoneNumber: telephoneNumber.value,
                     whatsappNumber: whatsappNumber.value,
-                    ciiuCode: ciiuCode.value,
                     categoriesCompany: categoriesCompany.value,
                     speciality: speciality.value,
                     city: municipalityDropdown.value,
@@ -116,10 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     registerDocument2: doc2Base64,
                     ourPhotos: ourPhotos.value,
                     comment : comment.value
-                    // Añadir los municipios seleccionados
                 };
 
-                console.log("New User Object:", newUser); // Debugging
+                console.log("New User Object:", newUser);
 
                 await addUser(newUser);
             };
@@ -186,11 +183,6 @@ function mostrarImagen(input) {
 function toggleDropdown() {
     document.getElementById("myDropdown").classList.toggle("show");
 }
-
-// Prevents the dropdown from closing when clicking inside it
-document.getElementById("myDropdown").addEventListener('click', function(event) {
-    event.stopPropagation();
-});
 
 window.onclick = function(event) {
     if (!event.target.matches('.dropbtn')) {
