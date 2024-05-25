@@ -73,7 +73,7 @@ button a {
     height: 100px;
     object-fit: cover;
     border: 2px solid #000;
-    z-index: 30; /* Ajusta el valor del z-index para que esté sobre el contenedor */
+    z-index: 30;
 }
 
 .container-carousel {
@@ -84,7 +84,7 @@ button a {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
     border-radius: 15px;
     overflow: hidden;
-    z-index: 20; /* Asegura que el contenedor esté detrás de la imagen de perfil */
+    z-index: 20;
 }
 
 .carruseles {
@@ -104,27 +104,9 @@ button a {
 .slider-section img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* Mantén las proporciones de la imagen */
+    object-fit: contain;
 }
 
-/* .btn-left, .btn-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.5);
-    border: none;
-    cursor: pointer;
-    z-index: 2;
-    padding: 10px;
-}
-
-.btn-left {
-    left: 10px;
-}
-
-.btn-right {
-    right: 10px;
-} */
 
 .modal {
     text-align: center;
@@ -265,7 +247,7 @@ button a {
     .slider-section img {
         max-width: 100%;
         max-height: 100%;
-        object-fit: contain; /* Mantén las proporciones de la imagen */
+        object-fit: contain;
     }
 
 

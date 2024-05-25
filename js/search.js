@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const specialFilter = localStorage.getItem('speciality');
     const buttonsPage = document.querySelector('#buttonsPage')
 
-    const itemsPerPage = 4; // Número de empresas por página
+    const itemsPerPage = 4;
     let currentPage = 1;
     let users = [];
 
@@ -13,10 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const response = await fetch(URL);
         users = await response.json();
 
-        // Ordenar los usuarios por fecha de creación en orden descendente
         users.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-        // Inicialmente mostrar todos los usuarios filtrados por tipo de empresa
         filterAndDisplayUsers();
     } catch (error) {
         console.error('Error cargando perfiles de usuario:', error);
@@ -24,12 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     function filterAndDisplayUsers() {
-        // Filtrar los usuarios que coincidan con el tipo de empresa y los filtros
         const filteredUsers = users.filter(user => {
             return user.city === cityFilter || user.speciality === specialFilter;
         });
-
-        // Limpiar el contenedor de perfiles
         profilesContainer.innerHTML = '';
 
         if (filteredUsers.length > 0) {
@@ -40,7 +34,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const profileDiv = document.createElement('div');
                 profileDiv.classList.add('profile');
 
-                // Mostrar la imagen principal del usuario
                 const imgElement = document.createElement('img');
                 imgElement.src = `data:image/png;base64,${user.image}`;
                 imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
@@ -72,10 +65,9 @@ document.addEventListener("DOMContentLoaded", async () => {
                 carruseles.classList.add('carruseles');
                 containerCarousel.appendChild(carruseles);
 
-                // Mostrar las imágenes adicionales del usuario
                 if (user.imagenes && user.imagenes.length > 0) {
                     user.imagenes.forEach((imagenBase64, index) => {
-                        if (index < 6) { // Limita a 6 imágenes
+                        if (index < 6) {
                             const sectionimg = document.createElement('section');
                             sectionimg.classList.add('slider-section');
 
@@ -90,7 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     });
                 }
 
-                // Agregar el modal
                 const modal = document.createElement('div');
                 modal.classList.add('modal');
 
@@ -100,16 +91,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                 const closeBtn = document.createElement('span');
                 closeBtn.classList.add('close');
                 closeBtn.innerHTML = '&times;';
+                
+                const companyNameModal = document.createElement('h2');
+                companyNameModal.classList.add('modalTitle');
+                companyNameModal.textContent = `${user.socialReason}`
 
                 modalContent.appendChild(closeBtn);
-                modalContent.appendChild(nameElement);
+                modalContent.appendChild(companyNameModal);
                 modalContent.appendChild(description);
                 modalContent.appendChild(emailElement);
                 modalContent.appendChild(contactWhatsapp);
                 modal.appendChild(modalContent);
                 profileDiv.appendChild(modal);
 
-                // Botones de navegación
                 const divRight = document.createElement('div');
                 divRight.classList.add('btn-right');
                 const iDivRight = document.createElement('i');
@@ -127,10 +121,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 profilesContainer.appendChild(profileDiv);
 
-                // Eventos de clic para los botones de navegación
+
                 let operacion = 0;
                 let counter = 0;
-                const widthImg = 100; // Cada sección ocupa el 100% del contenedor
+                const widthImg = 100;
 
 
                 function moveToRight() {
@@ -147,22 +141,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     carruseles.style.transition = "all ease .6s";
                 }
 
-                // Auto-mover a la derecha cada 3 segundos
+
                 setInterval(() => {
                     moveToRight();
                 }, 5000);
 
-                // Evento de clic para mostrar el modal
+
                 containerCarousel.addEventListener('click', () => {
                     modal.style.display = "block";
                 });
 
-                // Evento de clic para cerrar el modal
+
                 closeBtn.addEventListener('click', () => {
                     modal.style.display = "none";
                 });
 
-                // Evento de clic para cerrar el modal si se hace clic fuera de él
+
                 window.addEventListener('click', (event) => {
                     if (event.target === modal) {
                         modal.style.display = "none";
@@ -180,7 +174,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function addPaginationControls(totalItems, container) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-        // Limpiar el contenedor de paginación antes de agregar nuevos botones
         let paginationContainer = container.querySelector('.pagination');
         if (paginationContainer) {
             paginationContainer.remove();

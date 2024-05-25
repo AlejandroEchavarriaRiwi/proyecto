@@ -3,77 +3,74 @@ document.addEventListener("DOMContentLoaded", async () => {
     const profilesContainer = document.querySelector('#userProfiles');
     const cityFilter = document.querySelector('#cityFilter');
     const specialFilter = document.querySelector('#specialFilter');
-    const companyType = "Reparación"; // tipo de empresa
-    const hideButtonC = document.querySelector("#hideButtonC")
-    const hideButtonM = document.querySelector("#hideButtonM")
+    const companyType = "Reparación";
+    const hideButtonC = document.querySelector("#hideButtonC");
+    const hideButtonM = document.querySelector("#hideButtonM");
 
-    const itemsPerPage = 10; // Número de empresas por página
+    const itemsPerPage = 10;
     let currentPage = 1;
     let users = [];
+
+    const initialCity = localStorage.getItem('city') || '';
+    const initialSpeciality = localStorage.getItem('speciality') || '';
+
+    cityFilter.value = initialCity;
+    specialFilter.value = initialSpeciality;
 
     try {
         const response = await fetch(URL);
         users = await response.json();
 
-        // Ordenar los usuarios por fecha de creación en orden descendente
         users.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-        // Inicialmente mostrar todos los usuarios filtrados por tipo de empresa
         filterAndDisplayUsers();
     } catch (error) {
         console.error('Error cargando perfiles de usuario:', error);
         profilesContainer.textContent = "Error cargando perfiles de usuario.";
     }
 
-    // Añadir eventos de cambio a los filtros
     cityFilter.addEventListener('change', () => {
-        currentPage = 1; // Reiniciar a la primera página
+        currentPage = 1;
         filterAndDisplayUsers();
     });
     specialFilter.addEventListener('change', () => {
-        currentPage = 1; // Reiniciar a la primera página
+        currentPage = 1;
         filterAndDisplayUsers();
     });
 
-    // Crear y añadir el botón de limpiar filtros
     const clearFilterButton = document.createElement('button');
-    clearFilterButton.classList.add("DeleatFiltes")
+    clearFilterButton.classList.add("DeleatFiltes");
     clearFilterButton.textContent = "Limpiar Filtros";
     clearFilterButton.addEventListener('click', () => {
         cityFilter.value = '';
         specialFilter.value = '';
-        currentPage = 1; // Reiniciar a la primera página
+        localStorage.removeItem('city');
+        localStorage.removeItem('speciality');
+        currentPage = 1;
         filterAndDisplayUsers();
     });
 
-    // Añadir el botón debajo de los filtros
-    const filterButton = document.querySelector("#filterButton")
+    const filterButton = document.querySelector("#filterButton");
     filterButton.appendChild(clearFilterButton);
 
     function filterAndDisplayUsers() {
-        // Obtener los valores actuales de los filtros
         const city = cityFilter.value;
         const special = specialFilter.value;
-
-        // Filtrar los usuarios que coincidan con el tipo de empresa y los filtros
         const filteredUsers = users.filter(user => {
             return user.categoriesCompany === companyType &&
                 (!city || user.city === city) &&
                 (!special || user.speciality === special);
         });
 
-        // Limpiar el contenedor de perfiles
         profilesContainer.innerHTML = '';
 
         if (filteredUsers.length > 0) {
             const startIndex = (currentPage - 1) * itemsPerPage;
             const paginatedUsers = filteredUsers.slice(startIndex, startIndex + itemsPerPage);
-
+            localStorage.clear();
             paginatedUsers.forEach(user => {
                 const profileDiv = document.createElement('div');
                 profileDiv.classList.add('profile');
 
-                // Mostrar la imagen principal del usuario
                 const imgElement = document.createElement('img');
                 imgElement.src = `data:image/png;base64,${user.image}`;
                 imgElement.alt = `${user.responsableName} ${user.responsableLastName}`;
@@ -86,12 +83,15 @@ document.addEventListener("DOMContentLoaded", async () => {
                 description.textContent = `${user.comment}`;
 
                 const emailElement = document.createElement('button');
-                emailElement.classList.add("buttonEmail")
+                emailElement.classList.add("buttonEmail");
                 emailElement.innerHTML = `<a target="_blank" href="mailto:${user.companyEmail}">Enviar E-mail</a>`;
 
                 const contactWhatsapp = document.createElement('button');
-                contactWhatsapp.classList.add("buttonWhatsapp")
+                contactWhatsapp.classList.add("buttonWhatsapp");
                 contactWhatsapp.innerHTML = `<a target="_blank" href="https://api.whatsapp.com/send?phone=${user.whatsappNumber}">Whatsapp</a>`;
+
+                const ageElement = document.createElement('p');
+                ageElement.textContent = `Age: ${user.age}`;
 
                 const containerCarousel = document.createElement('div');
                 containerCarousel.classList.add('container-carousel');
@@ -102,7 +102,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 carruseles.classList.add('carruseles');
                 containerCarousel.appendChild(carruseles);
 
-                // Mostrar las imágenes adicionales del usuario
                 if (user.imagenes && user.imagenes.length > 0) {
                     user.imagenes.forEach((imagenBase64, index) => {
                         if (index < 6) { // Limita a 6 imágenes
@@ -120,7 +119,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                     });
                 }
 
-                // Agregar el modal
                 const modal = document.createElement('div');
                 modal.classList.add('modal');
 
@@ -131,15 +129,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                 closeBtn.classList.add('close');
                 closeBtn.innerHTML = '&times;';
 
+                const companyNameModal = document.createElement('h2');
+                companyNameModal.classList.add('modalTitle');
+                companyNameModal.textContent = `${user.socialReason}`
+
                 modalContent.appendChild(closeBtn);
-                modalContent.appendChild(nameElement);
+                modalContent.appendChild(companyNameModal);
                 modalContent.appendChild(description);
                 modalContent.appendChild(emailElement);
                 modalContent.appendChild(contactWhatsapp);
                 modal.appendChild(modalContent);
                 profileDiv.appendChild(modal);
 
-                // Botones de navegación
                 const divRight = document.createElement('div');
                 divRight.classList.add('btn-right');
                 const iDivRight = document.createElement('i');
@@ -157,10 +158,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 profilesContainer.appendChild(profileDiv);
 
-                // Eventos de clic para los botones de navegación
+
                 let operacion = 0;
                 let counter = 0;
-                const widthImg = 100; // Cada sección ocupa el 100% del contenedor
+                const widthImg = 100;
 
                 divRight.addEventListener('click', () => moveToRight());
                 divLeft.addEventListener('click', () => moveToLeft());
@@ -193,22 +194,19 @@ document.addEventListener("DOMContentLoaded", async () => {
                     carruseles.style.transition = "all ease .6s";
                 }
 
-                // Auto-mover a la derecha cada 3 segundos
                 setInterval(() => {
                     moveToRight();
                 }, 5000);
 
-                // Evento de clic para mostrar el modal
                 containerCarousel.addEventListener('click', () => {
                     modal.style.display = "block";
                 });
 
-                // Evento de clic para cerrar el modal
+
                 closeBtn.addEventListener('click', () => {
                     modal.style.display = "none";
                 });
 
-                // Evento de clic para cerrar el modal si se hace clic fuera de él
                 window.addEventListener('click', (event) => {
                     if (event.target === modal) {
                         modal.style.display = "none";
@@ -216,7 +214,6 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
             });
 
-            // Agregar controles de paginación
             addPaginationControls(filteredUsers.length, hideButtonC);
             addPaginationControls2(filteredUsers.length, hideButtonM);
 
@@ -228,7 +225,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function addPaginationControls(totalItems, container) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
     
-        // Limpiar el contenedor de paginación antes de agregar nuevos botones
         let paginationContainer = container.querySelector('.pagination');
         if (paginationContainer) {
             paginationContainer.remove();
@@ -258,7 +254,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function addPaginationControls2(totalItems, container) {
         const totalPages = Math.ceil(totalItems / itemsPerPage);
     
-        // Limpiar el contenedor de paginación antes de agregar nuevos botones
         let paginationContainer = container.querySelector('.pagination');
         if (paginationContainer) {
             paginationContainer.remove();
@@ -284,4 +279,3 @@ document.addEventListener("DOMContentLoaded", async () => {
         container.appendChild(paginationContainer);
     }
 });
-

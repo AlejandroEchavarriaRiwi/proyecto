@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const mainContainer = document.querySelector('body');
     const perfilWarning = document.querySelector('#logo');
     const logoContainer = document.querySelector('#logo');
-    const photosContainer = document.querySelector('.companyPhotos'); // Ajustado para seleccionar el contenedor correcto de fotos
+    const photosContainer = document.querySelector('.companyPhotos');
     const photosCatalog = document.querySelector('#addImageBtn');
     const editInformation = document.querySelector('#editInformationBtn');
     const socialReasonContainer = document.querySelector('#companySocialReason');
@@ -25,19 +25,18 @@ document.addEventListener("DOMContentLoaded", async () => {
         if (filteredCompany.length > 0) {
             const user = filteredCompany[0];
 
-            // Mostrar nombre de bienvenida
             const welcomeName = document.createElement('h4');
             welcomeName.textContent = `${user.responsableName} ${user.responsableLastName}`;
             welcome.appendChild(welcomeName);
 
-            // Mostrar logo de la empresa
+
             const imgLogo = document.createElement('img');
             imgLogo.src = `data:image/png;base64,${user.image}`;
             imgLogo.alt = `${user.responsableName} ${user.responsableLastName}`;
             imgLogo.classList.add('imgLogo');
             logoContainer.appendChild(imgLogo);
 
-            // Modal para editar el logo
+
             const logoModal = document.createElement('div');
             logoModal.classList.add('modal');
 
@@ -147,7 +146,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 });
 
                 function renderPhotos() {
-                    photosContainer.innerHTML = ''; // Limpiar el contenedor de fotos antes de renderizar nuevas fotos
+                    photosContainer.innerHTML = '';
                     user.imagenes.slice(0, maxPhotos).forEach((imagenBase64, index) => {
                         const sectionimg = document.createElement('section');
                         sectionimg.classList.add('slider-section');
@@ -231,8 +230,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                     photoAddButton.style.display = user.imagenes.length >= maxPhotos ? 'none' : 'block';
                 }
 
-                photosCatalog.appendChild(photoAddButton); // Agregar el botón al contenedor de fotos
-                photosCatalog.appendChild(photoInput); // Agregar el input al contenedor de fotos
+                photosCatalog.appendChild(photoAddButton); 
+                photosCatalog.appendChild(photoInput); 
                 renderPhotos();
             }
 
@@ -339,7 +338,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             commentContainer.appendChild(description);
             editInformation.appendChild(editCompanyInfoButton);
 
-            ourPhotos(); // Llamar a ourPhotos para configurar las fotos
+            ourPhotos();
         } else {
             perfilWarning.textContent = 'User not found.';
         }

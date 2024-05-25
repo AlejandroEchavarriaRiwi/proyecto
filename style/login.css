@@ -72,8 +72,6 @@ input {
     margin-bottom: 20px;
 }
 
-/* aquí empieza la parte de abajo de la cuenta de login */
-
 .loginBottom {
     display: flex;
     flex-direction: column;
