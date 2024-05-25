@@ -1,6 +1,35 @@
 document.addEventListener("DOMContentLoaded", async () => {
     const URL2 = "http://localhost:3000/feedback";
+    const city = document.querySelector('#options');
+    const speciality = document.querySelector('#options2');
+    const form = document.querySelector('#formSearch');
+    const menu1 = document.querySelector('.menu1');
+    const menu2 = document.querySelector('.menu2');
+    const menu3 = document.querySelector('.menu3');
+    const category = document.querySelector('.middleMenuButton')
     const allReviews = document.querySelector('#allReviews');
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        localStorage.setItem('city', city.value);
+        localStorage.setItem('speciality', speciality.value);
+        window.location.href = './html/search.html';
+    });
+    menu1.addEventListener('click', (event) => {
+        event.preventDefault();
+        localStorage.setItem('speciality', category.value);
+        window.location.href = './html/construction.html';
+    });
+    menu2.addEventListener('click', (event) => {
+        event.preventDefault();
+        localStorage.setItem('speciality', category.value);
+        window.location.href = './html/remodeling.html';
+    });
+    menu3.addEventListener('click', (event) => {
+        event.preventDefault();
+        localStorage.setItem('speciality', category.value);
+        window.location.href = './html/repair.html';
+    });
 
     try {
         const response = await fetch(URL2);
