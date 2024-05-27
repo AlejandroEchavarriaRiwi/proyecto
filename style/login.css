@@ -6,6 +6,15 @@
     margin: 12px 0px;
 }
 
+.containerCenter{
+    display: flex;
+    justify-content:center;
+}
+
+body{
+    background-color: #81a3e351
+}
+
 #dividing {
     width: 70vw;
     display: flex;
@@ -52,14 +61,13 @@ input {
     background-color: whitesmoke;
     display: flex;
     flex-direction: column;
-    max-width: 80vw;
-    margin: 0 auto;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
+    height:fit-content;
+    width: 80%;
+    margin: 55px 0px;
+    padding: 20px 0px;
 }
-
 
 
 .loginUp {
@@ -111,17 +119,17 @@ input {
     input {
         width: 30vw;
     }
-
+    
     .login {
         background-color: whitesmoke;
         display: flex;
         flex-direction: column;
-        max-width: 60vw;
-        margin: 0 auto;
-        padding: 20px;
+        align-items: center;
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-top: 40px;
+        margin: 50px 0px;
+        width: 60%;
+        
     }
     
 }
