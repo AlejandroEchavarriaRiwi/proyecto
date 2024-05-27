@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- All the google fonts that has been import -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Kaushan+Script&display=swap"
         rel="stylesheet">
     <link rel="shortcut icon" href="./../img/favicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./../style/userForm.css">
+    <link rel="stylesheet" href="./../style/userForm.css"> <!-- The Stylesheets, Css for this web page-->
     <title>TriCasas</title>
 </head>
 
@@ -38,13 +39,13 @@
     <div class="capa"></div>
     <!--	--------------->
     <input type="checkbox" id="btn-menu">
-    <div class="container-menu">
-        <div class="cont-menu">
+    <div class="container-menu"> <!--This is the principal container that  has the navigation menu-->
+        <div class="cont-menu"> <!--Interna container that  has each element of the menu -->
             <nav>
                 <a href="../index.html">Inicio</a>
                 <a href="../html/construction.html">Construcción</a>
                 <a href="../html/remodeling.html">Remodelación</a>
-                <a href="../html/repair.html">Reparación</a>
+                <a href="../html/repair.html">Reparación</a>  <!--  each "a" has the link that point to diferent page-->
                 <a href="../html/login.html">Ingresar</a>
             </nav>
             <label for="btn-menu">✖️</label>
@@ -55,7 +56,7 @@
         <h2>REGISTRO</h2>
         <p>Ingresa tus datos:</p>
     </div>
-    <div class="mainContainer">
+    <div class="mainContainer"> <!--This is the container has all the input and the profile photo that is going to be submit for the user-->
         <div class="titleText">
             <h2>REGISTRO</h2>
             <p>Ingresa tus datos:</p>
@@ -65,7 +66,7 @@
                 <input type="file" id="fileInput" accept="image/*" onchange="mostrarImagen(this);" required>
             </div>
         </div>
-        <div class="formLeftAside">
+        <div class="formLeftAside"> <!--Thi container has all the input that the user is going to submit -->
             <form action="" id="userForm">
                 <label for="namesInput">Nombre(s):</label>
                 <input id="namesInput" type="text" placeholder="Jane" required>
@@ -101,14 +102,14 @@
         <div class="copyright">
             <h4>Copyright &copy; RIWI 2024</h4>
         </div>
-        <div class="social-media">
+        <div class="social-media"> <!-- All Social media of the web page-->
             <img src="./../img/facebook.png" alt="">
             <img src="./../img/instagram.png" alt="">
             <img src="./../img/youtube.png" alt="">
         </div>
     </footer>
 
-    <script src="./../js/userForm.js"></script>
+    <script src="./../js/userForm.js"></script> <!-- The javaScript that control this Html -->
 </body>
 
 </html>

@@ -37,12 +37,12 @@
             </div>
     </header>
     <input type="checkbox" id="btn-menu">
-    <div class="container-menu">
-        <div class="cont-menu">
-            <nav>
+    <div class="container-menu"> <!--This is the principal container that  has the navigation menu-->
+        <div class="cont-menu">  <!--Interna container that  has each element of the menu -->
+            <nav> <!--The label Nav has all the link of the menu-->
                 <a href="../index.html">Inicio</a>
                 <a href="../html/construction.html">Construcción</a>
-                <a href="../html/remodeling.html">Remodelación</a>
+                <a href="../html/remodeling.html">Remodelación</a> <!--  each "a" has the link that point to diferent page-->
                 <a href="../html/repair.html">Reparación</a>
                 <a href="../html/login.html">Ingresar</a>
             </nav>
@@ -57,7 +57,7 @@
         </div>
         <div class="userProfileFeedback">
             <h1> ¡Cuéntanos tu experiencia!</h1>
-            <div class="userProfileImages">
+            <div class="userProfileImages"> <!-- The container of the div where each photo is going to -->
                 <div class="userImage" id="userImage1" onclick="document.getElementById('fileInput1').click();">
                     <input type="file" id="fileInput1" accept="image/*" onchange="mostrarImagen(this, 'userImage1');" required>
                 </div>
@@ -68,10 +68,10 @@
                     <input type="file" id="fileInput3" accept="image/*" onchange="mostrarImagen(this, 'userImage3');" required>
                 </div>
             </div>
-            <div class="star-rating">
+            <div class="star-rating"> <!--Container that has all the star to rate -->
                 <span class="star" data-value="1">&#9733;</span>
                 <span class="star" data-value="2">&#9733;</span>
-                <span class="star" data-value="3">&#9733;</span>
+                <span class="star" data-value="3">&#9733;</span> <!-- Each star with the value to rate-->
                 <span class="star" data-value="4">&#9733;</span>
                 <span class="star" data-value="5">&#9733;</span>
                 <br>
@@ -90,13 +90,13 @@
         <div class="copyright">
             <h4>Copyright &copy; RIWI 2024</h4>
         </div>
-        <div class="social-media">
+        <div class="social-media"> <!-- All Social media of the web page-->
             <img src="./../img/facebook.png" alt="">
             <img src="./../img/instagram.png" alt="">
             <img src="./../img/youtube.png" alt="">
         </div>
     </footer>
 
-    <script src="./../js/userProfile.js"></script>
+    <script src="./../js/userProfile.js"></script> <!-- The javaScript that control this Html -->
 </body>
 </html>
