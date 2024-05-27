@@ -76,21 +76,26 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     buttonSubmit.addEventListener("click", async (event) => {
         event.preventDefault();
-        
+
+        // Check if all required fields are filled
+        const allFieldsFilled = currentRating > 0 &&
+                                userComments.value.trim() !== '' &&
+                                companySelect.value.trim() !== '' &&
+                                document.getElementById('userImage1').style.backgroundImage !== '' &&
+                                document.getElementById('userImage2').style.backgroundImage !== '' &&
+                                document.getElementById('userImage3').style.backgroundImage !== '';
+
+        if (!allFieldsFilled) {
+            alert('Por favor, complete todos los campos requeridos.');
+            return;
+        }
+
         // Get background images of user images
         const userImages = [
             document.getElementById('userImage1').style.backgroundImage.slice(5, -2),
             document.getElementById('userImage2').style.backgroundImage.slice(5, -2),
             document.getElementById('userImage3').style.backgroundImage.slice(5, -2)
         ];
-
-        // Check if all images are uploaded
-        const allImagesUploaded = userImages.every(image => image !== '');
-
-        if (!allImagesUploaded) {
-            alert('Por favor, sube todas las imágenes requeridas.');
-            return;
-        }
 
         const feedback = {
             userName: userName,
@@ -123,7 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     function redirect() {
         window.location.href = '../index.html';
     }
-    
+
     try {
         const response = await fetch(URL3);
         if (!response.ok) {
@@ -158,4 +163,3 @@ function mostrarImagen(input, divId) {
         reader.readAsDataURL(input.files[0]);
     }
 }
-2
