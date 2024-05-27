@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "http://localhost:3000/userRegistration";
-    const URL2 = "http://localhost:3000/feedback";
-    const URL3 = "http://localhost:3000/companyName";
+    const URL = "https://m25mvnsk-3000.use2.devtunnels.ms/userRegistration";
+    const URL2 = "https://m25mvnsk-3000.use2.devtunnels.ms/feedback";
+    const URL3 = "https://m25mvnsk-3000.use2.devtunnels.ms/companyName";
     const profilesContainer = document.querySelector('#userProfilePhoto');
     const specificEmailUser = localStorage.getItem('userEmail');
     const userProfilePhoto = document.querySelector('#userProfilePhoto');

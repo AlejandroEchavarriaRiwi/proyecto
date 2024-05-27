@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const URL = 'http://localhost:3000/userRegistration'; // URL del servidor local JSON
+    const URL = 'https://m25mvnsk-3000.use2.devtunnels.ms/userRegistration'; // URL del servidor local JSON
     const idUser = Date.now().toString(30);
     const form = document.querySelector('#userForm');
     const imageUser = document.querySelector('#fileInput');

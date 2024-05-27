@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "http://localhost:3000/companyName";
+    const URL = "https://m25mvnsk-3000.use2.devtunnels.ms/companyName";
     const welcome = document.querySelector('#showName');
     const mainContainer = document.querySelector('body');
     const perfilWarning = document.querySelector('#logo');

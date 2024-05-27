@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URLUser = 'http://localhost:3000/userRegistration';
-    const URLCompany = 'http://localhost:3000/companyName';
+    const URLUser = 'https://m25mvnsk-3000.use2.devtunnels.ms/userRegistration';
+    const URLCompany = 'https://m25mvnsk-3000.use2.devtunnels.ms/companyName';
     const emailField = document.querySelector('#emailLogInForm');
     const passwordField = document.querySelector('#passwordLogInForm');
 
