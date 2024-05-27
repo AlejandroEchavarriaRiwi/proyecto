@@ -82,6 +82,9 @@ document.addEventListener("DOMContentLoaded", async () => {
             imgElement.src = `${review.profilePhoto}`;
             imgElement.alt = review.userName;
             imgElement.classList.add('profileImage');
+            imgElement.onerror = () => {
+                imgElement.src = 'default-image-path.jpg'; // Ruta de imagen por defecto
+            };
             imgReviewContainer.appendChild(imgElement);
 
             // Create and add star rating
@@ -97,17 +100,20 @@ document.addEventListener("DOMContentLoaded", async () => {
             const carruseles = document.createElement('div');
             carruseles.classList.add('carruseles');
 
+            let operacion = 0;
+            let counter = 0;
+            const widthImg = 100;
+
             // Function to move carousel to the right
             function moveToRight() {
                 counter++;
                 if (counter >= review.images.length) {
                     counter = 0;
                     operacion = 0;
-                    carruseles.style.transform = `translateX(0)`;
                 } else {
-                    operacion = operacion + widthImg;
-                    carruseles.style.transform = `translateX(-${operacion}%)`;
+                    operacion += widthImg;
                 }
+                carruseles.style.transform = `translateX(-${operacion}%)`;
                 carruseles.style.transition = "all ease .6s";
             }
 
@@ -117,11 +123,10 @@ document.addEventListener("DOMContentLoaded", async () => {
                 if (counter < 0) {
                     counter = review.images.length - 1;
                     operacion = widthImg * counter;
-                    carruseles.style.transform = `translateX(-${operacion}%)`;
                 } else {
-                    operacion = operacion - widthImg;
-                    carruseles.style.transform = `translateX(-${operacion}%)`;
+                    operacion -= widthImg;
                 }
+                carruseles.style.transform = `translateX(-${operacion}%)`;
                 carruseles.style.transition = "all ease .6s";
             }
 
@@ -139,18 +144,19 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Add additional images to the carousel
             if (review.images && review.images.length > 0) {
                 review.images.forEach((imagenBase64, index) => {
-                    if (index < 6) {
-                        const sectionimg = document.createElement('section');
-                        sectionimg.classList.add('slider-section');
+                    const sectionimg = document.createElement('section');
+                    sectionimg.classList.add('slider-section');
 
-                        const additionalImgElement = document.createElement('img');
-                        additionalImgElement.src = `${imagenBase64}`;
-                        additionalImgElement.alt = `${review.responsableName} ${review.responsableLastName} Image ${index + 1}`;
-                        additionalImgElement.classList.add('additionalProfileImage');
-                        sectionimg.appendChild(additionalImgElement);
+                    const additionalImgElement = document.createElement('img');
+                    additionalImgElement.src = `${imagenBase64}`;
+                    additionalImgElement.alt = `${review.responsableName} ${review.responsableLastName} Image ${index + 1}`;
+                    additionalImgElement.classList.add('additionalProfileImage');
+                    additionalImgElement.onerror = () => {
+                        additionalImgElement.src = 'default-image-path.jpg'; // Ruta de imagen por defecto
+                    };
+                    sectionimg.appendChild(additionalImgElement);
 
-                        carruseles.appendChild(sectionimg);
-                    }
+                    carruseles.appendChild(sectionimg);
                 });
             }
 
@@ -178,16 +184,17 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 seeMore.addEventListener('click', () => {
                     comments.classList.toggle("more");
-                    if (comments.classList.contains("more")) {
-                        seeMore.textContent = "Ver menos";
-                    } else {
-                        seeMore.textContent = "Ver más";
-                    }
+                    seeMore.textContent = comments.classList.contains("more") ? "Ver menos" : "Ver más";
                 });
             }
 
             ContainerReview.appendChild(comments);
             allReviews.appendChild(ContainerReview);
+
+            // Set interval for automatic carousel movement
+            setInterval(() => {
+                moveToRight();
+            }, 3000); // Cambia la imagen cada 3 segundos
         });
     } catch (error) {
         console.error('Error fetching user data:', error);

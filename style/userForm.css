@@ -4,6 +4,17 @@
     max-width: 100vw;
 }
 
+body{
+    background-color: #81a3e351
+}
+
+input{
+    background-color: #81a3e351
+}
+
+select{
+    background-color: #81a3e351
+}
 .titleText {
     text-align: center;
     margin: 20px 0px;
