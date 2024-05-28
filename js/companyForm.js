@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const URL = 'https://m25mvnsk-3000.use2.devtunnels.ms/companyName'; //https://m25mvnsk-3000.use2.devtunnels.ms/
+    const URL = 'http://localhost:3000/companyName'; //http://localhost:3000/
     const idUser = Date.now().toString(30);
     const imageUser = document.querySelector('#fileInput');
     const archivos = document.querySelectorAll('#companyImages input[type="file"]');

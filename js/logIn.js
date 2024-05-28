@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URLUser = 'https://m25mvnsk-3000.use2.devtunnels.ms/userRegistration';
-    const URLCompany = 'https://m25mvnsk-3000.use2.devtunnels.ms/companyName';
+    const URLUser = 'http://localhost:3000/userRegistration';
+    const URLCompany = 'http://localhost:3000/companyName';
     const emailField = document.querySelector('#emailLogInForm');
     const passwordField = document.querySelector('#passwordLogInForm');
 
@@ -30,11 +30,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             const filteredUser = users.find(user => user.email === specificEmail && user.password === specificPassword);
 
             if (filteredUser) {
+                localStorage.setItem("user", true); // set user key true for guardian
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como usuario.', 'success').then(() => {
                     redirect('./../html/userProfile.html');
                 });
             } else if (filteredCompany) {
+                localStorage.setItem("user", true); // set user key true for guardian
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como empresa.', 'success').then(() => {
                     redirect('./../html/companyProfile.html');

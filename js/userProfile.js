@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "https://m25mvnsk-3000.use2.devtunnels.ms/userRegistration";
-    const URL2 = "https://m25mvnsk-3000.use2.devtunnels.ms/feedback";
-    const URL3 = "https://m25mvnsk-3000.use2.devtunnels.ms/companyName";
+    const URL = "http://localhost:3000/userRegistration";
+    const URL2 = "http://localhost:3000/feedback";
+    const URL3 = "http://localhost:3000/companyName";
     const profilesContainer = document.querySelector('#userProfilePhoto');
     const specificEmailUser = localStorage.getItem('userEmail');
     const userProfilePhoto = document.querySelector('#userProfilePhoto');
@@ -14,6 +14,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     let userName = ''; // Variable to store the user's name
     let imgElement; // Declare imgElement outside the try block
 
+    (
+        () => {
+
+            const user = localStorage.getItem("user");
+
+            if (!user) {
+                window.location.href = "../index.html";
+            }
+        }
+    )()
+
     try {
         const response = await fetch(URL);
         if (!response.ok) {
@@ -24,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (filteredUsers.length > 0) {
             const user = filteredUsers[0];
+            localStorage.clear();
             userName = `${user.name} ${user.lastNames}`; // Store the user's name
             imgElement = document.createElement('img');
             imgElement.src = `data:image/png;base64,${user.image}`;
@@ -79,11 +91,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         // Check if all required fields are filled
         const allFieldsFilled = currentRating > 0 &&
-                                userComments.value.trim() !== '' &&
-                                companySelect.value.trim() !== '' &&
-                                document.getElementById('userImage1').style.backgroundImage !== '' &&
-                                document.getElementById('userImage2').style.backgroundImage !== '' &&
-                                document.getElementById('userImage3').style.backgroundImage !== '';
+            userComments.value.trim() !== '' &&
+            companySelect.value.trim() !== '' &&
+            document.getElementById('userImage1').style.backgroundImage !== '' &&
+            document.getElementById('userImage2').style.backgroundImage !== '' &&
+            document.getElementById('userImage3').style.backgroundImage !== '';
 
         if (!allFieldsFilled) {
             alert('Por favor, complete todos los campos requeridos.');
@@ -107,7 +119,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 
         try {
-            const response = await fetch(URL2, {
+            const response = await fetch(URL2, {// Send data to json with url2 key
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -116,6 +128,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
             if (response.ok) {
                 console.log('Feedback enviado correctamente');
+                localStorage.clear();
                 redirect();
             } else {
                 console.error('Error al enviar el feedback');
