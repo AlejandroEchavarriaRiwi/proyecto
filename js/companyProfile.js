@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "https://m25mvnsk-3000.use2.devtunnels.ms/companyName";
+    const URL = "http://localhost:3000/companyName";//https://m25mvnsk-3000.use2.devtunnels.ms
     const welcome = document.querySelector('#showName');
     const mainContainer = document.querySelector('body');
     const perfilWarning = document.querySelector('#logo');
@@ -17,6 +17,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     const commentContainer = document.querySelector('#companyComment');
     const userMail = localStorage.getItem('userEmail');
 
+    (
+        () => {
+
+            const user = localStorage.getItem("user");
+
+            if (!user) {
+                window.location.href = "../index.html";
+            }
+        }
+    )()
+
     try {
         const response = await fetch(URL);
         const userCompany = await response.json();
@@ -24,6 +35,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (filteredCompany.length > 0) {
             const user = filteredCompany[0];
+            localStorage.clear();
 
             const welcomeName = document.createElement('h4');
             welcomeName.textContent = `${user.responsableName} ${user.responsableLastName}`;

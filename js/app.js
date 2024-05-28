@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", async () => {
     // Define the URL for fetching feedback
-    const URL2 = "https://m25mvnsk-3000.use2.devtunnels.ms/feedback";
+    const URL2 = "http://localhost:3000/feedback";
 
     // Get references to HTML elements
     const city = document.querySelector('#options');

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {
-    const URL = "https://m25mvnsk-3000.use2.devtunnels.ms/companyName";
+    const URL = "http://localhost:3000/companyName";
     const profilesContainer = document.querySelector('#companySearchContainer');
     const cityFilter = localStorage.getItem('city');
     const specialFilter = localStorage.getItem('speciality');
