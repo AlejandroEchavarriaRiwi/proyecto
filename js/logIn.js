@@ -30,13 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             const filteredUser = users.find(user => user.email === specificEmail && user.password === specificPassword);
 
             if (filteredUser) {
-                localStorage.setItem("user", true); // set user key true for guardian
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como usuario.', 'success').then(() => {
                     redirect('./../html/userProfile.html');
                 });
             } else if (filteredCompany) {
-                localStorage.setItem("user", true); // set user key true for guardian
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como empresa.', 'success').then(() => {
                     redirect('./../html/companyProfile.html');
