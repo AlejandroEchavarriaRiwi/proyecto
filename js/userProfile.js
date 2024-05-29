@@ -14,17 +14,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     let userName = ''; // Variable to store the user's name
     let imgElement; // Declare imgElement outside the try block
 
-    (
-        () => {
-
-            const user = localStorage.getItem("user");
-
-            if (!user) {
-                window.location.href = "../index.html";
-            }
-        }
-    )()
-
     try {
         const response = await fetch(URL);
         if (!response.ok) {
@@ -35,7 +24,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         if (filteredUsers.length > 0) {
             const user = filteredUsers[0];
-            localStorage.clear();
             userName = `${user.name} ${user.lastNames}`; // Store the user's name
             imgElement = document.createElement('img');
             imgElement.src = `data:image/png;base64,${user.image}`;
@@ -88,27 +76,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     buttonSubmit.addEventListener("click", async (event) => {
         event.preventDefault();
-
-        // Check if all required fields are filled
-        const allFieldsFilled = currentRating > 0 &&
-            userComments.value.trim() !== '' &&
-            companySelect.value.trim() !== '' &&
-            document.getElementById('userImage1').style.backgroundImage !== '' &&
-            document.getElementById('userImage2').style.backgroundImage !== '' &&
-            document.getElementById('userImage3').style.backgroundImage !== '';
-
-        if (!allFieldsFilled) {
-            alert('Por favor, complete todos los campos requeridos.');
-            return;
-        }
-
-        // Get background images of user images
         const userImages = [
             document.getElementById('userImage1').style.backgroundImage.slice(5, -2),
             document.getElementById('userImage2').style.backgroundImage.slice(5, -2),
             document.getElementById('userImage3').style.backgroundImage.slice(5, -2)
         ];
-
         const feedback = {
             userName: userName,
             profilePhoto: imgElement.src, // Ensure this is the src of the image
@@ -119,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
 
         try {
-            const response = await fetch(URL2, {// Send data to json with url2 key
+            const response = await fetch(URL2, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -128,7 +100,6 @@ document.addEventListener("DOMContentLoaded", async () => {
             });
             if (response.ok) {
                 console.log('Feedback enviado correctamente');
-                localStorage.clear();
                 redirect();
             } else {
                 console.error('Error al enviar el feedback');
@@ -141,7 +112,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     function redirect() {
         window.location.href = '../index.html';
     }
-
     try {
         const response = await fetch(URL3);
         if (!response.ok) {

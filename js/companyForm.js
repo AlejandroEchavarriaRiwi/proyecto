@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const URL = 'http://localhost:3000/companyName'; //http://localhost:3000/
+    const URL = 'http://localhost:3000/companyName'; 
     const idUser = Date.now().toString(30);
     const imageUser = document.querySelector('#fileInput');
     const archivos = document.querySelectorAll('#companyImages input[type="file"]');
