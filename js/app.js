@@ -98,6 +98,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             carruseles.classList.add('carruseles');
 
             // Function to move carousel to the right
+            let counter = 0;
+            const widthImg = 100; // Assuming each image takes 100% of the container width
+            let operacion = 0;
+
             function moveToRight() {
                 counter++;
                 if (counter >= review.images.length) {
@@ -128,12 +132,18 @@ document.addEventListener("DOMContentLoaded", async () => {
             // Add carousel navigation buttons
             const divRight = document.createElement('div');
             divRight.classList.add('btn-right');
-            divRight.addEventListener('click', () => moveToRight());
+            divRight.addEventListener('click', (event) => {
+                event.preventDefault();
+                moveToRight();
+            });
             containerCarousel.appendChild(divRight);
 
             const divLeft = document.createElement('div');
             divLeft.classList.add('btn-left');
-            divLeft.addEventListener('click', () => moveToLeft());
+            divLeft.addEventListener('click', (event) => {
+                event.preventDefault();
+                moveToLeft();
+            });
             containerCarousel.appendChild(divLeft);
 
             // Add additional images to the carousel
@@ -176,7 +186,8 @@ document.addEventListener("DOMContentLoaded", async () => {
                 seeMore.textContent = "Ver más";
                 comments.appendChild(seeMore);
 
-                seeMore.addEventListener('click', () => {
+                seeMore.addEventListener('click', (event) => {
+                    event.preventDefault();
                     comments.classList.toggle("more");
                     if (comments.classList.contains("more")) {
                         seeMore.textContent = "Ver menos";
@@ -188,6 +199,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
             ContainerReview.appendChild(comments);
             allReviews.appendChild(ContainerReview);
+
+            // Set up automatic carousel
+            setInterval(moveToRight, 3000); // Change image every 3 seconds
         });
     } catch (error) {
         console.error('Error fetching user data:', error);
