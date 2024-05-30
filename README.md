@@ -1,4 +1,8 @@
 ![Designer](https://github.com/AlejandroEchavarriaRiwi/proyecto/assets/165675646/b7f7096d-4d5b-4547-a7e1-df7cad4e9f25)
+
+![Diagrama de flujo sencillo Soporte técnico colorido con flechas con formas (1024 x 3000 px) (2000 x 3000 px)](https://github.com/AlejandroEchavarriaRiwi/proyecto/assets/165675646/62a6882d-f3cb-4747-9095-918600f9d8b9)
+
+
 Ejecución:
 
 Para ejecutar de forma local se debe iniciar json server desde el directorio raiz a traves de la terminal con el codigo npx json-server --watch ./json/userForm.json para activar el archivo json que contiene la información de las empresas y usuarios.
