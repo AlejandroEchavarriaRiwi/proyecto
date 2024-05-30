@@ -30,14 +30,16 @@ document.addEventListener("DOMContentLoaded", async () => {
             const filteredUser = users.find(user => user.email === specificEmail && user.password === specificPassword);
 
             if (filteredUser) {
+                localStorage.setItem('isAuthenticated', 'true');
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como usuario.', 'success').then(() => {
-                    redirect('./../html/userProfile.html');
+                    window.location.href = './../html/userProfile.html';
                 });
             } else if (filteredCompany) {
+                localStorage.setItem('isAuthenticated', 'true');
                 localStorage.setItem('userEmail', specificEmail); // Save the email in localStorage
                 Swal.fire('¡Éxito!', 'Inicio de sesión correcto como empresa.', 'success').then(() => {
-                    redirect('./../html/companyProfile.html');
+                    window.location.href = './../html/companyProfile.html';
                 });
             } else {
                 Swal.fire('Error', 'El usuario no está registrado.', 'error');
@@ -51,8 +53,4 @@ document.addEventListener("DOMContentLoaded", async () => {
             }
         }
     });
-
-    function redirect(url) {
-        window.location.replace(url);
-    }
 });
