@@ -1,4 +1,13 @@
 ![Designer](https://github.com/AlejandroEchavarriaRiwi/proyecto/assets/165675646/b7f7096d-4d5b-4547-a7e1-df7cad4e9f25)
+Ejecución:
+
+Para ejecutar de forma local se debe iniciar json server desde el directorio raiz a traves de la terminal con el codigo npx json-server --watch ./json/userForm.json para activar el archivo json que contiene la información de las empresas y usuarios.
+
+
+Version 2.0
+30/05/2024
+Version funcional de la app web terminada, se agrega auth.js para proteger informacion de usuario y emppresa.
+
 versión 1.1
 19/05/2024
 Se termina proceso de registro en json, ya se pueden obtener los valores para inyectar en los html correspondientes con javascript.
