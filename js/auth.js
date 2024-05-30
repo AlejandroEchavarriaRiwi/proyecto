@@ -10,7 +10,7 @@
     const privateRoutes = ["userProfile.html", "companyProfile.html"];
 
     if (privateRoutes.includes(routeActu) && !isAuthenticated) {
-        alert("NO TIENES PERMISOS");
-        window.location.href = "../index.html";
+        alert("Para ingresar debes digitar un usuario y contraseña");
+        window.location.href = "./login.html";
     }
 })();
